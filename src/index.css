@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+/* @font-face {
+    font-family: 'Dual';
+    src: local('Dual'), url( ./Fonts/Dual.ttf) format('ttf');
+  }
+  @font-face {
+    font-family: 'Montserrat';
+    src: local('Montserrat'), url( ./Fonts/Montserrat.ttf) format('ttf');
+  } */
+@tailwind utilities;
