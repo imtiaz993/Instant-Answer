@@ -1,5 +1,4 @@
 import React from "react";
-import OnboardingLayout from "../OnboardingLayout";
 import CustomInput from "../../../Common/CustomInput";
 
 const SuffixButton = () => (
@@ -8,20 +7,26 @@ const SuffixButton = () => (
   </button>
 );
 
-const Databases = () => {
+const Databases = ({ hideText = false }) => {
   return (
-    <OnboardingLayout>
-      <p className="mt-8 text-base font-bold text-black">Add your databases/ knowledge bases</p>
+    <>
+     {!hideText && (
+        <>
+      <p className="mt-8 text-base font-bold text-black">
+        Add your databases/ knowledge bases
+      </p>
       <p className="mt-3 mb-2 text-base  text-[#29303D]">
         Upload any databases or knowledge bases in CSV format for the AI chat
         agent to reference when helping customers.
       </p>
+      </>)}
       <CustomInput
+        styles={"mt-4"}
         placeholder="Click or drag and drop,"
         type="file"
         suffix={<SuffixButton />}
       />
-    </OnboardingLayout>
+    </>
   );
 };
 

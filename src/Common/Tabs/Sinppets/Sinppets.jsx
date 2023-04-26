@@ -1,5 +1,4 @@
 import React from "react";
-import OnboardingLayout from "../OnboardingLayout";
 import CustomInput from "../../../Common/CustomInput";
 
 const SuffixButton = () => (
@@ -8,19 +7,23 @@ const SuffixButton = () => (
   </button>
 );
 
-const Sinppets = () => {
+const Sinppets = ({ hideText = false }) => {
   return (
-    <OnboardingLayout>
+    <>
+     {!hideText && (
+        <>
       <p className="mt-8 text-base font-bold text-black">Add more information</p>
       <p className="mt-3 mb-2 text-base  text-[#29303D]">
       Include additional details about your business or offerings in text form to further enhance the AI chat agent's knowledge.
       </p>
+      </>)}
       <CustomInput
+        styles={"mt-4"}
         placeholder="Add Text"
         type="text"
         suffix={<SuffixButton />}
       />
-    </OnboardingLayout>
+    </>
   );
 };
 

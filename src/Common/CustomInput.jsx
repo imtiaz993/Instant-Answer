@@ -8,9 +8,10 @@ const CustomInput = ({
   placeholder,
   onChange,
   suffix,
+  styles
 }) => {
   return (
-    <div className="mb-3">
+    <div className={`mb-3 ${styles}`}>
       <label className="mb-1.5 text-sm font-medium text-[#344054]">
         {label}
       </label>

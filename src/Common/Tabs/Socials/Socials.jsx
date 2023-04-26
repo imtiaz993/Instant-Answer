@@ -1,5 +1,4 @@
 import React from "react";
-import OnboardingLayout from "../OnboardingLayout";
 import CustomInput from "../../../Common/CustomInput";
 import FacebookIcon from "../../../Assets/icons/facebook.svg";
 import InstagramIcon from "../../../Assets/icons/instagram.svg";
@@ -13,10 +12,12 @@ const SuffixButton = () => (
   </button>
 );
 
-const Socials = () => {
+const Socials = ({ hideText = false }) => {
 
   return (
-    <OnboardingLayout>
+    <>
+     {!hideText && (
+        <>
       <p className="mt-8 text-base font-bold text-black">
         Add your social accounts
       </p>
@@ -24,7 +25,9 @@ const Socials = () => {
         Connect your social media accounts, allowing the AI chat agent to stay
         up-to-date with your latest posts and promotions.
       </p>
-      <div className="flex">
+      </>
+     )}
+      <div className={`flex ${hideText && "mt-4"}`}>
         <select className="px-2 h-[54px] rounded-md mr-2 outline-none border border-[rgba(102, 112, 133, 0.28)">
           <option className="">
             <img src={FacebookIcon} alt="" />
@@ -97,7 +100,7 @@ const Socials = () => {
           </div>
         </div>
       </div>
-    </OnboardingLayout>
+    </>
   );
 };
 

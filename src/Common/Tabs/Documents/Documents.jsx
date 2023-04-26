@@ -1,5 +1,4 @@
 import React from "react";
-import OnboardingLayout from "../OnboardingLayout";
 import CustomInput from "../../../Common/CustomInput";
 
 const SuffixButton = () => (
@@ -8,23 +7,25 @@ const SuffixButton = () => (
   </button>
 );
 
-const Documents = () => {
+const Documents = ({ hideText = false }) => {
   return (
-    <OnboardingLayout>
+    <>
+     {!hideText && (
+        <>
       <p className="mt-8 text-base font-bold text-black">
         Upload knowledge documents
       </p>
       <p className="mt-3 mb-2 text-base  text-[#29303D]">
-        We're excited to have you on board! To help your AI chat agent better
-        understand your business and provide top-notch service, please provide
-        some information about your company and offerings.
+      Share any documents, guides, or manuals that contain important information about your products or services.
       </p>
+      </>)}
       <CustomInput
+        styles={"mt-4"}
         placeholder="Click or drag and drop,"
         type="file"
         suffix={<SuffixButton />}
       />
-    </OnboardingLayout>
+    </>
   );
 };
 
