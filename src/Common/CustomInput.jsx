@@ -8,7 +8,8 @@ const CustomInput = ({
   placeholder,
   onChange,
   suffix,
-  styles
+  styles,
+  value,
 }) => {
   return (
     <div className={`mb-3 ${styles}`}>
@@ -20,18 +21,21 @@ const CustomInput = ({
           <img src={prefix} alt="" />
         </span>
         <input
-          className="w-full text-base font-medium text-[#667085] ml-2 outline-none"
+          className="w-full text-base font-medium text-[#29303D] ml-2 outline-none placeholder:text-[#667085]"
           type={type}
           placeholder={placeholder}
           onChange={onChange}
+          value={value}
         />
-        {suffix ? (
-          suffix
-        ) : (
-          <span className="ml-auto">
-            <img src={Info} alt="" />
-          </span>
-        )}
+        <div className="cursor-pointer">
+          {suffix ? (
+            suffix
+          ) : (
+            <span className="ml-auto">
+              <img src={Info} alt="" />
+            </span>
+          )}
+        </div>
       </div>
     </div>
   );

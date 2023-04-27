@@ -5,6 +5,8 @@ import Signup from "../Pages/Signup/Signup";
 import Billing from "../Pages/Billing/Billing";
 import KnowledgeBase from "../Pages/Dashboard/Pages/Knowledge Base/KnowledgeBase";
 import Onboarding from "../Pages/Onboarding/Modules/Onboarding";
+import Settings from "../Pages/Dashboard/Pages/Settings/Settings";
+import Integrations from "../Pages/Dashboard/Pages/Integrations/Integrations";
 
 const WebRoutes = () => {
   return (
@@ -15,6 +17,8 @@ const WebRoutes = () => {
         <Route path="/billing" element={<Billing />} />
         <Route path="/onboarding" element={<Onboarding />} />
         <Route path="/dashboard/knowledge-base" element={<KnowledgeBase />} />
+        <Route path="/dashboard/settings" element={<Settings />} />
+        <Route path="/dashboard/integrations" element={<Integrations />} />
       </Routes>
     </BrowserRouter>
   );
