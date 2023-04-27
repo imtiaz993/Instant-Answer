@@ -58,13 +58,13 @@ const Socials = ({ hideText = false }) => {
               @kaizencosmetics
             </p>
           </div>
-          <div className="flex items-center">
+          <div className="flex items-center w-60 text-left justify-between">
             <span className="w-3 h-3 inline-block bg-[#33D198] rounded-full"></span>
             <p className="ml-1 mr-4 text-xs font-medium text-[rgba(41, 48, 61, 0.44)]">
               Last analyzed 4 hours ago
             </p>
-            <img className="mr-4" src={RefreshIcon} alt="" />
-            <img src={CloseIcon} alt="" />
+             <img className="mr-4 cursor-pointer" src={RefreshIcon} alt="" />
+            <img className="cursor-pointer" src={CloseIcon} alt="" />
           </div>
         </div>
         <div className="flex justify-between items-center mb-5">
@@ -74,13 +74,13 @@ const Socials = ({ hideText = false }) => {
               @kaizencosmetics
             </p>
           </div>
-          <div className="flex items-center">
+          <div className="flex items-center w-60 text-left justify-between">
             <span className="w-3 h-3 inline-block bg-[#33D198] rounded-full"></span>
             <p className="ml-1 mr-4 text-xs font-medium text-[rgba(41, 48, 61, 0.44)]">
               Last analyzed 4 hours ago
             </p>
-            <img className="mr-4" src={RefreshIcon} alt="" />
-            <img src={CloseIcon} alt="" />
+             <img className="mr-4 cursor-pointer" src={RefreshIcon} alt="" />
+            <img className="cursor-pointer" src={CloseIcon} alt="" />
           </div>
         </div>
         <div className="flex justify-between items-center mb-5">
@@ -90,13 +90,13 @@ const Socials = ({ hideText = false }) => {
               @kaizencosmetics
             </p>
           </div>
-          <div className="flex items-center">
+          <div className="flex items-center w-60 text-left justify-between">
             <span className="w-3 h-3 inline-block bg-[#33D198] rounded-full"></span>
             <p className="ml-1 mr-4 text-xs font-medium text-[rgba(41, 48, 61, 0.44)]">
               Last analyzed 4 hours ago
             </p>
-            <img className="mr-4" src={RefreshIcon} alt="" />
-            <img src={CloseIcon} alt="" />
+             <img className="mr-4 cursor-pointer" src={RefreshIcon} alt="" />
+            <img className="cursor-pointer" src={CloseIcon} alt="" />
           </div>
         </div>
       </div>
