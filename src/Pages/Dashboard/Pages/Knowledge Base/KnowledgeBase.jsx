@@ -12,6 +12,8 @@ import DatabaseIcon from "../../../../Assets/icons/database.svg";
 import DocumentIcon from "../../../../Assets/icons/document.svg";
 import SocialIcon from "../../../../Assets/icons/social.svg";
 import SnippetIcon from "../../../../Assets/icons/snippet.svg";
+import CustomButton from "../../../../Common/CustomButton";
+import RefreshIcon from "../../../../Assets/icons/refresh.svg";
 
 const KnowledgeBase = () => {
   const [activeTab, setActiveTab] = useState("Profile");
@@ -73,12 +75,27 @@ const KnowledgeBase = () => {
         </p>
       </div>
       <div className="p-8 bg-white border border-[rgba(102, 112, 133, 0.2]  rounded-xl">
-        <h1 className="mb-1 text-base font-bold text-[#29303D]">
-          Knowledge Base
-        </h1>
-        <p className="mb-8 text-sm font-medium text-[#29303D]">
-          Select the relevant knowledge tab & edit your knowledge!
-        </p>
+        <div className="flex justify-between ">
+          <div>
+            <h1 className="mb-2 text-base font-bold text-[#29303D]">
+              Knowledge Base
+            </h1>
+            <p className="mb-8 text-sm font-medium text-[#29303D]">
+              Select the relevant knowledge tab & edit your knowledge!
+            </p>
+          </div>
+          <div>
+            <div className="flex items-center justify-end">
+              <CustomButton title={"Retrain Agent"} prefix={RefreshIcon} styles="py-2 px-4"/>
+            </div>
+            <div className="flex items-center justify-end w-60 text-left mt-2">
+              <span className="w-3 h-3 inline-block bg-[#FFDD55] rounded-full"></span>
+              <p className="ml-1 text-sm font-medium text-[#29303D70]">
+              5 Changes Since Last Retraining
+              </p>
+            </div>
+          </div>
+        </div>
         <div className="flex">
           {Tabs.map((item, index) => (
             <div
