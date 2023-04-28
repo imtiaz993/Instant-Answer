@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import Logo from "../../../Assets/icons/logo.svg";
 import DashboardIcon from "../../../Assets/icons/dashboard.svg";
 import KnowledgeBaseIcon from "../../../Assets/icons/knowledge-base.svg";
@@ -10,11 +11,15 @@ import SubscriptionsIcon from "../../../Assets/icons/subscriptions.svg";
 import CloseIcon from "../../../Assets/icons/close.svg";
 
 const Sidebar = ({ toggleNavber, setToggleNavbar }) => {
-  const [active, setActive] = useState("Inbox");
+  const navigate = useNavigate();
+  const location = useLocation();
+  const pathArray = location.pathname.split("/");
+  const currentPath = pathArray[pathArray.length - 1].replace(/-/g, " ");
+  console.log(currentPath);
 
   const pages = [
     { name: "Dashboard", icon: DashboardIcon },
-    { name: "Inbox", icon: InboxIcon },
+    { name: "Inbox", icon: KnowledgeBaseIcon },
     { name: "Knowledge Base", icon: KnowledgeBaseIcon },
     { name: "Recommendations", icon: RecommendationsIcon },
     { name: "Integrations", icon: IntegrationsIcon },
@@ -43,16 +48,20 @@ const Sidebar = ({ toggleNavber, setToggleNavbar }) => {
           {pages.map((item) => (
             <div
               className={`py-2 px-3 mb-1 flex items-center ${
-                item.name === active && "bg-[#7F56D9]"
+                item.name.toLowerCase() === currentPath && "bg-[#7F56D9]"
               } rounded-md cursor-pointer`}
               onClick={() => {
-                setActive(item.name);
+                navigate(
+                  `/dashboard/${item.name.toLowerCase().replace(/ /g, "-")}`
+                );
               }}
             >
               <img src={item.icon} alt="" />
               <p
                 className={`ml-2 text-base whitespace-nowrap ${
-                  item.name === active ? "text-white" : "text-[#667085]"
+                  item.name.toLowerCase() === currentPath
+                    ? "text-white"
+                    : "text-[#667085]"
                 }  font-medium`}
               >
                 {item.name}
