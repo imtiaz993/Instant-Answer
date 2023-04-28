@@ -74,21 +74,21 @@ const KnowledgeBase = () => {
           AI chat agent will automatically converse in your chosen language.
         </p>
       </div>
-      <div className="p-8 bg-white border border-[rgba(102, 112, 133, 0.2]  rounded-xl">
-        <div className="flex justify-between ">
+      <div className="px-4 md:px-8 py-8 bg-white border border-[rgba(102, 112, 133, 0.2]  rounded-xl">
+        <div className="lg:flex justify-between ">
           <div>
             <h1 className="mb-2 text-base font-bold text-[#29303D]">
               Knowledge Base
             </h1>
-            <p className="mb-8 text-sm font-medium text-[#29303D]">
+            <p className="mb-4 lg:mb-8 text-sm font-medium text-[#29303D]">
               Select the relevant knowledge tab & edit your knowledge!
             </p>
           </div>
           <div>
-            <div className="flex items-center justify-end">
+            <div className="flex items-center lg:justify-end">
               <CustomButton title={"Retrain Agent"} prefix={RefreshIcon} styles="py-2 px-4"/>
             </div>
-            <div className="flex items-center justify-end w-60 text-left mt-2">
+            <div className="flex items-center mt-4 mb-4 lg:mb-0 lg:mt-2 lg:justify-end lg:w-60 text-left">
               <span className="w-3 h-3 inline-block bg-[#FFDD55] rounded-full"></span>
               <p className="ml-1 text-sm font-medium text-[#29303D70]">
               5 Changes Since Last Retraining
@@ -96,7 +96,7 @@ const KnowledgeBase = () => {
             </div>
           </div>
         </div>
-        <div className="flex">
+        <div className="flex overflow-x-auto -mx-4 md:mx-0 px-2 md:px-0">
           {Tabs.map((item, index) => (
             <div
               className={`flex px-4 pb-1 whitespace-nowrap  cursor-pointer border-b-2${

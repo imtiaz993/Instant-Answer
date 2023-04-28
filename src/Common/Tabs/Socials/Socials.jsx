@@ -13,20 +13,19 @@ const SuffixButton = () => (
 );
 
 const Socials = ({ hideText = false }) => {
-
   return (
     <>
-     {!hideText && (
+      {!hideText && (
         <>
-      <p className="mt-8 text-base font-bold text-black">
-        Add your social accounts
-      </p>
-      <p className="mt-3 mb-2 text-base  text-[#29303D]">
-        Connect your social media accounts, allowing the AI chat agent to stay
-        up-to-date with your latest posts and promotions.
-      </p>
-      </>
-     )}
+          <p className="mt-8 text-base font-bold text-black">
+            Add your social accounts
+          </p>
+          <p className="mt-3 mb-2 text-base  text-[#29303D]">
+            Connect your social media accounts, allowing the AI chat agent to
+            stay up-to-date with your latest posts and promotions.
+          </p>
+        </>
+      )}
       <div className={`flex ${hideText && "mt-4"}`}>
         <select className="px-2 h-[54px] rounded-md mr-2 outline-none border border-[rgba(102, 112, 133, 0.28)">
           <option className="">
@@ -50,53 +49,68 @@ const Socials = ({ hideText = false }) => {
           />
         </div>
       </div>
-      <div className="mt-8">
-        <div className="flex justify-between items-center mb-5">
+      <div className="mt-4 md:mt-8">
+        <div className="md:flex justify-between items-center mb-5">
           <div className="flex items-center">
             <img src={FacebookIcon} alt="" />
             <p className="ml-2 text-sm font-medium text-[#29303D]">
               @kaizencosmetics
             </p>
           </div>
-          <div className="flex items-center w-60 text-left justify-between">
-            <span className="w-3 h-3 inline-block bg-[#33D198] rounded-full"></span>
-            <p className="ml-1 mr-4 text-xs font-medium text-[rgba(41, 48, 61, 0.44)]">
-              Last analyzed 4 hours ago
-            </p>
-             <img className="mr-4 cursor-pointer" src={RefreshIcon} alt="" />
-            <img className="cursor-pointer" src={CloseIcon} alt="" />
+          <div className="flex items-center md:w-60 text-left justify-between">
+            <div className="flex items-center mt-2 md:md-0">
+              {" "}
+              <span className="w-3 h-3 inline-block bg-[#33D198] rounded-full"></span>
+              <p className="ml-1 mr-4 text-xs font-medium text-[rgba(41, 48, 61, 0.44)]">
+                Last analyzed 4 hours ago
+              </p>
+            </div>
+            <div className="flex -mt-9 md:mt-0">
+              <img className="mr-4 cursor-pointer" src={RefreshIcon} alt="" />
+              <img className="cursor-pointer" src={CloseIcon} alt="" />
+            </div>
           </div>
         </div>
-        <div className="flex justify-between items-center mb-5">
+        <div className="md:flex justify-between items-center mb-5">
           <div className="flex items-center">
             <img src={InstagramIcon} alt="" />
             <p className="ml-2 text-sm font-medium text-[#29303D]">
               @kaizencosmetics
             </p>
           </div>
-          <div className="flex items-center w-60 text-left justify-between">
-            <span className="w-3 h-3 inline-block bg-[#33D198] rounded-full"></span>
-            <p className="ml-1 mr-4 text-xs font-medium text-[rgba(41, 48, 61, 0.44)]">
-              Last analyzed 4 hours ago
-            </p>
-             <img className="mr-4 cursor-pointer" src={RefreshIcon} alt="" />
-            <img className="cursor-pointer" src={CloseIcon} alt="" />
+          <div className="flex items-center md:w-60 text-left justify-between">
+            <div className="flex items-center mt-2 md:md-0">
+              {" "}
+              <span className="w-3 h-3 inline-block bg-[#33D198] rounded-full"></span>
+              <p className="ml-1 mr-4 text-xs font-medium text-[rgba(41, 48, 61, 0.44)]">
+                Last analyzed 4 hours ago
+              </p>
+            </div>
+            <div className="flex -mt-9 md:mt-0">
+              <img className="mr-4 cursor-pointer" src={RefreshIcon} alt="" />
+              <img className="cursor-pointer" src={CloseIcon} alt="" />
+            </div>
           </div>
         </div>
-        <div className="flex justify-between items-center mb-5">
+        <div className="md:flex justify-between items-center mb-5">
           <div className="flex items-center">
             <img src={TwitterIcon} alt="" />
             <p className="ml-2 text-sm font-medium text-[#29303D]">
               @kaizencosmetics
             </p>
           </div>
-          <div className="flex items-center w-60 text-left justify-between">
-            <span className="w-3 h-3 inline-block bg-[#33D198] rounded-full"></span>
-            <p className="ml-1 mr-4 text-xs font-medium text-[rgba(41, 48, 61, 0.44)]">
-              Last analyzed 4 hours ago
-            </p>
-             <img className="mr-4 cursor-pointer" src={RefreshIcon} alt="" />
-            <img className="cursor-pointer" src={CloseIcon} alt="" />
+          <div className="flex items-center md:w-60 text-left justify-between">
+            <div className="flex items-center mt-2 md:md-0">
+              {" "}
+              <span className="w-3 h-3 inline-block bg-[#33D198] rounded-full"></span>
+              <p className="ml-1 mr-4 text-xs font-medium text-[rgba(41, 48, 61, 0.44)]">
+                Last analyzed 4 hours ago
+              </p>
+            </div>
+            <div className="flex -mt-9 md:mt-0">
+              <img className="mr-4 cursor-pointer" src={RefreshIcon} alt="" />
+              <img className="cursor-pointer" src={CloseIcon} alt="" />
+            </div>
           </div>
         </div>
       </div>

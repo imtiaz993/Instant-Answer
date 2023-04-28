@@ -30,50 +30,62 @@ const WebPage = ({ hideText = false }) => {
         type="url"
         suffix={<SuffixButton />}
       />
-      <div className="mt-8">
-        <div className="flex justify-between items-center mb-5">
+      <div className="mt-4 md:mt-8">
+        <div className="md:flex justify-between items-center mb-5">
           <div className="flex items-center">
             <p className="text-sm font-medium text-[#29303D]">
-            kaizencosmetics.com
+              kaizencosmetics.com
             </p>
           </div>
-          <div className="flex items-center w-60 justify-between text-left">
-            <span className="w-3 h-3 inline-block bg-[#33D198] rounded-full"></span>
-            <p className="ml-1 mr-4 text-xs font-medium text-[rgba(41, 48, 61, 0.44)]">
-              Last analyzed 4 hours ago
-            </p>
-            <img className="mr-4 cursor-pointer" src={RefreshIcon} alt="" />
-            <img className="cursor-pointer" src={CloseIcon} alt="" />
+          <div className="flex items-center md:w-60 justify-between text-left">
+            <div className="flex items-center mt-2 md:mt-0">
+              <span className="w-3 h-3 inline-block bg-[#33D198] rounded-full"></span>
+              <p className="ml-1 mr-4 text-xs font-medium text-[rgba(41, 48, 61, 0.44)]">
+                Last analyzed 4 hours ago
+              </p>
+            </div>
+            <div className="flex -mt-9 md:mt-0">
+              <img className="mr-4 cursor-pointer" src={RefreshIcon} alt="" />
+              <img className="cursor-pointer" src={CloseIcon} alt="" />
+            </div>
           </div>
         </div>
-        <div className="flex justify-between items-center mb-5">
+        <div className="md:flex justify-between items-center mb-5">
           <div className="flex items-center">
             <p className="text-sm font-medium text-[#29303D]">
-            kaizencosmetics.com/blog/
+              kaizencosmetics.com/blog/
             </p>
           </div>
-          <div className="flex items-center w-60 justify-between text-left">
-            <span className="w-3 h-3 inline-block bg-[#33D198] rounded-full"></span>
-            <p className="ml-1 mr-4 text-xs font-medium text-[rgba(41, 48, 61, 0.44)]">
-              Last analyzed 12 hours ago
-            </p>
-            <img className="mr-4 cursor-pointer" src={RefreshIcon} alt="" />
-            <img className="cursor-pointer" src={CloseIcon} alt="" />
+          <div className="flex items-center md:w-60 justify-between text-left">
+            <div className="flex items-center mt-2 md:mt-0">
+              <span className="w-3 h-3 inline-block bg-[#33D198] rounded-full"></span>
+              <p className="ml-1 mr-4 text-xs font-medium text-[rgba(41, 48, 61, 0.44)]">
+                Last analyzed 12 hours ago
+              </p>
+            </div>
+            <div className="flex -mt-9 md:mt-0">
+              <img className="mr-4 cursor-pointer" src={RefreshIcon} alt="" />
+              <img className="cursor-pointer" src={CloseIcon} alt="" />
+            </div>
           </div>
         </div>
-        <div className="flex justify-between items-center mb-5">
+        <div className="md:flex justify-between items-center mb-5">
           <div className="flex items-center">
             <p className="text-sm font-medium text-[#29303D]">
-            kaizencosmetics.com/about-us
+              kaizencosmetics.com/about-us
             </p>
           </div>
-          <div className="flex items-center w-60 justify-between text-left">
-            <span className="w-3 h-3 inline-block bg-[#FFDD55] rounded-full"></span>
-            <p className="ml-1 mr-4 text-xs font-medium text-[rgba(41, 48, 61, 0.44)]">
-              Last analyzed 1 week ago
-            </p>
-            <img className="mr-4 cursor-pointer" src={RefreshIcon} alt="" />
-            <img className="cursor-pointer" src={CloseIcon} alt="" />
+          <div className="flex items-center md:w-60 justify-between text-left">
+            <div className="flex items-center mt-2 md:mt-0">
+              <span className="w-3 h-3 inline-block bg-[#FFDD55] rounded-full"></span>
+              <p className="ml-1 mr-4 text-xs font-medium text-[rgba(41, 48, 61, 0.44)]">
+                Last analyzed 1 week ago
+              </p>
+            </div>
+            <div className="flex -mt-9 md:mt-0">
+              <img className="mr-4 cursor-pointer" src={RefreshIcon} alt="" />
+              <img className="cursor-pointer" src={CloseIcon} alt="" />
+            </div>
           </div>
         </div>
       </div>

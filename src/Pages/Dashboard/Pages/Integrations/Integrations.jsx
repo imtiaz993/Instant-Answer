@@ -31,14 +31,14 @@ const Integrations = () => {
   return (
     <DashboardLayout>
       {openModal()}
-      {/* <EmbededJs /> */}
       <div>
         <h1 className="mb-4 text-xl font-bold text-[#29303D]">Integrations</h1>
         <p className="mb-3 text-base text-[#000000]">
           Connect your AI assistant to one of our many integrations!
         </p>
+        <h1 className="mb-4 text-xl font-bold text-[#29303D]">Widget Settings</h1>
       </div>
-      <div className="p-8 bg-white border border-[rgba(102, 112, 133, 0.2]  rounded-xl">
+      <div className="px-4 md:px-8 py-8 bg-white border border-[rgba(102, 112, 133, 0.2]  rounded-xl">
         <div className="grid grid-cols-2 gap-4 pb-5 border-b border-[#0000000A]">
           <div
             onClick={() => {
@@ -66,7 +66,7 @@ const Integrations = () => {
         <h1 className="mt-5 mb-2 text-base font-bold text-[#29303D]">
           Other Integrations
         </h1>
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           <div
             onClick={() => {
               setModal("Instagram");
