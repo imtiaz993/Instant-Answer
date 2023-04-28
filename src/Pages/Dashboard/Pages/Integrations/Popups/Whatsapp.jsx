@@ -5,7 +5,7 @@ import CustomButton from "../../../../../Common/CustomButton";
 const Whatsapp = ({ setModal }) => {
   return (
     <div className="flex justify-center items-center fixed top-0 bottom-0 left-0 right-0 w-screen h-screen bg-[#0000008F]">
-      <div className="py-8 px-7 w-full mx-auto z-10 max-w-lg bg-white border border-[#66708533] rounded-lg">
+      <div className="py-8 px-7 w-11/12 md:w-full mx-auto z-10 max-w-lg bg-white border border-[#66708533] rounded-lg">
         <h1 className="text-xl font-bold text-[#29303D]">
           WhatsApp integration
         </h1>

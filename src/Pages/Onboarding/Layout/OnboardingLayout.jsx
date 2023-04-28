@@ -18,11 +18,11 @@ const OnboardingLayout = ({ children, setActiveTab, step, setStep }) => {
   ];
 
   return (
-    <div className="bg-[#FAFAFC] ">
-      <div className="w-4/5 py-10 mx-auto">
-        <img className="mx-auto mb-8" src={Logo} alt="" />
-        <div className="p-8 bg-white border border-[rgba(102, 112, 133, 0.2]  rounded-xl">
-          <h1 className="mb-5 text-4xl font-bold text-[#29303D]">
+    <div className="bg-[#FAFAFC] h-screen overflow-hidden">
+      <div className="w-11/12 md:w-4/5 py-6 md:py-10 mx-auto">
+        <img className="mx-auto mb-6 md:mb-8 w-1/2 md:w-auto" src={Logo} alt="" />
+        <div className="px-4 md:px-8 py-8 bg-white border border-[rgba(102, 112, 133, 0.2]  rounded-xl overflow-y-auto h-[calc(100vh-220px)] md:h-[calc(100vh-210px)]">
+          <h1 className="mb-5 text-3xl md:text-4xl font-bold text-[#29303D]">
             Welcome to Your InstantAnswer Trial!
           </h1>
           <p className="text-base text-[#000000]">
@@ -32,7 +32,7 @@ const OnboardingLayout = ({ children, setActiveTab, step, setStep }) => {
           <p className="mb-8 text-base text-[#000000]">
             please provide some information about your company and offerings.
           </p>
-          <div className="flex">
+          <div className="flex overflow-x-auto -mx-4 md:mx-0 px-2 md:px-0">
             {Tabs.map((item, index) => (
               <div
                 className={`flex px-4 pb-1 whitespace-nowrap cursor-pointer border-b-2${
@@ -56,16 +56,27 @@ const OnboardingLayout = ({ children, setActiveTab, step, setStep }) => {
           </div>
           <div className="min-h-16">{children}</div>
         </div>
-        <div className="mt-8 flex justify-between items-center">
-          <button
-            className="py-3 text-[#000000] text-base"
-            onClick={() => {
-              setStep(step - 1);
-              setActiveTab(Tabs[step - 1].title);
-            }}
-          >
-            Back
-          </button>
+        <div className="md:mt-8 flex flex-col md:flex-row justify-between items-center">
+          <div className="flex my-4 md:my-0">
+            <button
+              className="py-3 text-[#000000] text-base"
+              onClick={() => {
+                setStep(step - 1);
+                setActiveTab(Tabs[step - 1].title);
+              }}
+            >
+              Back
+            </button>
+            <button
+              className="md:hidden ml-10 bg-[#7F56D9] rounded-lg py-2 px-5  border-none text-white text-sm font-medium"
+              onClick={() => {
+                setStep(step + 1);
+                setActiveTab(Tabs[step + 1].title);
+              }}
+            >
+              Next
+            </button>
+          </div>
           <div>
             {Array(6)
               .fill()
@@ -77,7 +88,7 @@ const OnboardingLayout = ({ children, setActiveTab, step, setStep }) => {
                 ></span>
               ))}
           </div>
-          <div>
+          <div className="flex">
             <button
               className="py-3 text-[#000000] text-base"
               onClick={() => {
@@ -88,7 +99,7 @@ const OnboardingLayout = ({ children, setActiveTab, step, setStep }) => {
               Skip
             </button>
             <button
-              className="ml-10 bg-[#7F56D9] rounded-lg py-2 px-5  border-none text-white text-sm font-medium"
+              className="hidden md:block ml-10 bg-[#7F56D9] rounded-lg py-2 px-5  border-none text-white text-sm font-medium"
               onClick={() => {
                 setStep(step + 1);
                 setActiveTab(Tabs[step + 1].title);

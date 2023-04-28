@@ -28,7 +28,7 @@ const Sinppets = ({ hideText = false }) => {
         type="text"
         suffix={<SuffixButton />}
       />
-      <div className="mt-8">
+      <div className="mt-4 md:mt-8">
         <div className="flex justify-between pb-3 mb-4 border-b border-[#0000000A]">
           <div>
             <p className="text-sm font-medium text-[#29303D]">
@@ -40,7 +40,7 @@ const Sinppets = ({ hideText = false }) => {
             </p>
             <p className="mt-2 text-sm font-medium text-[#29303D70] ">Uploaded 4 hours ago</p>
           </div>
-          <div className="mt-2 ml-12 w-8">
+           <div className="mt-2 ml-4 flex items-start justify-end md:ml-12 w-1/3 md:w-8">
             <img src={CloseIcon} alt="" />
           </div>
         </div>
@@ -55,7 +55,7 @@ const Sinppets = ({ hideText = false }) => {
             </p>
             <p className="mt-2 text-sm font-medium text-[#29303D70] ">Uploaded 4 hours ago</p>
           </div>
-          <div className="mt-2 ml-12 w-8">
+           <div className="mt-2 ml-4 flex items-start justify-end md:ml-12 w-1/3 md:w-8">
             <img src={CloseIcon} alt="" />
           </div>
         </div>
@@ -70,7 +70,7 @@ const Sinppets = ({ hideText = false }) => {
             </p>
             <p className="mt-2 text-sm font-medium text-[#29303D70] ">Uploaded 4 hours ago</p>
           </div>
-          <div className="mt-2 ml-12 w-8">
+          <div className="mt-2 ml-4 flex items-start justify-end md:ml-12 w-1/3 md:w-8">
             <img src={CloseIcon} alt="" />
           </div>
         </div>

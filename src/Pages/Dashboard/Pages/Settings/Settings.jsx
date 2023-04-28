@@ -17,12 +17,14 @@ const Settings = () => {
             experience.
           </p>
         </div>
-        <div className="p-8 pb-2 bg-white border border-[rgba(102, 112, 133, 0.2]  rounded-xl">
+        <div className="px-4 md:px-8 py-8 pb-2 bg-white border border-[rgba(102, 112, 133, 0.2]  rounded-xl">
           <div className="mb-8">
-            <div>
-              <h1 className="w-7 h-7 inline-flex items-center justify-center text-sm font-bold text-white bg-[#EEBC59] rounded-full">
-                1
-              </h1>
+            <div className="flex">
+              <div>
+                <h1 className="w-7 h-7 inline-flex items-center justify-center text-sm font-bold text-white bg-[#EEBC59] rounded-full">
+                  1
+                </h1>
+              </div>
               <h1 className="ml-2 inline-block text-base font-bold text-[#29303D]">
                 Select agent language
               </h1>
@@ -34,10 +36,12 @@ const Settings = () => {
             <CustomInput placeholder="Enter.." type="text" />
           </div>
           <div className="my-8">
-            <div>
-              <h1 className="w-7 h-7 inline-flex items-center justify-center text-sm font-bold text-white bg-[#EEBC59] rounded-full">
-                2
-              </h1>
+            <div className="flex">
+              <div>
+                <h1 className="w-7 h-7 inline-flex items-center justify-center text-sm font-bold text-white bg-[#EEBC59] rounded-full">
+                  2
+                </h1>
+              </div>
               <h1 className="ml-2 inline-block text-base font-bold text-[#29303D]">
                 Product / service / Company nameSelect agent personality
               </h1>
@@ -49,10 +53,12 @@ const Settings = () => {
             <CustomInput placeholder="Enter.." type="text" />
           </div>
           <div className="my-8">
-            <div>
-              <h1 className="w-7 h-7 inline-flex items-center justify-center text-sm font-bold text-white bg-[#EEBC59] rounded-full">
-                3
-              </h1>
+            <div className="flex">
+              <div>
+                <h1 className="w-7 h-7 inline-flex items-center justify-center text-sm font-bold text-white bg-[#EEBC59] rounded-full">
+                  3
+                </h1>
+              </div>
               <h1 className="ml-2 inline-block text-base font-bold text-[#29303D]">
                 Choose agent level of creativity
               </h1>
@@ -64,10 +70,12 @@ const Settings = () => {
             <CustomInput placeholder="Enter.." type="text" />
           </div>
           <div className="my-8">
-            <div>
-              <h1 className="w-7 h-7 inline-flex items-center justify-center text-sm font-bold text-white bg-[#EEBC59] rounded-full">
-                4
-              </h1>
+            <div className="flex">
+              <div>
+                <h1 className="w-7 h-7 inline-flex items-center justify-center text-sm font-bold text-white bg-[#EEBC59] rounded-full">
+                  4
+                </h1>
+              </div>
               <h1 className="ml-2 inline-block text-base font-bold text-[#29303D]">
                 Reply Specify Reply Length
               </h1>
@@ -79,10 +87,12 @@ const Settings = () => {
             <CustomInput placeholder="Enter.." type="text" />
           </div>
           <div className="my-8">
-            <div>
-              <h1 className="w-7 h-7 inline-flex items-center justify-center text-sm font-bold text-white bg-[#EEBC59] rounded-full">
-                5
-              </h1>
+            <div className="flex">
+              <div>
+                <h1 className="w-7 h-7 inline-flex items-center justify-center text-sm font-bold text-white bg-[#EEBC59] rounded-full">
+                  5
+                </h1>
+              </div>
               <h1 className="ml-2 inline-block text-base font-bold text-[#29303D]">
                 Enter your welcome message
               </h1>
@@ -101,12 +111,14 @@ const Settings = () => {
             Widget Settings
           </h1>
         </div>
-        <div className="p-8 pb-2 bg-white border border-[rgba(102, 112, 133, 0.2]  rounded-xl">
+        <div className="px-4 md:px-8 py-8 pb-2 bg-white border border-[rgba(102, 112, 133, 0.2]  rounded-xl">
           <div className="mb-8">
-            <div>
-              <h1 className="w-7 h-7 inline-flex items-center justify-center text-sm font-bold text-white bg-[#EEBC59] rounded-full">
-                1
-              </h1>
+            <div className="flex">
+              <div>
+                <h1 className="w-7 h-7 inline-flex items-center justify-center text-sm font-bold text-white bg-[#EEBC59] rounded-full">
+                  1
+                </h1>
+              </div>
               <h1 className="ml-2 inline-block text-base font-bold text-[#29303D]">
                 Colors
               </h1>
@@ -116,10 +128,12 @@ const Settings = () => {
             </p>
           </div>
           <div className="my-8">
-            <div className="mb-4">
-              <h1 className="w-7 h-7 inline-flex items-center justify-center text-sm font-bold text-white bg-[#EEBC59] rounded-full">
-                2
-              </h1>
+            <div className="mb-4 flex">
+              <div>
+                <h1 className="w-7 h-7 inline-flex items-center justify-center text-sm font-bold text-white bg-[#EEBC59] rounded-full">
+                  2
+                </h1>
+              </div>
               <h1 className="ml-2 inline-block text-base font-bold text-[#29303D]">
                 Widget Style
               </h1>
@@ -128,10 +142,12 @@ const Settings = () => {
             <CustomInput placeholder="Enter.." type="text" />
           </div>
           <div className="my-8">
-            <div className="mb-4">
-              <h1 className="w-7 h-7 inline-flex items-center justify-center text-sm font-bold text-white bg-[#EEBC59] rounded-full">
-                3
-              </h1>
+            <div className="mb-4 flex">
+              <div>
+                <h1 className="w-7 h-7 inline-flex items-center justify-center text-sm font-bold text-white bg-[#EEBC59] rounded-full">
+                  3
+                </h1>
+              </div>
               <h1 className="ml-2 inline-block text-base font-bold text-[#29303D]">
                 Agent Name
               </h1>
@@ -140,10 +156,12 @@ const Settings = () => {
             <CustomInput placeholder="Enter.." type="text" />
           </div>
           <div className="my-8">
-            <div className="mb-4">
-              <h1 className="w-7 h-7 inline-flex items-center justify-center text-sm font-bold text-white bg-[#EEBC59] rounded-full">
-                4
-              </h1>
+            <div className="mb-4 flex">
+              <div>
+                <h1 className="w-7 h-7 inline-flex items-center justify-center text-sm font-bold text-white bg-[#EEBC59] rounded-full">
+                  4
+                </h1>
+              </div>
               <h1 className="ml-2 inline-block text-base font-bold text-[#29303D]">
                 Agent Profile Picture
               </h1>
