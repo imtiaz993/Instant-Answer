@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Logo from "../../../Assets/icons/logo.svg";
 import ProfileIcon from "../../../Assets/icons/profile.svg";
 import WebIcon from "../../../Assets/icons/web.svg";
@@ -8,6 +9,7 @@ import SocialIcon from "../../../Assets/icons/social.svg";
 import SnippetIcon from "../../../Assets/icons/snippet.svg";
 
 const OnboardingLayout = ({ children, setActiveTab, step, setStep }) => {
+  const navigate = useNavigate()
   const Tabs = [
     { title: "Profile", icon: ProfileIcon },
     { title: "Web Page", icon: WebIcon },
@@ -20,7 +22,11 @@ const OnboardingLayout = ({ children, setActiveTab, step, setStep }) => {
   return (
     <div className="bg-[#FAFAFC] h-screen overflow-hidden">
       <div className="w-11/12 md:w-4/5 py-6 md:py-10 mx-auto">
-        <img className="mx-auto mb-6 md:mb-8 w-1/2 md:w-auto" src={Logo} alt="" />
+        <img
+          className="mx-auto mb-6 md:mb-8 w-1/2 md:w-auto"
+          src={Logo}
+          alt=""
+        />
         <div className="px-4 md:px-8 py-8 bg-white border border-[rgba(102, 112, 133, 0.2]  rounded-xl overflow-y-auto h-[calc(100vh-220px)] md:h-[calc(100vh-210px)]">
           <h1 className="mb-5 text-3xl md:text-4xl font-bold text-[#29303D]">
             Welcome to Your InstantAnswer Trial!
@@ -61,8 +67,10 @@ const OnboardingLayout = ({ children, setActiveTab, step, setStep }) => {
             <button
               className="py-3 text-[#000000] text-base"
               onClick={() => {
-                setStep(step - 1);
-                setActiveTab(Tabs[step - 1].title);
+                if (step !==0) {
+                  setStep(step - 1);
+                  setActiveTab(Tabs[step - 1].title);
+                }
               }}
             >
               Back
@@ -70,8 +78,13 @@ const OnboardingLayout = ({ children, setActiveTab, step, setStep }) => {
             <button
               className="md:hidden ml-10 bg-[#7F56D9] rounded-lg py-2 px-5  border-none text-white text-sm font-medium"
               onClick={() => {
-                setStep(step + 1);
-                setActiveTab(Tabs[step + 1].title);
+                if (step !==Tabs.length-1) {
+                  setStep(step + 1);
+                  setActiveTab(Tabs[step + 1].title);
+                }
+                else{
+                  navigate("/dashboard/knowledge-base")
+                }
               }}
             >
               Next
@@ -92,8 +105,13 @@ const OnboardingLayout = ({ children, setActiveTab, step, setStep }) => {
             <button
               className="py-3 text-[#000000] text-base"
               onClick={() => {
-                setStep(step + 1);
-                setActiveTab(Tabs[step + 1].title);
+                if (step !==Tabs.length-1) {
+                  setStep(step + 1);
+                  setActiveTab(Tabs[step + 1].title);
+                }
+                else{
+                  navigate("/dashboard/knowledge-base")
+                }
               }}
             >
               Skip
@@ -101,8 +119,13 @@ const OnboardingLayout = ({ children, setActiveTab, step, setStep }) => {
             <button
               className="hidden md:block ml-10 bg-[#7F56D9] rounded-lg py-2 px-5  border-none text-white text-sm font-medium"
               onClick={() => {
-                setStep(step + 1);
-                setActiveTab(Tabs[step + 1].title);
+                if (step !==Tabs.length-1) {
+                  setStep(step + 1);
+                  setActiveTab(Tabs[step + 1].title);
+                }
+                else{
+                  navigate("/dashboard/knowledge-base")
+                }
               }}
             >
               Next
