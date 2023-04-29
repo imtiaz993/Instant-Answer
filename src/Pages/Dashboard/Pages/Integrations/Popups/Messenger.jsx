@@ -4,8 +4,8 @@ import CustomButton from "../../../../../Common/CustomButton";
 
 const Messenger = ({ setModal }) => {
   return (
-    <div className="flex justify-center items-center fixed top-0 bottom-0 left-0 right-0 w-screen h-screen bg-[#0000008F]">
-      <div className="py-8 px-7 w-11/12 md:w-full mx-auto z-10 max-w-lg bg-white border border-[#66708533] rounded-lg">
+    <div className="flex justify-center md:items-center fixed top-0 bottom-0 left-0 right-0 w-screen h-screen bg-[#0000008F]">
+      <div className="max-h-[calc(100vh-25%)] md:max-h-[calc(100vh-10%)] relative top-[5%] md:top-0 overflow-y-auto py-8 px-7 w-11/12 md:w-full mx-auto z-10 max-w-lg bg-white border border-[#66708533] rounded-lg">
         <h1 className="text-xl font-bold text-[#29303D]">
           Messenger integration
         </h1>

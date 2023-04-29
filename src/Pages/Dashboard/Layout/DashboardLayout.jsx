@@ -19,10 +19,10 @@ const DashboardLayout = ({ children }) => {
           toggleNavber={toggleNavber}
           setToggleNavbar={setToggleNavbar}
         />
-        <div className="w-full md:w-[calc(100%-288px)]">
+        <div className="w-full lg:w-[calc(100%-288px)]">
           <Appbar setToggleNavbar={setToggleNavbar} />
           <div className="bg-[#FAFAFC] h-screen overflow-y-auto pb-16">
-            <div className="w-11/12 md:px-8 py-10 pt-6 mx-auto">{children}</div>
+            <div className="w-11/12 lg:px-8 py-10 pt-6 mx-auto">{children}</div>
           </div>
         </div>
       </div>

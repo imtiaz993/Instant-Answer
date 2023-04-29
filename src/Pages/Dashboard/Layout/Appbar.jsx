@@ -7,8 +7,8 @@ import Logo from "../../../Assets/icons/logo.svg";
 
 const Appbar = ({ setToggleNavbar }) => {
   return (
-    <div className="relative bg-white border-b border-[rgba(0, 0, 0, 0.08)] flex justify-between md:justify-end items-center py-1 pb-[3px] px-3">
-      <div className="md:hidden flex items-center">
+    <div className="relative bg-white border-b border-[rgba(0, 0, 0, 0.08)] flex justify-between lg:justify-end items-center py-1 pb-[3px] px-3">
+      <div className="lg:hidden flex items-center">
         <img
           onClick={() => {
             setToggleNavbar(true);
@@ -24,9 +24,9 @@ const Appbar = ({ setToggleNavbar }) => {
           <p className="text-xs font-medium text-[#29303D]">Usage</p>
           <p className="text-[10px] text-[#29303D]">240/300 Chats</p>
         </div>
-        <img className="w-1/4 md:w-auto p-1" src={ChartIcon} alt="" />
-        <img className="w-1/6 md:w-auto -ml-1 mr-2" src={InfoIcon} alt="" />
-        <img className="w-1/6 md:w-auto md:mr-4" src={ProfileIcon} alt="" />
+        <img className="w-1/4 lg:w-auto p-1" src={ChartIcon} alt="" />
+        <img className="w-1/6 lg:w-auto -ml-1 mr-2" src={InfoIcon} alt="" />
+        <img className="w-1/6 lg:w-auto lg:mr-4" src={ProfileIcon} alt="" />
       </div>
     </div>
   );

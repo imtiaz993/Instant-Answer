@@ -7,6 +7,7 @@ import KnowledgeBase from "../Pages/Dashboard/Pages/Knowledge Base/KnowledgeBase
 import Onboarding from "../Pages/Onboarding/Modules/Onboarding";
 import Settings from "../Pages/Dashboard/Pages/Settings/Settings";
 import Integrations from "../Pages/Dashboard/Pages/Integrations/Integrations";
+import Inbox from "../Pages/Dashboard/Pages/Inbox/Inbox";
 
 const WebRoutes = () => {
   return (
@@ -19,6 +20,7 @@ const WebRoutes = () => {
         <Route path="/dashboard/knowledge-base" element={<KnowledgeBase />} />
         <Route path="/dashboard/settings" element={<Settings />} />
         <Route path="/dashboard/integrations" element={<Integrations />} />
+        <Route path="/dashboard/inbox" element={<Inbox />} />
       </Routes>
     </BrowserRouter>
   );

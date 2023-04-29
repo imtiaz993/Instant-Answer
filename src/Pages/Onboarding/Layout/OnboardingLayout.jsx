@@ -20,14 +20,14 @@ const OnboardingLayout = ({ children, setActiveTab, step, setStep }) => {
   ];
 
   return (
-    <div className="bg-[#FAFAFC] h-screen overflow-hidden">
+    <div className="bg-[#FAFAFC]">
       <div className="w-11/12 md:w-4/5 py-6 md:py-10 mx-auto">
         <img
           className="mx-auto mb-6 md:mb-8 w-1/2 md:w-auto"
           src={Logo}
           alt=""
         />
-        <div className="px-4 md:px-8 py-8 bg-white border border-[rgba(102, 112, 133, 0.2]  rounded-xl overflow-y-auto h-[calc(100vh-220px)] md:h-[calc(100vh-210px)]">
+        <div className="px-4 md:px-8 py-8 bg-white border border-[rgba(102, 112, 133, 0.2]  rounded-xl">
           <h1 className="mb-5 text-3xl md:text-4xl font-bold text-[#29303D]">
             Welcome to Your InstantAnswer Trial!
           </h1>

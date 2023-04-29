@@ -12,11 +12,11 @@ const CustomInput = ({
   value,
 }) => {
   return (
-    <div className={`mb-3 ${styles}`}>
-      <label className="mb-1.5 text-sm font-medium text-[#344054]">
+    <div className={`mb-3 ${styles} border  border-[#D0D5DD] rounded-lg`}>
+      <label className="mb-1.5 text-sm font-medium text-[#344054]  ">
         {label}
       </label>
-      <div className="flex items-center py-2 px-3 border border-[#D0D5DD] rounded-lg">
+      <div className="flex items-center py-2 px-3">
         <span>
           <img src={prefix} alt="" />
         </span>
