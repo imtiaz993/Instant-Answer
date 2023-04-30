@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import Logo from "../../../Assets/icons/logo.svg";
 import DashboardIcon from "../../../Assets/icons/dashboard.svg";
 import KnowledgeBaseIcon from "../../../Assets/icons/knowledge-base.svg";
-import InboxIcon from "../../../Assets/icons/inbox.svg";
+// import InboxIcon from "../../../Assets/icons/inbox.svg";
 import RecommendationsIcon from "../../../Assets/icons/recommendations.svg";
 import IntegrationsIcon from "../../../Assets/icons/integrations.svg";
 import SettingsIcon from "../../../Assets/icons/settings.svg";
@@ -24,7 +24,7 @@ const Sidebar = ({ toggleNavber, setToggleNavbar }) => {
     { name: "Recommendations", icon: RecommendationsIcon },
     { name: "Integrations", icon: IntegrationsIcon },
     { name: "Settings", icon: SettingsIcon },
-    { name: "Subscription", icon: SubscriptionsIcon },
+    { name: "Subscriptions", icon: SubscriptionsIcon },
   ];
   return (
     <div
