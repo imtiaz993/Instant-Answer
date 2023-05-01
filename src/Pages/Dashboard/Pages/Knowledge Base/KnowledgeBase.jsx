@@ -86,21 +86,25 @@ const KnowledgeBase = () => {
           </div>
           <div>
             <div className="flex items-center lg:justify-end">
-              <CustomButton title={"Retrain Agent"} prefix={RefreshIcon} styles="py-2 px-4"/>
+              <CustomButton
+                title={"Retrain Agent"}
+                prefix={RefreshIcon}
+                styles="py-2 px-4"
+              />
             </div>
             <div className="flex items-center mt-4 mb-4 lg:mb-0 lg:mt-2 lg:justify-end lg:w-60 text-left">
               <span className="w-3 h-3 inline-block bg-[#FFDD55] rounded-full"></span>
               <p className="ml-1 text-sm font-medium text-[#29303D70]">
-              5 Changes Since Last Retraining
+                5 Changes Since Last Retraining
               </p>
             </div>
           </div>
         </div>
-        <div className="flex overflow-x-auto -mx-4 md:mx-0 px-2 md:px-0">
+        <div className="flex overflow-x-auto -mx-4 md:mx-0 px-2 md:px-0 border-b-2 hide-scroll-bar">
           {Tabs.map((item, index) => (
             <div
-              className={`flex px-4 pb-1 whitespace-nowrap  cursor-pointer border-b-2${
-                index === step ? " border-[#7F56D9]" : ""
+              className={`flex items-center px-4 pb-1 whitespace-nowrap  cursor-pointer ${
+                index === step ? " border-b-2 border-[#7F56D9]" : ""
               }`}
               onClick={() => {
                 setStep(index);

@@ -11,6 +11,7 @@ import ChatInteractionIcon from "../../../../Assets/icons/chat-interaction.svg";
 import MessageAnsweredIcon from "../../../../Assets/icons/message-answered.svg";
 import ReviewRecomendedUser from "../../../../Assets/icons/review-recomended-user.svg";
 import SeeAllIcon from "../../../../Assets/icons/see-all.svg";
+import BarChart from "./BarChart";
 
 const Dashboard = () => {
   return (
@@ -125,9 +126,11 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-      <div className="md:flex gap-5 mb-5 h-[430px] md:h-[380px] overflow-hidden">
-        <div className="mb-5 md:mb-0 md:w-[calc(100%-165px)] bg-white border border-[#E2E8F0] rounded-xl p-4"></div>
-        <div className="min-w-[165px] overflow-y-auto  bg-white border border-[#E2E8F0] rounded-xl p-4">
+      <div className="md:flex gap-5 mb-5 md:h-[380px] overflow-hidden">
+        <div className="mb-5 md:mb-0 md:w-[calc(100%-320px)] bg-white border border-[#E2E8F0] rounded-xl py-4 px-2 md:px-4">
+          <BarChart />
+        </div>
+        <div className="min-w-[320px] h-[390px] md:h-auto overflow-y-auto  bg-white border border-[#E2E8F0] rounded-xl p-4">
           <h1 className="text-base font-bold text-[#18181B]">
             Latest Chats (Review Recommended)
           </h1>

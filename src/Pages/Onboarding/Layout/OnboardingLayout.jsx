@@ -38,11 +38,11 @@ const OnboardingLayout = ({ children, setActiveTab, step, setStep }) => {
           <p className="mb-8 text-base text-[#000000]">
             please provide some information about your company and offerings.
           </p>
-          <div className="flex overflow-x-auto -mx-4 md:mx-0 px-2 md:px-0">
+          <div className="flex overflow-x-auto -mx-4 md:mx-0 px-2 md:px-0 hide-scroll-bar border-b-2">
             {Tabs.map((item, index) => (
               <div
-                className={`flex px-4 pb-1 whitespace-nowrap cursor-pointer border-b-2${
-                  index === step ? " border-[#7F56D9]" : ""
+                className={`flex items-center px-4 pb-1 whitespace-nowrap cursor-pointer ${
+                  index === step ? "border-b-2 border-[#7F56D9]" : ""
                 }`}
                 onClick={() => {
                   setStep(index);

@@ -59,7 +59,8 @@ const Subscriptions = () => {
             </p>
             <div className="bg-[#FFE7EE] rounded-full h-4 mt-2">
               <div
-                className={`bg-[#F15464] rounded-full h-4 w-[${chartsUsage}%]`}
+                className={`bg-[#F15464] rounded-full h-4`}
+                style={{ width: chartsUsage + "%" }}
               ></div>
             </div>
           </div>
