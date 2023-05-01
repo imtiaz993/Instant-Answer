@@ -1,13 +1,43 @@
 import React from "react";
-import ChartIcon from "../../../Assets/icons/chart.svg";
+import { Doughnut } from "react-chartjs-2";
 import InfoIcon from "../../../Assets/icons/dashboard-info.svg";
 import ProfileIcon from "../../../Assets/icons/dashobard-profile.svg";
 import NavbarTogleIcon from "../../../Assets/icons/navbar-toggle.svg";
 import Logo from "../../../Assets/icons/logo.svg";
 
 const Appbar = ({ setToggleNavbar }) => {
+  const data = {
+    labels: ["Used", "Remaining"],
+    datasets: [
+      {
+        label: "",
+        data: [240, 60],
+        backgroundColor: ["#B01827", "#D3D3D3"],
+        hoverOffset: 0,
+        borderWidth: 0,
+      },
+    ],
+  };
+
+  const options = {
+    responsive: true,
+    maintainAspectRatio: false,
+      cutout: '65%',
+    plugins: {
+      legend: {
+        display: false,
+      },
+      tooltip: {
+        enabled: false,
+      },
+      title: {
+        display: false,
+      },
+    },
+  };
+
   return (
-    <div className="relative bg-white border-b border-[rgba(0, 0, 0, 0.08)] flex justify-between lg:justify-end items-center py-1 pb-[3px] px-3">
+    <div className="fixed w-full lg:w-[calc(100%-288px)] bg-white border-b border-[rgba(0, 0, 0, 0.08)] flex justify-between lg:justify-end items-center py-1 pb-[3px] px-3">
       <div className="lg:hidden flex items-center">
         <img
           onClick={() => {
@@ -24,8 +54,10 @@ const Appbar = ({ setToggleNavbar }) => {
           <p className="text-xs font-medium text-[#29303D]">Usage</p>
           <p className="text-[10px] text-[#29303D]">240/300 Chats</p>
         </div>
-        <img className="w-1/4 lg:w-auto p-1" src={ChartIcon} alt="" />
-        <img className="w-1/6 lg:w-auto -ml-1 mr-2" src={InfoIcon} alt="" />
+        <div className="w-8 h-8 mr-1.5">
+          <Doughnut data={data} options={options} />
+        </div>
+        <img className="w-1/6 lg:w-auto mr-2" src={InfoIcon} alt="" />
         <img className="w-1/6 lg:w-auto lg:mr-4" src={ProfileIcon} alt="" />
       </div>
     </div>
