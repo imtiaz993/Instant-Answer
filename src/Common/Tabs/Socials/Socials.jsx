@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import CustomInput from "../../../Common/CustomInput";
+import Select, { components } from "react-select";
 import FacebookIcon from "../../../Assets/icons/facebook.svg";
 import InstagramIcon from "../../../Assets/icons/instagram.svg";
 import TwitterIcon from "../../../Assets/icons/twitter.svg";
@@ -12,7 +13,53 @@ const SuffixButton = () => (
   </button>
 );
 
+const CustomOption = (props) => (
+  <components.Option {...props} >
+    <div className="flex">
+      <img className="mr-1" src={props.data.icon} alt="" />
+      {props.data.label}
+    </div>
+  </components.Option>
+);
+
 const Socials = ({ hideText = false }) => {
+
+  const [selectedOption, setSelectedOption] = useState(null);
+
+  const handleChange = (selectedOption) => {
+    setSelectedOption(selectedOption);
+  };
+
+  const options = [
+    {
+      value: "Facebook",
+      label: "Facebook",
+      icon: FacebookIcon,
+    },
+    {
+      value: "Instagram",
+      label: "Instagram",
+      icon: InstagramIcon,
+    },
+    {
+      value: "Twitter",
+      label: "Twitter",
+      icon: TwitterIcon,
+    },
+  ];
+
+  const customStyles = {
+    control: (provided, state) => ({
+      ...provided,
+      width: 160, 
+      height: 52,
+      marginTop:1,
+      marginRight:10,
+      borderRadius:6,
+      marginBottom:-4,
+    })
+  };
+
   return (
     <>
       {!hideText && (
@@ -27,21 +74,14 @@ const Socials = ({ hideText = false }) => {
         </>
       )}
       <div className={`flex ${hideText && "mt-4"}`}>
-        <select className="px-2 h-[54px] rounded-md mr-2 outline-none border border-[rgba(102, 112, 133, 0.28)">
-          <option className="">
-            <img src={FacebookIcon} alt="" />
-            Facebook
-          </option>
-          <option className="">
-            <img src={InstagramIcon} alt="" />
-            Instagram
-          </option>
-          <option className="">
-            <img src={TwitterIcon} alt="" />
-            Twitter
-          </option>
-        </select>
-        <div className="w-full">
+        <Select
+          options={options}
+          styles={customStyles}
+          components={{ Option: CustomOption }}
+          value={selectedOption}
+          onChange={handleChange}
+        />
+        <div className="w-full -mb-6">
           <CustomInput
             placeholder="Enter Social Links"
             type="url"

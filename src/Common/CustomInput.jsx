@@ -10,6 +10,7 @@ const CustomInput = ({
   suffix,
   styles,
   value,
+  disabled,
 }) => {
   return (
     <div className={`mb-3 ${styles} border  border-[#D0D5DD] rounded-lg`}>
@@ -21,11 +22,12 @@ const CustomInput = ({
           <img src={prefix} alt="" />
         </span>
         <input
-          className="w-full text-base font-medium text-[#29303D] ml-2 outline-none placeholder:text-[#667085]"
+          className="w-full text-base font-medium text-[#29303D] ml-2 outline-none placeholder:text-[#667085] disabled:bg-transparent  disabled:cursor-pointer"
           type={type}
           placeholder={placeholder}
           onChange={onChange}
           value={value}
+          disabled={disabled}
         />
         <div className="cursor-pointer">
           {suffix ? (

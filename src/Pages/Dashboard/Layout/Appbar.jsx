@@ -54,7 +54,7 @@ const Appbar = ({ setToggleNavbar }) => {
           <p className="text-xs font-medium text-[#29303D]">Usage</p>
           <p className="text-[10px] text-[#29303D]">240/300 Chats</p>
         </div>
-        <div className="w-8 h-8 mr-1.5">
+        <div className="w-7 md:w-8 h-7 md:h-8 mr-1.5">
           <Doughnut data={data} options={options} />
         </div>
         <img className="w-1/6 lg:w-auto mr-2" src={InfoIcon} alt="" />
