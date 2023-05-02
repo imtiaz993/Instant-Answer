@@ -12,7 +12,7 @@ const Onboarding = () => {
   const [step, setStep] = useState(0);
 
   const Tabs = [
-    { title: "Profile", component: <Profile /> },
+    { title: "Profile", component: <Profile hideText={true}/> },
     { title: "Web Page", component: <WebPage /> },
     { title: "Databases", component: <Databases /> },
     { title: "Documents", component: <Documents /> },

@@ -1,7 +1,7 @@
 import React from "react";
 import CustomInput from "../../../Common/CustomInput";
 
-const Profile = () => {
+const Profile = ({hideText}) => {
   return (
     <>
       <div>
@@ -15,9 +15,9 @@ const Profile = () => {
             </h1>
           </div>
           <p className="mt-3 mb-2 text-sm font-medium text-[#29303D]">
-            We're excited to have you on board! To help your AI chat agent
-            better understand your business and provide top-notch service,
-            please provide some information about your company and offerings.
+            {!hideText && `To help your AI chat agent better understand your business and
+            provide top-notch service, please provide some information about
+            your company and offerings.`}
           </p>
           <CustomInput placeholder="Enter.." type="text" />
         </div>

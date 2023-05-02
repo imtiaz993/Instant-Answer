@@ -1,5 +1,7 @@
 import React from "react";
 import CustomInput from "../../../Common/CustomInput";
+import { useDropzone } from "react-dropzone";
+import CloseIcon from "../../../Assets/icons/close.svg";
 
 const SuffixButton = () => (
   <button className="ml-2 bg-[#7F56D9] rounded-lg py-2 px-5  border-none text-white text-sm font-medium">
@@ -8,24 +10,49 @@ const SuffixButton = () => (
 );
 
 const Databases = ({ hideText = false }) => {
+  const { acceptedFiles, getRootProps, getInputProps } = useDropzone();
+
+  const files = acceptedFiles.map((file) => (
+    <li key={file.path} className="flex justify-between items-center ">
+      <span>
+        {file.path} - {file.size} bytes
+      </span>
+      <img className="cursor-pointer" src={CloseIcon} alt="" />
+    </li>
+  ));
+
   return (
     <>
-     {!hideText && (
+      {!hideText && (
         <>
-      <p className="mt-8 text-base font-bold text-black">
-        Add your databases/ knowledge bases
-      </p>
-      <p className="mt-3 mb-2 text-base  text-[#29303D]">
-        Upload any databases or knowledge bases in CSV format for the AI chat
-        agent to reference when helping customers.
-      </p>
-      </>)}
-      <CustomInput
-        styles={"mt-4"}
-        placeholder="Click or drag and drop,"
-        type="file"
-        suffix={<SuffixButton />}
-      />
+          <p className="mt-8 text-base font-bold text-black">
+            Add your databases/ knowledge bases
+          </p>
+          <p className="mt-3 mb-2 text-base  text-[#29303D]">
+            Upload any databases or knowledge bases in CSV format for the AI
+            chat agent to reference when helping customers.
+          </p>
+        </>
+      )}
+      <div
+        {...getRootProps({
+          className: "",
+        })}
+      >
+        <CustomInput
+          styles={"mt-4"}
+          placeholder="Click or drag and drop,"
+          type="text"
+          suffix={<SuffixButton />}
+          disabled
+        />
+      </div>
+      {files.length > 0 && (
+        <div className="md:flex my-2">
+          <h4 className="font-semibold mr-2 overflow-hidden">Files: </h4>
+          <ul className="w-full">{files}</ul>
+        </div>
+      )}
     </>
   );
 };
