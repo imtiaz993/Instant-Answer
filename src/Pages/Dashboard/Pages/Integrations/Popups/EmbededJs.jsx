@@ -1,9 +1,37 @@
-import React from "react";
-import CustomButton from "../../../../../Common/CustomButton";
+import React, { useState, useRef, useEffect } from "react";
+import ReactDOM from "react-dom";
+import { SketchPicker } from "react-color";
 import { useDropzone } from "react-dropzone";
+import CustomButton from "../../../../../Common/CustomButton";
 import CloseIcon from "../../../../../Assets/icons/close.svg";
 
 const EmbededJs = ({ setModal }) => {
+  const modalRef = useRef(null);
+  const [showModal, setShowModal] = useState(false);
+  const [isSketchCrlor, setIsSketchColor] = useState(false);
+
+  const [selectedColor, setSelectedColor] = useState("#E96179");
+
+  const handleChangeComplete = (color) => {
+    setIsSketchColor(true)
+    setSelectedColor(color.hex);
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  function handleClickOutside(event) {
+    if (modalRef && modalRef.current) {
+      if (!modalRef.current.contains(event.target)) {
+        setShowModal(false);
+      }
+    }
+  }
+
   const { acceptedFiles, getRootProps, getInputProps } = useDropzone({
     accept: "image/jpeg, image/png, .pdf",
     maxSize: 3000000,
@@ -18,10 +46,15 @@ const EmbededJs = ({ setModal }) => {
       <img className="cursor-pointer" src={CloseIcon} alt="" />
     </li>
   ));
-
+  console.log(showModal);
   return (
     <div className="flex justify-center md:items-center fixed top-0 bottom-0 left-0 right-0 w-screen h-screen bg-[#0000008F]">
-      <div className="max-h-[calc(100vh-30%)] md:max-h-[calc(100vh-15%)] relative top-[10%] md:top-0 overflow-y-auto py-8 px-7 w-11/12 md:w-full mx-auto z-10 max-w-lg bg-white border border-[#66708533] rounded-lg">
+      <div
+        className="max-h-[calc(100vh-30%)] md:max-h-[calc(100vh-15%)] relative top-[10%] md:top-0 overflow-y-auto py-8 px-7 w-11/12 md:w-full mx-auto z-10 max-w-lg bg-white border border-[#66708533] rounded-lg"
+        // onClick={() => {
+        //   setShowModal(false);
+        // }}
+      >
         <h1 className="text-xl font-bold text-[#29303D]">Embeded JS Code</h1>
 
         <div>
@@ -85,6 +118,109 @@ const EmbededJs = ({ setModal }) => {
               Change the color of your web widget button to complement your
               brand
             </p>
+            <div className="flex mt-1">
+              <div
+                className={`w-7 md:w-10 h-7 md:h-10 mr-1 md:mr-2 flex items-center justify-center rounded-full ${
+                  selectedColor === "#E96179" &&
+                  `border-2 border-[${selectedColor}]`
+                } cursor-pointer `}
+                onClick={() => {
+                  setSelectedColor("#E96179");
+                  setIsSketchColor(false)
+                }}
+              >
+                <span className="inline-block bg-[#E96179] rounded-full w-5 md:w-7 h-5 md:h-7"></span>
+              </div>
+              <div
+                className={`w-7 md:w-10 h-7 md:h-10 mr-1 md:mr-2 flex items-center justify-center rounded-full ${
+                  selectedColor === "#F7CD39" &&
+                  `border-2 border-[${selectedColor}]`
+                } cursor-pointer `}
+                onClick={() => {
+                  setSelectedColor("#F7CD39");
+                  setIsSketchColor(false)
+                }}
+              >
+                <span className="inline-block bg-[#F7CD39] rounded-full w-5 md:w-7 h-5 md:h-7"></span>
+              </div>
+              <div
+                className={`w-7 md:w-10 h-7 md:h-10 mr-1 md:mr-2 flex items-center justify-center rounded-full ${
+                  selectedColor === "#68578B" &&
+                  `border-2 border-[${selectedColor}]`
+                } cursor-pointer `}
+                onClick={() => {
+                  setSelectedColor("#68578B");
+                  setIsSketchColor(false)
+                }}
+              >
+                <span className="inline-block bg-[#68578B] rounded-full w-5 md:w-7 h-5 md:h-7"></span>
+              </div>
+              <div
+                className={`w-7 md:w-10 h-7 md:h-10 mr-1 md:mr-2 flex items-center justify-center rounded-full ${
+                  selectedColor === "#3DB48A" &&
+                  `border-2 border-[${selectedColor}]`
+                } cursor-pointer `}
+                onClick={() => {
+                  setSelectedColor("#3DB48A");
+                  setIsSketchColor(false)
+                }}
+              >
+                <span className="inline-block bg-[#3DB48A] rounded-full w-5 md:w-7 h-5 md:h-7"></span>
+              </div>
+              <div
+                className={`w-7 md:w-10 h-7 md:h-10 mr-1 md:mr-2 flex items-center justify-center rounded-full ${
+                  selectedColor === "#5A80AF" &&
+                  `border-2 border-[${selectedColor}]`
+                } cursor-pointer `}
+                onClick={() => {
+                  setSelectedColor("#5A80AF");
+                  setIsSketchColor(false)
+                }}
+              >
+                <span className="inline-block bg-[#5A80AF] rounded-full w-5 md:w-7 h-5 md:h-7"></span>
+              </div>
+              <div
+                className={`w-7 md:w-10 h-7 md:h-10 mr-1 md:mr-2 flex items-center justify-center rounded-full ${
+                  selectedColor === "#D2814A" &&
+                  `border-2 border-[${selectedColor}]`
+                } cursor-pointer `}
+                onClick={() => {
+                  setSelectedColor("#D2814A");
+                  setIsSketchColor(false)
+                }}
+              >
+                <span className="inline-block bg-[#D2814A] rounded-full w-5 md:w-7 h-5 md:h-7"></span>
+              </div>
+              <div
+                className={`w-7 md:w-10 h-7 md:h-10 mr-1 md:mr-2 flex items-center justify-center rounded-full ${
+                  selectedColor === "#3A1F24" &&
+                  `border-2 border-[${selectedColor}]`
+                } cursor-pointer `}
+                onClick={() => {
+                  setSelectedColor("#3A1F24");
+                  setIsSketchColor(false)
+                }}
+              >
+                <span className="inline-block bg-[#3A1F24] rounded-full w-5 md:w-7 h-5 md:h-7"></span>
+              </div>
+              <div
+                style={ { border: isSketchCrlor && "2px solid " + selectedColor }}
+                className={`w-7 md:w-10 h-7 md:h-10 mr-1 md:mr-2 flex items-center justify-center rounded-full cursor-pointer `}
+                onClick={() => setShowModal(true)}
+              >
+                <span
+                  style={
+                     {
+                      backgroundColor: isSketchCrlor && selectedColor,
+                    }
+                  }
+                  className={`inline-block ${
+                    !isSketchCrlor &&
+                    "bg-gradient-to-r from-red-500 via-white to-cyan-500"
+                  } rounded-full w-5 md:w-7 h-5 md:h-7`}
+                ></span>
+              </div>
+            </div>
           </div>
           <div className="my-4">
             <p className="text-sm font-bold text-[#29303D]">AI Avatar</p>
@@ -131,6 +267,23 @@ const EmbededJs = ({ setModal }) => {
           </div>
         </div>
       </div>
+      {showModal &&
+        ReactDOM.createPortal(
+          <div className="w-full h-full flex justify-center items-center">
+            <div
+              ref={modalRef}
+              className="fixed top-[13%]"
+            >
+              <SketchPicker
+                ref={modalRef}
+                className="h-[300px]"
+                color={selectedColor}
+                onChangeComplete={handleChangeComplete}
+              />
+            </div>
+          </div>,
+          document.body
+        )}
     </div>
   );
 };
