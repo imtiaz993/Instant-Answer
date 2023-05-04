@@ -13,7 +13,7 @@ const EmbededJs = ({ setModal }) => {
   const [selectedColor, setSelectedColor] = useState("#E96179");
 
   const handleChangeComplete = (color) => {
-    setIsSketchColor(true)
+    setIsSketchColor(true);
     setSelectedColor(color.hex);
   };
 
@@ -120,100 +120,105 @@ const EmbededJs = ({ setModal }) => {
             </p>
             <div className="flex mt-1">
               <div
-                className={`w-7 md:w-10 h-7 md:h-10 mr-1 md:mr-2 flex items-center justify-center rounded-full ${
-                  selectedColor === "#E96179" &&
-                  `border-2 border-[${selectedColor}]`
-                } cursor-pointer `}
+                style={{
+                  border:
+                    selectedColor === "#E96179" && "2px solid #E96179",
+                }}
+                className={`w-7 md:w-10 h-7 md:h-10 mr-1 md:mr-2 flex items-center justify-center rounded-full  cursor-pointer `}
                 onClick={() => {
                   setSelectedColor("#E96179");
-                  setIsSketchColor(false)
+                  setIsSketchColor(false);
                 }}
               >
                 <span className="inline-block bg-[#E96179] rounded-full w-5 md:w-7 h-5 md:h-7"></span>
               </div>
               <div
-                className={`w-7 md:w-10 h-7 md:h-10 mr-1 md:mr-2 flex items-center justify-center rounded-full ${
-                  selectedColor === "#F7CD39" &&
-                  `border-2 border-[${selectedColor}]`
-                } cursor-pointer `}
+                style={{
+                  border:
+                    selectedColor === "#F7CD39" && "2px solid #F7CD39",
+                }}
+                className={`w-7 md:w-10 h-7 md:h-10 mr-1 md:mr-2 flex items-center justify-center rounded-full  cursor-pointer `}
                 onClick={() => {
                   setSelectedColor("#F7CD39");
-                  setIsSketchColor(false)
+                  setIsSketchColor(false);
                 }}
               >
                 <span className="inline-block bg-[#F7CD39] rounded-full w-5 md:w-7 h-5 md:h-7"></span>
               </div>
               <div
-                className={`w-7 md:w-10 h-7 md:h-10 mr-1 md:mr-2 flex items-center justify-center rounded-full ${
-                  selectedColor === "#68578B" &&
-                  `border-2 border-[${selectedColor}]`
-                } cursor-pointer `}
+                style={{
+                  border:
+                    selectedColor === "#68578B" && "2px solid #68578B",
+                }}
+                className={`w-7 md:w-10 h-7 md:h-10 mr-1 md:mr-2 flex items-center justify-center rounded-full  cursor-pointer `}
                 onClick={() => {
                   setSelectedColor("#68578B");
-                  setIsSketchColor(false)
+                  setIsSketchColor(false);
                 }}
               >
                 <span className="inline-block bg-[#68578B] rounded-full w-5 md:w-7 h-5 md:h-7"></span>
               </div>
               <div
-                className={`w-7 md:w-10 h-7 md:h-10 mr-1 md:mr-2 flex items-center justify-center rounded-full ${
-                  selectedColor === "#3DB48A" &&
-                  `border-2 border-[${selectedColor}]`
-                } cursor-pointer `}
+                style={{
+                  border:
+                    selectedColor === "#3DB48A" && "2px solid #3DB48A",
+                }}
+                className={`w-7 md:w-10 h-7 md:h-10 mr-1 md:mr-2 flex items-center justify-center rounded-full  cursor-pointer `}
                 onClick={() => {
                   setSelectedColor("#3DB48A");
-                  setIsSketchColor(false)
+                  setIsSketchColor(false);
                 }}
               >
                 <span className="inline-block bg-[#3DB48A] rounded-full w-5 md:w-7 h-5 md:h-7"></span>
               </div>
               <div
-                className={`w-7 md:w-10 h-7 md:h-10 mr-1 md:mr-2 flex items-center justify-center rounded-full ${
-                  selectedColor === "#5A80AF" &&
-                  `border-2 border-[${selectedColor}]`
-                } cursor-pointer `}
+                style={{
+                  border:
+                    selectedColor === "#5A80AF" && "2px solid #5A80AF",
+                }}
+                className={`w-7 md:w-10 h-7 md:h-10 mr-1 md:mr-2 flex items-center justify-center rounded-full  cursor-pointer `}
                 onClick={() => {
                   setSelectedColor("#5A80AF");
-                  setIsSketchColor(false)
+                  setIsSketchColor(false);
                 }}
               >
                 <span className="inline-block bg-[#5A80AF] rounded-full w-5 md:w-7 h-5 md:h-7"></span>
               </div>
               <div
-                className={`w-7 md:w-10 h-7 md:h-10 mr-1 md:mr-2 flex items-center justify-center rounded-full ${
-                  selectedColor === "#D2814A" &&
-                  `border-2 border-[${selectedColor}]`
-                } cursor-pointer `}
+                style={{
+                  border: selectedColor === "#D2814A" && "2px solid #D2814A",
+                }}
+                className={`w-7 md:w-10 h-7 md:h-10 mr-1 md:mr-2 flex items-center justify-center rounded-full  cursor-pointer `}
                 onClick={() => {
                   setSelectedColor("#D2814A");
-                  setIsSketchColor(false)
+                  setIsSketchColor(false);
                 }}
               >
                 <span className="inline-block bg-[#D2814A] rounded-full w-5 md:w-7 h-5 md:h-7"></span>
               </div>
               <div
-                className={`w-7 md:w-10 h-7 md:h-10 mr-1 md:mr-2 flex items-center justify-center rounded-full ${
-                  selectedColor === "#3A1F24" &&
-                  `border-2 border-[${selectedColor}]`
-                } cursor-pointer `}
+                style={{
+                  border: selectedColor === "#3A1F24" && "2px solid #3A1F24",
+                }}
+                className={`w-7 md:w-10 h-7 md:h-10 mr-1 md:mr-2 flex items-center justify-center rounded-full  cursor-pointer `}
                 onClick={() => {
                   setSelectedColor("#3A1F24");
-                  setIsSketchColor(false)
+                  setIsSketchColor(false);
                 }}
               >
                 <span className="inline-block bg-[#3A1F24] rounded-full w-5 md:w-7 h-5 md:h-7"></span>
               </div>
               <div
-                style={ { border: isSketchCrlor && "2px solid " + selectedColor }}
+                style={{
+                  border: isSketchCrlor && "2px solid " + selectedColor,
+                }}
                 className={`w-7 md:w-10 h-7 md:h-10 mr-1 md:mr-2 flex items-center justify-center rounded-full cursor-pointer `}
                 onClick={() => setShowModal(true)}
               >
                 <span
-                  style={
-                     {
-                      backgroundColor: isSketchCrlor && selectedColor,
-                    }
-                  }
+                  style={{
+                    backgroundColor: isSketchCrlor && selectedColor,
+                  }}
                   className={`inline-block ${
                     !isSketchCrlor &&
                     "bg-gradient-to-r from-red-500 via-white to-cyan-500"
@@ -251,7 +256,7 @@ const EmbededJs = ({ setModal }) => {
           <div className="flex">
             <CustomButton
               title="Cancel"
-              styles={"bg-white text-[#667085] w-20 px-4 py-2"}
+              styles={"bg-white text-[#667085] px-4 py-2"}
               outlined
               onClick={() => {
                 setModal("");
@@ -259,7 +264,7 @@ const EmbededJs = ({ setModal }) => {
             />
             <CustomButton
               title="Done"
-              styles={"ml-2 w-20 px-4 py-2"}
+              styles={"ml-2 px-6 py-2"}
               onClick={() => {
                 setModal("");
               }}
@@ -270,10 +275,7 @@ const EmbededJs = ({ setModal }) => {
       {showModal &&
         ReactDOM.createPortal(
           <div className="w-full h-full flex justify-center items-center">
-            <div
-              ref={modalRef}
-              className="fixed top-[13%]"
-            >
+            <div ref={modalRef} className="fixed top-[13%]">
               <SketchPicker
                 ref={modalRef}
                 className="h-[300px]"

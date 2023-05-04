@@ -1,8 +1,25 @@
 import React from "react";
+import { useDropzone } from "react-dropzone";
 import DashboardLayout from "../../Layout/DashboardLayout";
 import CustomInput from "../../../../Common/CustomInput";
+import CloseIcon from "../../../../Assets/icons/close.svg";
 
 const Settings = () => {
+  const { acceptedFiles, getRootProps, getInputProps } = useDropzone({
+    accept: "image/jpeg, image/png, .pdf",
+    maxSize: 3000000,
+    multiple: false,
+  });
+
+  const files = acceptedFiles.map((file) => (
+    <li key={file.path} className="flex justify-between items-center ">
+      <span>
+        {file.path} - {file.size} bytes
+      </span>
+      <img className="cursor-pointer" src={CloseIcon} alt="" />
+    </li>
+  ));
+
   return (
     <DashboardLayout>
       <div>
@@ -166,6 +183,29 @@ const Settings = () => {
                 Agent Profile Picture
               </h1>
             </div>
+              <div>
+                <div
+                  {...getRootProps({
+                    className:
+                      "flex flex-col justify-center items-center w-56 h-36 mt-5 mb-5 rounded-xl border border-dashed border-[#66708547] cursor-pointer",
+                  })}
+                >
+                  <p className="text-sm font-medium text-[#29303D]">
+                    Drag or upload your image
+                  </p>
+                  <button className="mt-3 w-24 h-10 bg-[#6670851A] rounded text-sm font-medium text-[#29303D]">
+                    Choose File
+                  </button>
+                </div>
+                {files.length > 0 && (
+                  <div className="md:flex my-2">
+                    <h4 className="font-semibold mr-2 overflow-hidden">
+                      File:{" "}
+                    </h4>
+                    <ul className="w-full">{files}</ul>
+                  </div>
+                )}
+              </div>
           </div>
         </div>
       </div>

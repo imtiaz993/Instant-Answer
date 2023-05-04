@@ -4,7 +4,7 @@ import { useDropzone } from "react-dropzone";
 import CloseIcon from "../../../Assets/icons/close.svg";
 
 const SuffixButton = () => (
-  <button className="ml-2 bg-[#7F56D9] rounded-lg py-2 px-5  border-none text-white text-sm font-medium">
+  <button className="ml-2 bg-[#7F56D9] rounded-lg py-2 px-4  border-none text-white text-sm font-medium">
     Upload
   </button>
 );

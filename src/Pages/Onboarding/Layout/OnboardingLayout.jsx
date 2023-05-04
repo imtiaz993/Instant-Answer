@@ -65,7 +65,7 @@ const OnboardingLayout = ({ children, setActiveTab, step, setStep }) => {
         <div className="md:mt-8 flex flex-col md:flex-row justify-between items-center">
           <div className="flex my-4 md:my-0">
             <button
-              className="py-3 text-[#000000] text-base"
+              className="py-2 text-[#000000] text-base"
               onClick={() => {
                 if (step !==0) {
                   setStep(step - 1);
@@ -76,7 +76,7 @@ const OnboardingLayout = ({ children, setActiveTab, step, setStep }) => {
               Back
             </button>
             <button
-              className="md:hidden ml-10 bg-[#7F56D9] rounded-lg py-2 px-5  border-none text-white text-sm font-medium"
+              className="md:hidden ml-10 bg-[#7F56D9] rounded-lg py-2 px-6  border-none text-white text-sm font-medium"
               onClick={() => {
                 if (step !==Tabs.length-1) {
                   setStep(step + 1);
@@ -103,7 +103,7 @@ const OnboardingLayout = ({ children, setActiveTab, step, setStep }) => {
           </div>
           <div className="flex">
             <button
-              className="py-3 text-[#000000] text-base"
+              className="py-2 text-[#000000] text-base"
               onClick={() => {
                 if (step !==Tabs.length-1) {
                   setStep(step + 1);
@@ -117,7 +117,7 @@ const OnboardingLayout = ({ children, setActiveTab, step, setStep }) => {
               Skip
             </button>
             <button
-              className="hidden md:block ml-10 bg-[#7F56D9] rounded-lg py-2 px-5  border-none text-white text-sm font-medium"
+              className="hidden md:block ml-10 bg-[#7F56D9] rounded-lg py-2 px-6  border-none text-white text-sm font-medium"
               onClick={() => {
                 if (step !==Tabs.length-1) {
                   setStep(step + 1);
