@@ -9,7 +9,7 @@ const Whatsapp = ({ setModal }) => {
         <h1 className="text-xl font-bold text-[#29303D]">
           WhatsApp integration
         </h1>
-        <p className="mt-4 text-sm font-medium text-[#29303D]">
+        <p className="my-4 text-sm font-medium text-[#29303D]">
           Log in to{" "}
           <a
             className="underline"
@@ -32,19 +32,19 @@ const Whatsapp = ({ setModal }) => {
             label="Facebook Page ID"
             type="url"
             placeholder="Enter Link"
-            styles={"my-4"}
+            styles={"mt-1 mb-4"}
           />
           <CustomInput
             label="Facebook App Secret ID"
             type="url"
             placeholder="Enter Link"
-            styles={"my-4"}
+            styles={"mt-1 mb-4"}
           />
           <CustomInput
             label="Facebook Access Token"
             type="url"
             placeholder="Enter Link"
-            styles={"my-4"}
+            styles={"mt-1 mb-4"}
           />
           <div>
             <p className="mt-4 mb-1.5 text-sm font-medium text-[#344054]">
@@ -64,7 +64,7 @@ const Whatsapp = ({ setModal }) => {
           <div className="flex">
             <CustomButton
               title="Cancel"
-              styles={"bg-white text-[#667085] w-20 px-4 py-2"}
+              styles={"bg-white text-[#667085] px-4 py-2"}
               outlined
               onClick={() => {
                 setModal("");
@@ -72,7 +72,7 @@ const Whatsapp = ({ setModal }) => {
             />
             <CustomButton
               title="Done"
-              styles={"ml-2 w-20 px-4 py-2"}
+              styles={"ml-2 px-6 py-2"}
               onClick={() => {
                 setModal("");
               }}

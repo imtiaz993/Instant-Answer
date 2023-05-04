@@ -13,11 +13,13 @@ const CustomInput = ({
   disabled,
 }) => {
   return (
-    <div className={`mb-3 ${styles} border  border-[#D0D5DD] rounded-lg`}>
+    <div>
       <label className="mb-1.5 text-sm font-medium text-[#344054]  ">
         {label}
       </label>
-      <div className="flex items-center py-2 px-3">
+      <div
+        className={`flex items-center py-2 px-3 border border-[#D0D5DD] mb-3 ${styles} rounded-lg`}
+      >
         <span>
           <img src={prefix} alt="" />
         </span>

@@ -45,7 +45,7 @@ const Subscriptions = () => {
             <p className="text-sm font-medium text-[#7F56D9] underline mb-8">
               Get annual subscription (save 20%)
             </p>
-            <CustomButton title="Manage Your Plan" />
+            <CustomButton title="Manage Your Plan"  styles={"py-2 px-3"}/>
           </div>
         </div>
         <div className="px-4 md:px-6 py-10 bg-white border border-[rgba(102, 112, 133, 0.2]  rounded-xl">
@@ -87,7 +87,7 @@ const Subscriptions = () => {
             </p>
           </div>
           <div>
-            <CustomButton title="Upgrade" />
+            <CustomButton title="Upgrade"  styles={"py-2 px-3"}/>
           </div>
         </div>
       </div>

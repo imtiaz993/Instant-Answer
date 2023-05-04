@@ -51,7 +51,7 @@ const PublicLink = ({ setModal }) => {
           <div className="flex mt-6">
             <CustomButton
               title="Cancel"
-              styles={"bg-white text-[#667085] w-20 px-4 py-2"}
+              styles={"bg-white text-[#667085] px-4 py-2"}
               outlined
               onClick={() => {
                 setModal("");
@@ -59,7 +59,7 @@ const PublicLink = ({ setModal }) => {
             />
             <CustomButton
               title="Done"
-              styles={"ml-2 w-20 px-4 py-2"}
+              styles={"ml-2 px-6 py-2"}
               onClick={() => {
                 setModal("");
               }}

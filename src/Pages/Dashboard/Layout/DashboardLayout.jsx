@@ -21,7 +21,7 @@ const DashboardLayout = ({ children }) => {
         />
         <div className="w-full lg:w-[calc(100%-288px)]">
           <Appbar setToggleNavbar={setToggleNavbar} />
-          <div className="bg-[#FAFAFC] h-screen overflow-y-auto pb-16 pt-14 lg:pt-16">
+          <div className="bg-[#FAFAFC] h-screen overflow-y-auto pb-16 mt-14 lg:mt-16">
             <div className="w-11/12 lg:px-8 py-10 pt-6 mx-auto">{children}</div>
           </div>
         </div>

@@ -12,7 +12,7 @@ const Instagram = ({ setModal }) => {
         <div className="mt-7">
           <CustomButton
             title="Cancel"
-            styles={"bg-white text-[#667085] w-20 px-4 py-2"}
+            styles={"bg-white text-[#667085] px-4 py-2"}
             outlined
             onClick={() => {
               setModal("");
