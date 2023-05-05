@@ -12,13 +12,75 @@ import MessageAnsweredIcon from "../../../../Assets/icons/message-answered.svg";
 import ReviewRecomendedUser from "../../../../Assets/icons/review-recomended-user.svg";
 import SeeAllIcon from "../../../../Assets/icons/see-all.svg";
 import BarChart from "./BarChart";
+import { useState } from "react";
 
 const Dashboard = () => {
+  const [seeAllReviewRecomended, setSeeAllReviewRecomended] = useState(false);
+  const [seeAllLatestChat, setSeeAllLatestChat] = useState(false);
+
+  const reviewRecomendedChats = [
+    { name: "Daniel Adams", update: "Just now" },
+    { name: "Daniel Adams", update: "Just now" },
+    { name: "Daniel Adams", update: "Just now" },
+    { name: "Daniel Adams", update: "Just now" },
+    { name: "Daniel Adams", update: "Just now" },
+  ];
+  const allChats = [
+    {
+      time: "04:02 AM",
+      name: "Alex Joenes",
+      country: "United States",
+      messageTitle: "Latest Mesage",
+      messageContent: "This is a preview...",
+    },
+    {
+      time: "04:02 AM",
+      name: "Alex Joenes",
+      country: "United States",
+      messageTitle: "Latest Mesage",
+      messageContent: "This is a preview...",
+    },
+    {
+      time: "04:02 AM",
+      name: "Alex Joenes",
+      country: "United States",
+      messageTitle: "Latest Mesage",
+      messageContent: "This is a preview...",
+    },
+    {
+      time: "04:02 AM",
+      name: "Alex Joenes",
+      country: "United States",
+      messageTitle: "Latest Mesage",
+      messageContent: "This is a preview...",
+    },
+    {
+      time: "04:02 AM",
+      name: "Alex Joenes",
+      country: "United States",
+      messageTitle: "Latest Mesage",
+      messageContent: "This is a preview...",
+    },
+    {
+      time: "04:02 AM",
+      name: "Alex Joenes",
+      country: "United States",
+      messageTitle: "Latest Mesage",
+      messageContent: "This is a preview...",
+    },
+  ];
+
   return (
     <DashboardLayout>
       <div className="md:flex justify-between">
         <div className="flex">
-          <img src={DonnaPicture} alt="" className="w-13 h-13 rounded-full" />
+          <div>
+            <img
+              src={DonnaPicture}
+              alt=""
+              className="w-13 h-13 rounded-full inline-block"
+            />
+          </div>
           <div className="ml-3">
             <h1 className="text-lg font-bold text-[#18181B]">
               Hey Donna Jones! 👋
@@ -139,80 +201,44 @@ const Dashboard = () => {
             accuracy.
           </p>
           <div>
-            <div className="flex justify-between border border-[#E4E4E7] rounded-xl px-4 py-3 my-3">
-              <div className="flex">
+            {(seeAllReviewRecomended
+              ? reviewRecomendedChats
+              : reviewRecomendedChats.slice(0, 3)
+            ).map((item) => (
+              <div className="flex justify-between border border-[#E4E4E7] rounded-xl px-4 py-3 my-3">
+                <div className="flex">
+                  <div>
+                    <img
+                      className="w-9 h-9 rounded-full"
+                      src={ReviewRecomendedUser}
+                      alt=""
+                    />
+                  </div>
+                  <div className="ml-3">
+                    <h1 className="text-sm font-bold text-[#18181B]">
+                      {item.name}
+                    </h1>
+                    <p className="text-sm text-[#71717A]">{item.update}</p>
+                  </div>
+                </div>
                 <div>
-                  <img
-                    className="w-9 h-9 rounded-full"
-                    src={ReviewRecomendedUser}
-                    alt=""
+                  <CustomButton
+                    outlined
+                    title="Review"
+                    styles="py-2 text-[#4F46E5] border-[#E4E4E7]"
                   />
                 </div>
-                <div className="ml-3">
-                  <h1 className="text-sm font-bold text-[#18181B]">
-                    Daniel Adams
-                  </h1>
-                  <p className="text-sm text-[#71717A]">Just now</p>
-                </div>
               </div>
-              <div>
-                <CustomButton
-                  outlined
-                  title="Review"
-                  styles="py-2 text-[#4F46E5] border-[#E4E4E7]"
-                />
-              </div>
-            </div>
-            <div className="flex justify-between border border-[#E4E4E7] rounded-xl px-4 py-3 my-3">
-              <div className="flex">
-                <div>
-                  <img
-                    className="w-9 h-9 rounded-full"
-                    src={ReviewRecomendedUser}
-                    alt=""
-                  />
-                </div>
-                <div className="ml-3">
-                  <h1 className="text-sm font-bold text-[#18181B]">
-                    Daniel Adams
-                  </h1>
-                  <p className="text-sm text-[#71717A]">Just now</p>
-                </div>
-              </div>
-              <div>
-                <CustomButton
-                  outlined
-                  title="Review"
-                  styles="py-2 text-[#4F46E5] border-[#E4E4E7]"
-                />
-              </div>
-            </div>
-            <div className="flex justify-between border border-[#E4E4E7] rounded-xl px-4 py-3 my-3">
-              <div className="flex">
-                <div>
-                  <img
-                    className="w-9 h-9 rounded-full"
-                    src={ReviewRecomendedUser}
-                    alt=""
-                  />
-                </div>
-                <div className="ml-3">
-                  <h1 className="text-sm font-bold text-[#18181B]">
-                    Daniel Adams
-                  </h1>
-                  <p className="text-sm text-[#71717A]">Just now</p>
-                </div>
-              </div>
-              <div>
-                <CustomButton
-                  outlined
-                  title="Review"
-                  styles="py-2 text-[#4F46E5] border-[#E4E4E7]"
-                />
-              </div>
-            </div>
-            <div className="flex justify-center cursor-pointer pt-2">
-              <p className="mr-2 text-sm font-medium text-[#4F46E5]">See All</p>
+            ))}
+            <div
+              className="flex justify-center cursor-pointer pt-2"
+              onClick={() => {
+                setSeeAllReviewRecomended(!seeAllReviewRecomended);
+              }}
+            >
+              <p className="mr-2 text-sm font-medium text-[#4F46E5]">
+                {seeAllReviewRecomended ? "See Less" : "See All"}
+              </p>
               <img src={SeeAllIcon} alt="" />
             </div>
           </div>
@@ -225,172 +251,71 @@ const Dashboard = () => {
             <p className="text-sm text-[#71717A]">Your latest chats</p>
           </div>
           <div className="flex items-center">
-            <p className="mr-3 text-sm font-medium text-[#4F46E5]">
-              See All Chats
+            <p
+              className="mr-3 text-sm font-medium text-[#4F46E5] cursor-pointer"
+              onClick={() => {
+                setSeeAllLatestChat(!seeAllLatestChat);
+              }}
+            >
+              {seeAllLatestChat ? "See Less Chats" : "See All Chats"}
             </p>
             <img src={SeeAllIcon} alt="" />
           </div>
         </div>
-        <div className="border-b border-[#E4E4E7B2] py-4">
-          <div className="md:w-11/12 flex items-center justify-between px-2 md:px-6">
-            <div className="flex items-center rounded-full bg-[#DCFCE7] px-2 md:px-3 py-1 md:w-36">
-              <span className="inline-block w-2 md:w-2.5 h-2 rounded-full bg-[#22C55E]"></span>
-              <p className="ml-1 md:ml-2 text-xs md:text-sm font-medium text-[#14532D]">
-                04:02 AM
-              </p>
-            </div>
-            <div className="ml-1">
-              <p className="text-[13px] md:text-sm font-bold text-[#18181B]">
-                Alex Joenes
-              </p>
-              <div className="flex mt-1">
-                <img
-                  className="w-5 h-5 rounded-full"
-                  src={ReviewRecomendedUser}
-                  alt=""
-                />
-                <p className="ml-1 text-xs md:text-sm font-medium text-[#71717A]">
-                  United States
-                </p>
+        {(seeAllLatestChat ? allChats : allChats.slice(0, 4)).map(
+          (item, index) => (
+            <div
+              className={`${
+                seeAllLatestChat
+                  ? allChats.length === index
+                    ? "pt-4"
+                    : "border-b border-[#E4E4E7B2] py-4"
+                  : index === 3
+                  ? "pt-4"
+                  : "border-b border-[#E4E4E7B2] py-4"
+              }`}
+            >
+              <div className="md:w-11/12 flex items-center justify-between px-2 md:px-6">
+                <div className="flex items-center rounded-full bg-[#DCFCE7] px-2 md:px-3 py-1 md:w-36">
+                  <span className="inline-block w-2 md:w-2.5 h-2 rounded-full bg-[#22C55E]"></span>
+                  <p className="ml-1 md:ml-2 text-xs md:text-sm font-medium text-[#14532D]">
+                    {item.time}
+                  </p>
+                </div>
+                <div className="ml-1">
+                  <p className="text-[13px] md:text-sm font-bold text-[#18181B]">
+                    {item.name}
+                  </p>
+                  <div className="flex mt-1">
+                    <img
+                      className="w-5 h-5 rounded-full"
+                      src={ReviewRecomendedUser}
+                      alt=""
+                    />
+                    <p className="ml-1 text-xs md:text-sm font-medium text-[#71717A]">
+                      {item.country}
+                    </p>
+                  </div>
+                </div>
+                <div className="ml-1">
+                  <p className="text-[13px] md:text-sm font-bold text-[#18181B]">
+                    {item.messageTitle}
+                  </p>
+                  <p className="text-xs md:text-sm font-medium text-[#71717A]">
+                    {item.messageContent}
+                  </p>
+                </div>
+                <div className="ml-1">
+                  <CustomButton
+                    outlined
+                    title="View"
+                    styles="py-2 px-4 md:px-8 text-[#4F46E5] border-[#E4E4E7] text-xs"
+                  />
+                </div>
               </div>
             </div>
-            <div className="ml-1">
-              <p className="text-[13px] md:text-sm font-bold text-[#18181B]">
-                Latest Mesage
-              </p>
-              <p className="text-xs md:text-sm font-medium text-[#71717A]">
-                This is a preview...
-              </p>
-            </div>
-            <div className="ml-1">
-              <CustomButton
-                outlined
-                title="View"
-                styles="py-2 px-4 md:px-8 text-[#4F46E5] border-[#E4E4E7] text-xs"
-              />
-            </div>
-          </div>
-        </div>
-        <div className="border-b border-[#E4E4E7B2] py-4">
-          <div className="md:w-11/12 flex items-center justify-between px-2 md:px-6">
-            <div className="flex items-center rounded-full bg-[#DCFCE7] px-2 md:px-3 py-1 md:w-36">
-              <span className="inline-block w-2 md:w-2.5 h-2 rounded-full bg-[#22C55E]"></span>
-              <p className="ml-1 md:ml-2 text-xs md:text-sm font-medium text-[#14532D]">
-                04:02 AM
-              </p>
-            </div>
-            <div className="ml-1">
-              <p className="text-[13px] md:text-sm font-bold text-[#18181B]">
-                Alex Joenes
-              </p>
-              <div className="flex mt-1">
-                <img
-                  className="w-5 h-5 rounded-full"
-                  src={ReviewRecomendedUser}
-                  alt=""
-                />
-                <p className="ml-1 text-xs md:text-sm font-medium text-[#71717A]">
-                  United States
-                </p>
-              </div>
-            </div>
-            <div className="ml-1">
-              <p className="text-[13px] md:text-sm font-bold text-[#18181B]">
-                Latest Mesage
-              </p>
-              <p className="text-xs md:text-sm font-medium text-[#71717A]">
-                This is a preview...
-              </p>
-            </div>
-            <div className="ml-1">
-              <CustomButton
-                outlined
-                title="View"
-                styles="py-2 px-4 md:px-8 text-[#4F46E5] border-[#E4E4E7] text-xs"
-              />
-            </div>
-          </div>
-        </div>
-        <div className="border-b border-[#E4E4E7B2] py-4">
-          <div className="md:w-11/12 flex items-center justify-between px-2 md:px-6">
-            <div className="flex items-center rounded-full bg-[#DCFCE7] px-2 md:px-3 py-1 md:w-36">
-              <span className="inline-block w-2 md:w-2.5 h-2 rounded-full bg-[#22C55E]"></span>
-              <p className="ml-1 md:ml-2 text-xs md:text-sm font-medium text-[#14532D]">
-                04:02 AM
-              </p>
-            </div>
-            <div className="ml-1">
-              <p className="text-[13px] md:text-sm font-bold text-[#18181B]">
-                Alex Joenes
-              </p>
-              <div className="flex mt-1">
-                <img
-                  className="w-5 h-5 rounded-full"
-                  src={ReviewRecomendedUser}
-                  alt=""
-                />
-                <p className="ml-1 text-xs md:text-sm font-medium text-[#71717A]">
-                  United States
-                </p>
-              </div>
-            </div>
-            <div className="ml-1">
-              <p className="text-[13px] md:text-sm font-bold text-[#18181B]">
-                Latest Mesage
-              </p>
-              <p className="text-xs md:text-sm font-medium text-[#71717A]">
-                This is a preview...
-              </p>
-            </div>
-            <div className="ml-1">
-              <CustomButton
-                outlined
-                title="View"
-                styles="py-2 px-4 md:px-8 text-[#4F46E5] border-[#E4E4E7] text-xs"
-              />
-            </div>
-          </div>
-        </div>
-        <div className="pt-4">
-          <div className="md:w-11/12 flex items-center justify-between px-2 md:px-6">
-            <div className="flex items-center rounded-full bg-[#DCFCE7] px-2 md:px-3 py-1 md:w-36">
-              <span className="inline-block w-2 md:w-2.5 h-2 rounded-full bg-[#22C55E]"></span>
-              <p className="ml-1 md:ml-2 text-xs md:text-sm font-medium text-[#14532D]">
-                04:02 AM
-              </p>
-            </div>
-            <div className="ml-1">
-              <p className="text-[13px] md:text-sm font-bold text-[#18181B]">
-                Alex Joenes
-              </p>
-              <div className="flex mt-1">
-                <img
-                  className="w-5 h-5 rounded-full"
-                  src={ReviewRecomendedUser}
-                  alt=""
-                />
-                <p className="ml-1 text-xs md:text-sm font-medium text-[#71717A]">
-                  United States
-                </p>
-              </div>
-            </div>
-            <div className="ml-1">
-              <p className="text-[13px] md:text-sm font-bold text-[#18181B]">
-                Latest Mesage
-              </p>
-              <p className="text-xs md:text-sm font-medium text-[#71717A]">
-                This is a preview...
-              </p>
-            </div>
-            <div className="ml-1">
-              <CustomButton
-                outlined
-                title="View"
-                styles="py-2 px-4 md:px-8 text-[#4F46E5] border-[#E4E4E7] text-xs"
-              />
-            </div>
-          </div>
-        </div>
+          )
+        )}
       </div>
     </DashboardLayout>
   );

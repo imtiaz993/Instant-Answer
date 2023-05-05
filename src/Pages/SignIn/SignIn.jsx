@@ -11,7 +11,7 @@ import StrategicSystemsLogo from "../../Assets/icons/strategic-systems.svg";
 import ClearBoxLogo from "../../Assets/icons/clearbox.svg";
 import { Link } from "react-router-dom";
 
-const Signup = () => {
+const SignIn = () => {
   return (
     <div className="flex flex-col-reverse lg:grid  lg:grid-cols-2 lg:items-center mx-auto lg:h-screen">
       <div className="bg-[#ECECFF] pb-10 lg:pb-0  mt-10 lg:mt-0 h-full flex items-center">
@@ -53,9 +53,9 @@ const Signup = () => {
           </div>
         </div>
       </div>
-      <div className="mt-20 lg:mt-10 px-4 lg:px-10 lg:w-4/5 lg:ml-auto">
+      <div className="mt-20 lg:mt-16 px-4 lg:px-10 lg:w-4/5 lg:ml-auto">
         <h1 className="text-4xl text-[#101828] leading-[60px] font-semibold">
-          Start Your Free Trial
+          Sign In To Your Account
         </h1>
         <p className="text-lg text-[#667085] mt-1 mb-4">
           No credit card required.
@@ -74,20 +74,13 @@ const Signup = () => {
           placeholder="Enter Password"
           onChange={() => {}}
         />
-        <CustomInput
-          label="Confirm Password"
-          prefix={PasswordIcon}
-          type="text"
-          placeholder="Enter Password"
-          onChange={() => {}}
-        />
         <CustomButton
           styles="mt-6 w-full flex justify-center"
-          title="Sign Up"
+          title="Sign In"
           onClick={() => {}}
         />
         <p className="mt-6 mb-8 text-sm text-center text-[#344054] font-medium">
-          By signing up, you agree to the{" "}
+          By signing in, you agree to the{" "}
           <a className="underline">Terms of Service</a> and{" "}
           <a className="underline">Privacy Policy</a>.
         </p>
@@ -96,14 +89,14 @@ const Signup = () => {
           onClick={() => {}}
         >
           <img className="mr-3" src={GoogleIcon} alt="" />{" "}
-          <span>Sign Up With Google</span>
+          <span>Sign In With Google</span>
         </button>
         <p className="pt-1 flex justify-end underline text-blue-600">
-          <Link to="/signin">Already have an account.</Link>
+          <Link to="/signup">Create an account.</Link>
         </p>
       </div>
     </div>
   );
 };
 
-export default Signup;
+export default SignIn;
