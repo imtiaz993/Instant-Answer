@@ -37,7 +37,7 @@ const Appbar = ({ setToggleNavbar }) => {
   };
 
   return (
-    <div className="fixed w-full lg:w-[calc(100%-288px)] bg-white border-b border-[rgba(0, 0, 0, 0.08)] flex justify-between lg:justify-end items-center h-14 md:h-[65px] pb-[3px] px-3">
+    <div className="fixed z-20 w-full lg:w-[calc(100%-288px)] bg-white border-b border-[rgba(0, 0, 0, 0.08)] flex justify-between lg:justify-end items-center h-14 md:h-[65px] pb-[3px] px-3">
       <div className="lg:hidden flex items-center">
         <img
           onClick={() => {

@@ -28,7 +28,7 @@ const Sidebar = ({ toggleNavber, setToggleNavbar }) => {
   ];
   return (
     <div
-      className={`absolute lg:static ${
+      className={`absolute z-10 lg:static ${
         toggleNavber ? "block h-screen" : "hidden"
       } lg:block  w-64 lg:w-72 border-r border-[rgba(0, 0, 0, 0.08)] bg-white`}
     >
