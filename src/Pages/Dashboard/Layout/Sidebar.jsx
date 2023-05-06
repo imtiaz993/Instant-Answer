@@ -42,7 +42,7 @@ const Sidebar = ({ toggleNavber, setToggleNavbar }) => {
           }}
           className="lg:hidden"
         >
-          <img className="-mt-2" src={CloseIcon} alt="" />
+          <img className="-mt-3" src={CloseIcon} alt="" />
         </div>
         <div>
           {pages.map((item) => (
