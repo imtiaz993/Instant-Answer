@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import PaymentForm from "./PaymentForm";
@@ -7,7 +7,61 @@ import BackIcon from "../../Assets/icons/back.svg";
 import StripeIcon from "../../Assets/icons/stripe.svg";
 
 const Billing = () => {
-  const stripePromise = loadStripe("your_stripe_public_key");
+  const stripePromise = loadStripe("pk_test_51KQyqLSD8i2a6PggVfKCmTtRqIJfi7rscyT2n4rxcIkJzkYVzLTNr73WHkg6a2xQXSRLO7U8NfUHq458NVvsZ72Z00NoOBQfTw");
+  const appearance = {
+    theme: "flat",
+    variables: {
+      fontFamily: ' "Gill Sans", sans-serif',
+      fontLineHeight: "1.5",
+      borderRadius: "10px",
+      colorBackground: "#F6F8FA",
+      colorPrimaryText: "#262626",
+    },
+    rules: {
+      ".Block": {
+        backgroundColor: "var(--colorBackground)",
+        boxShadow: "none",
+        padding: "12px",
+      },
+      ".Input": {
+        padding: "12px",
+      },
+      ".Input:disabled, .Input--invalid:disabled": {
+        color: "lightgray",
+      },
+      ".Tab": {
+        padding: "10px 12px 8px 12px",
+        border: "none",
+      },
+      ".Tab:hover": {
+        border: "none",
+        boxShadow:
+          "0px 1px 1px rgba(0, 0, 0, 0.03), 0px 3px 7px rgba(18, 42, 66, 0.04)",
+      },
+      ".Tab--selected, .Tab--selected:focus, .Tab--selected:hover": {
+        border: "none",
+        backgroundColor: "#fff",
+        boxShadow:
+          "0 0 0 1.5px var(--colorPrimaryText), 0px 1px 1px rgba(0, 0, 0, 0.03), 0px 3px 7px rgba(18, 42, 66, 0.04)",
+      },
+      ".Label": {
+        fontWeight: "500",
+      },
+    },
+  };
+  
+  const [clientSecret,setClientSecret]=useState("")
+  const options = {
+    clientSecret: clientSecret,
+    appearance: appearance,
+  };
+  useEffect(()=>{
+    (async () => {
+      const response = await fetch('localhost:4242/create-payment-intent');
+      const {client_secret: clientSecret} = await response.json();
+      setClientSecret(clientSecret)
+    })();
+  },[])
   return (
     <div className="grid lg:grid-cols-2  items-center">
       <div className="bg-[#FAFAFC] pb-8 ">
@@ -72,9 +126,9 @@ const Billing = () => {
         </div>
       </div>
       <div className="px-4 lg:px-10 mt-10">
-        <Elements stripe={stripePromise}>
+       {/* {clientSecret && <Elements stripe={stripePromise} options={options}>
           <PaymentForm />
-        </Elements>
+        </Elements>} */}
       </div>
     </div>
   );

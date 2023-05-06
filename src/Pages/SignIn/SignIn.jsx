@@ -13,10 +13,10 @@ import { Link } from "react-router-dom";
 
 const SignIn = () => {
   return (
-    <div className="flex flex-col-reverse lg:grid  lg:grid-cols-2 lg:items-center mx-auto lg:h-screen">
-      <div className="bg-[#ECECFF] pb-10 lg:pb-0  mt-10 lg:mt-0 h-full flex items-center">
+    <div className="flex flex-col-reverse lg:flex-row  lg:items-center mx-auto lg:h-screen">
+      <div className="bg-[#ECECFF] pb-10 lg:pb-0 lg:w-2/4  mt-10 lg:mt-0 h-full flex items-center auth-clip">
         <img className="absolute top-6 left-6 w-48" src={Logo} alt="" />
-        <div className="mt-10 px-4 lg:px-10 w-full lg:w-4/5 ">
+        <div className="mt-10 pl-4 lg:pl-10 w-full lg:w-11/12 ">
           <h1 className="text-3xl font-bold text-[#29303D] leading-10">
             Set up your AI assistant in just 5 minutes
           </h1>
@@ -46,14 +46,14 @@ const SignIn = () => {
           <p className="mb-10 text-xl text-[#29303D] font-bold">
             Trusted by 1000s of companies
           </p>
-          <div className="flex overflow-auto -mx-3">
+          <div className="flex overflow-auto hide-scroll-bar">
             <img className="mr-8" src={NextonLogo} alt="" />
             <img className="mr-8" src={StrategicSystemsLogo} alt="" />
             <img className="mr-8" src={ClearBoxLogo} alt="" />
           </div>
         </div>
       </div>
-      <div className="mt-20 lg:mt-16 px-4 lg:px-10 lg:w-4/5 lg:ml-auto">
+      <div className="mt-20 lg:mt-16 px-4 lg:px-10 lg:w-2/5 lg:ml-auto">
         <h1 className="text-4xl text-[#101828] leading-[60px] font-semibold">
           Sign In To Your Account
         </h1>

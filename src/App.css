@@ -1,3 +1,22 @@
 .hide-scroll-bar::-webkit-scrollbar {
-    display: none;
+  display: none;
+}
+.thumbnail-pdf .react-pdf__Page__canvas {
+  margin-left: -23px !important;
+}
+.react-pdf__Document, .react-pdf__Page{
+  height: 100% !important;
+}
+
+
+@media screen and (min-width: 500px) {
+  .pdf-preview .react-pdf__Page__canvas {
+    width: 100% !important;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .auth-clip{
+    clip-path: polygon(0% 0%, 100% 0, 94% 47%, 100% 100%, 0% 100%);
+  }
 }

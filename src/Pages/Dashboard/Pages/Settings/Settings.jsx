@@ -6,7 +6,7 @@ import CloseIcon from "../../../../Assets/icons/close.svg";
 
 const Settings = () => {
   const { acceptedFiles, getRootProps, getInputProps } = useDropzone({
-    accept: "image/jpeg, image/png, .pdf",
+    accept: "image/jpeg, image/png,",
     maxSize: 3000000,
     multiple: false,
   });
