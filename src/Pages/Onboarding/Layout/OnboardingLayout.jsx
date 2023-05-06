@@ -83,7 +83,7 @@ const OnboardingLayout = ({ children, setActiveTab, step, setStep }) => {
                   setActiveTab(Tabs[step + 1].title);
                 }
                 else{
-                  navigate("/dashboard/knowledge-base")
+                  navigate("/dashboard/dashboard")
                 }
               }}
             >
@@ -110,7 +110,7 @@ const OnboardingLayout = ({ children, setActiveTab, step, setStep }) => {
                   setActiveTab(Tabs[step + 1].title);
                 }
                 else{
-                  navigate("/dashboard/knowledge-base")
+                  navigate("/dashboard/dashboard")
                 }
               }}
             >
@@ -124,7 +124,7 @@ const OnboardingLayout = ({ children, setActiveTab, step, setStep }) => {
                   setActiveTab(Tabs[step + 1].title);
                 }
                 else{
-                  navigate("/dashboard/knowledge-base")
+                  navigate("/dashboard/dashboard")
                 }
               }}
             >
