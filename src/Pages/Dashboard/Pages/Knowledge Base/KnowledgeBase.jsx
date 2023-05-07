@@ -56,19 +56,19 @@ const KnowledgeBase = () => {
   return (
     <DashboardLayout>
       <div>
-        <h1 className="mb-4 text-xl font-bold text-[#29303D]">
+        <h1 className="mb-4 text-xl font-bold text-dark-gray">
           Knowledge base
         </h1>
-        <p className="mb-3 text-base text-[#000000]">
+        <p className="mb-3 text-base text-black">
           Right off the bat, your AI chat agent boasts a remarkable grasp of the
           world and can engage in conversations on a wide array of subjects. To
           further enhance its capabilities, you can equip it with specialized
           knowledge about your website, company, products, and more.
         </p>
-        <p className="mb-3 text-base text-[#000000]">
+        <p className="mb-3 text-base text-black">
           Discover more: Tips for Structuring Your Knowledge Base (link)
         </p>
-        <p className="mb-3 text-base text-[#000000]">
+        <p className="mb-3 text-base text-black">
           Even if you select a different secondary language for your chatbot in
           Settings, your knowledge base must be in English. Don't worry – your
           AI chat agent will automatically converse in your chosen language.
@@ -77,10 +77,10 @@ const KnowledgeBase = () => {
       <div className="px-4 md:px-8 py-8 bg-white border border-[rgba(102, 112, 133, 0.2]  rounded-xl">
         <div className="lg:flex justify-between ">
           <div>
-            <h1 className="mb-2 text-base font-bold text-[#29303D]">
+            <h1 className="mb-2 text-base font-bold text-dark-gray">
               Knowledge Base
             </h1>
-            <p className="mb-4 lg:mb-8 text-sm font-medium text-[#29303D]">
+            <p className="mb-4 lg:mb-8 text-sm font-medium text-dark-gray">
               Select the relevant knowledge tab & edit your knowledge!
             </p>
           </div>
@@ -93,8 +93,8 @@ const KnowledgeBase = () => {
               />
             </div>
             <div className="flex items-center mt-4 mb-4 lg:mb-0 lg:mt-2 lg:justify-end lg:w-60 text-left">
-              <span className="w-3 h-3 inline-block bg-[#FFDD55] rounded-full"></span>
-              <p className="ml-1 text-sm font-medium text-[#29303D70]">
+              <span className="w-3 h-3 inline-block bg-old-update-circle rounded-full"></span>
+              <p className="ml-1 text-sm font-medium text-last-upload">
                 5 Changes Since Last Retraining
               </p>
             </div>
@@ -104,7 +104,7 @@ const KnowledgeBase = () => {
           {Tabs.map((item, index) => (
             <div
               className={`flex items-center px-4 pb-1 whitespace-nowrap  cursor-pointer ${
-                index === step ? " border-b-2 border-[#7F56D9]" : ""
+                index === step ? " border-b-2 border-active-color" : ""
               }`}
               onClick={() => {
                 setStep(index);
@@ -114,7 +114,7 @@ const KnowledgeBase = () => {
               <img src={item.icon} alt="" />
               <p
                 className={`ml-2 text-sm font-bold ${
-                  index === step ? "text-[#7F56D9]" : "text-[#667085]"
+                  index === step ? "text-active-color" : "text-light-gray"
                 }`}
               >
                 {item.title}

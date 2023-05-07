@@ -16,36 +16,36 @@ const SignIn = () => {
   const navigate = useNavigate();
   return (
     <div className="flex flex-col-reverse lg:flex-row  lg:items-center mx-auto lg:h-screen">
-      <div className="bg-[#ECECFF] pb-10 lg:pb-0 lg:w-2/4  mt-10 lg:mt-0 h-full flex items-center auth-clip">
+      <div className="bg-light-background pb-10 lg:pb-0 lg:w-2/4  mt-10 lg:mt-0 h-full flex items-center auth-clip">
         <img className="absolute top-6 left-6 w-48" src={Logo} alt="" />
         <div className="mt-10 pl-4 lg:pl-10 w-full lg:w-11/12 ">
-          <h1 className="text-3xl font-bold text-[#29303D] leading-10">
+          <h1 className="text-3xl font-bold text-dark-gray leading-10">
             Set up your AI assistant in just 5 minutes
           </h1>
-          <p className="mt-4 text-base text-[#667085]">
+          <p className="mt-4 text-base text-light-gray">
             Set up your AI assistant in just 5 minutes
           </p>
           <div className="mt-6 mb-10">
             <div className="flex mb-5">
               <img src={TickIcon} alt="" />
-              <p className="ml-2 text-base text-[#667085]">
+              <p className="ml-2 text-base text-light-gray">
                 Boost your revenue by up to 24%
               </p>
             </div>
             <div className="flex mb-5">
               <img src={TickIcon} alt="" />
-              <p className="ml-2 text-base text-[#667085]">
+              <p className="ml-2 text-base text-light-gray">
                 Get 24/7 live chat at a fraction of the cost
               </p>
             </div>
             <div className="flex mb-5">
               <img src={TickIcon} alt="" />
-              <p className="ml-2 text-base text-[#667085]">
+              <p className="ml-2 text-base text-light-gray">
                 Have the AI agent answer based on your custom knowledge
               </p>
             </div>
           </div>
-          <p className="mb-10 text-xl text-[#29303D] font-bold">
+          <p className="mb-10 text-xl text-dark-gray font-bold">
             Trusted by 1000s of companies
           </p>
           <div className="flex overflow-auto hide-scroll-bar">
@@ -56,10 +56,10 @@ const SignIn = () => {
         </div>
       </div>
       <div className="mt-20 lg:mt-16 px-4 lg:px-10 lg:w-2/5 lg:ml-auto">
-        <h1 className="text-4xl text-[#101828] leading-[60px] font-semibold">
+        <h1 className="text-4xl text-darker-gray leading-[60px] font-semibold">
           Sign In To Your Account
         </h1>
-        <p className="text-lg text-[#667085] mt-1 mb-4">
+        <p className="text-lg text-light-gray mt-1 mb-4">
           No credit card required.
         </p>
         <CustomInput
@@ -81,13 +81,13 @@ const SignIn = () => {
           title="Sign In"
           onClick={() => {navigate('/billing')}}
         />
-        <p className="mt-6 mb-8 text-sm text-center text-[#344054] font-medium">
+        <p className="mt-6 mb-8 text-sm text-center text-dark-blue font-medium">
           By signing in, you agree to the{" "}
           <a className="underline">Terms of Service</a> and{" "}
           <a className="underline">Privacy Policy</a>.
         </p>
         <button
-          className="w-full flex items-center justify-center border border-[rgba(0, 0, 0, 0.26)] rounded-xl py-3 px-5 text-[#667085] text-base font-medium"
+          className="w-full flex items-center justify-center border border-[rgba(0, 0, 0, 0.26)] rounded-xl py-3 px-5 text-light-gray text-base font-medium"
           onClick={() => {}}
         >
           <img className="mr-3" src={GoogleIcon} alt="" />{" "}

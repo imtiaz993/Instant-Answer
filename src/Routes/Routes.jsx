@@ -1,13 +1,12 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "../Pages/Home/Home";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Signup from "../Pages/Signup/Signup";
 import Billing from "../Pages/Billing/Billing";
 import Onboarding from "../Pages/Onboarding/Modules/Onboarding";
 import Dashboard from "../Pages/Dashboard/Pages/Dashboard/Dashboard";
 import Inbox from "../Pages/Dashboard/Pages/Inbox/Inbox";
 import KnowledgeBase from "../Pages/Dashboard/Pages/Knowledge Base/KnowledgeBase";
-import Recommendations from "../Pages/Recommendations/Recommendations";
+import Recommendations from "../Pages/Dashboard/Pages/Recommendations/Recommendations";
 import Integrations from "../Pages/Dashboard/Pages/Integrations/Integrations";
 import Settings from "../Pages/Dashboard/Pages/Settings/Settings";
 import Subscriptions from "../Pages/Dashboard/Pages/Subscriptions/Subscriptions";
@@ -17,7 +16,7 @@ const WebRoutes = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Navigate to="/signin" replace />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/billing" element={<Billing />} />

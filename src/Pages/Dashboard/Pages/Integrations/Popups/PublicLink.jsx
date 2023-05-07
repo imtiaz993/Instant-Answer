@@ -22,14 +22,14 @@ const PublicLink = ({ setModal }) => {
   };
 
   return (
-    <div className="flex justify-center items-center fixed top-0 bottom-0 left-0 right-0 w-screen h-screen bg-[#0000008F]">
-      <div className="py-8 px-7 w-11/12 md:w-full mx-auto z-10 max-w-lg bg-white border border-[#66708533] rounded-lg">
-        <h1 className="text-xl font-bold text-[#29303D]">Public Link</h1>
+    <div className="flex justify-center items-center fixed z-30 top-0 bottom-0 left-0 right-0 w-screen h-screen bg-modal-overlay">
+      <div className="py-8 px-7 w-11/12 md:w-full mx-auto z-10 max-w-lg bg-white border border-darker-border rounded-lg">
+        <h1 className="text-xl font-bold text-dark-gray">Public Link</h1>
         <div className="flex justify-between items-center">
-          <p className="mt-4 text-sm font-medium text-[#29303D]">
+          <p className="mt-4 text-sm font-medium text-dark-gray">
             Please enter a link
           </p>
-          <p className="mt-4 text-sm font-medium text-[#29303D]">
+          <p className="mt-4 text-sm font-medium text-dark-gray">
             {copySuccess}
           </p>
         </div>
@@ -51,7 +51,7 @@ const PublicLink = ({ setModal }) => {
           <div className="flex mt-6">
             <CustomButton
               title="Cancel"
-              styles={"bg-white text-[#667085] px-4 py-2"}
+              styles={"bg-white text-light-gray px-4 py-2"}
               outlined
               onClick={() => {
                 setModal("");

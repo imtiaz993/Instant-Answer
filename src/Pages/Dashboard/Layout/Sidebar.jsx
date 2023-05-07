@@ -15,7 +15,6 @@ const Sidebar = ({ toggleNavber, setToggleNavbar }) => {
   const location = useLocation();
   const pathArray = location.pathname.split("/");
   const currentPath = pathArray[pathArray.length - 1].replace(/-/g, " ");
-  console.log(currentPath);
 
   const pages = [
     { name: "Dashboard", icon: DashboardIcon },
@@ -48,7 +47,7 @@ const Sidebar = ({ toggleNavber, setToggleNavbar }) => {
           {pages.map((item) => (
             <div
               className={`py-2 px-3 mb-1 flex items-center ${
-                item.name.toLowerCase() === currentPath && "bg-[#7F56D9]"
+                item.name.toLowerCase() === currentPath && "bg-active-color"
               } rounded-md cursor-pointer`}
               onClick={() => {
                 navigate(
@@ -61,7 +60,7 @@ const Sidebar = ({ toggleNavber, setToggleNavbar }) => {
                 className={`ml-2 text-base whitespace-nowrap ${
                   item.name.toLowerCase() === currentPath
                     ? "text-white"
-                    : "text-[#667085]"
+                    : "text-light-gray"
                 }  font-medium`}
               >
                 {item.name}
