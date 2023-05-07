@@ -275,7 +275,7 @@ const EmbededJs = ({ setModal }) => {
       {showModal &&
         ReactDOM.createPortal(
           <div className="w-full h-full flex justify-center items-center">
-            <div ref={modalRef} className="fixed top-[13%]">
+            <div ref={modalRef} className="fixed z-40 top-[13%]">
               <SketchPicker
                 ref={modalRef}
                 className="h-[300px]"
