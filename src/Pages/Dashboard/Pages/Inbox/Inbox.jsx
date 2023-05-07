@@ -72,12 +72,12 @@ const Inbox = () => {
   return (
     <DashboardLayout>
       <div>
-        <h1 className="mb-4 text-xl font-bold text-[#29303D]">Inbox</h1>
+        <h1 className="mb-4 text-xl font-bold text-dark-gray">Inbox</h1>
       </div>
       <div className="flex mb-4 border-b border-[#e2e2e2]">
         <div
           className={`flex w-24 items-center justify-center cursor-pointer py-2 ${
-            activeTab === "All" && "border-b-2 border-[#7F56D9]"
+            activeTab === "All" && "border-b-2 border-active-color"
           }`}
           onClick={() => {
             setactiveTab("All");
@@ -86,7 +86,7 @@ const Inbox = () => {
           <img src={InboxIcon} alt="" />
           <p
             className={`whitespace-nowrap ml-1 text-sm font-bold ${
-              activeTab === "All" ? "text-[#7F56D9]" : "text-[#667085]"
+              activeTab === "All" ? "text-active-color" : "text-light-gray"
             }`}
           >
             All
@@ -94,7 +94,7 @@ const Inbox = () => {
         </div>
         <div
           className={`flex items-center cursor-pointer py-2 ${
-            activeTab === "Review Recommended" && "border-b-2 border-[#7F56D9]"
+            activeTab === "Review Recommended" && "border-b-2 border-active-color"
           }`}
           onClick={() => {
             setactiveTab("Review Recommended");
@@ -104,8 +104,8 @@ const Inbox = () => {
           <p
             className={`whitespace-nowrap ml-1 text-sm font-bold ${
               activeTab === "Review Recommended"
-                ? "text-[#7F56D9]"
-                : "text-[#667085]"
+                ? "text-active-color"
+                : "text-light-gray"
             }`}
           >
             Review Recommended
@@ -136,7 +136,7 @@ const Inbox = () => {
                   <img className="w-full h-full rounded-full" src="" alt="" />
                 ) : (
                   <div className=" bg-[#FFF4DE] rounded-full w-14 h-14 inline-flex items-center justify-center">
-                    <h1 className="text-sm font-bold text-[#EEBC59]">
+                    <h1 className="text-sm font-bold text-yellow-numbering">
                       {item.avatarName}
                     </h1>
                   </div>
@@ -144,17 +144,17 @@ const Inbox = () => {
               </div>
               <div className="ml-2 w-[calc(100%-56px)]">
                 <div className="flex justify-between">
-                  <h1 className="text-lg font-semibold text-[#667085]">
+                  <h1 className="text-lg font-semibold text-light-gray">
                     {item.name}
                   </h1>
                   <div className="flex flex-nowrap items-start mt-1">
-                    <p className="text-sm text-[#667085]">{item.update}</p>
+                    <p className="text-sm text-light-gray">{item.update}</p>
                     {item.isRecomended && (
                       <img className="ml-1" src={ReviewIcon} alt="" />
                     )}
                   </div>
                 </div>
-                <p className="text-sm text-[#667085] text-ellipsis w-full">
+                <p className="text-sm text-light-gray text-ellipsis w-full">
                   {item.desc}
                 </p>
               </div>
@@ -176,10 +176,10 @@ const Inbox = () => {
               <img className="w-5" src={BackIcon} alt="" />
             </div>
             <div>
-              <h1 className="text-lg font-semibold text-[#667085]">
+              <h1 className="text-lg font-semibold text-light-gray">
                 Daniel Adams
               </h1>
-              <p className="text-sm text-[#667085]">Today at 14:24 PM</p>
+              <p className="text-sm text-light-gray">Today at 14:24 PM</p>
             </div>
           </div>
           <div className="bg-[#F0F3F775] pt-3 pb-2 mt-2 w-full flex flex-col justify-between h-[87%]">
@@ -189,7 +189,7 @@ const Inbox = () => {
                   Hello, i would like more information regarding your product.
                 </p>
               </div>
-              <div className="flex ml-auto bg-[#7F56D9] rounded-2xl p-3 pt-2 w-4/5 md:w-1/2 mb-2">
+              <div className="flex ml-auto bg-active-color rounded-2xl p-3 pt-2 w-4/5 md:w-1/2 mb-2">
                 <p className="text-base text-white">
                   Thank you for getting in touch. What is your name?
                 </p>
@@ -197,7 +197,7 @@ const Inbox = () => {
               <div className="flex bg-[#E6E5EB] rounded-2xl p-3 pt-2 w-4/5 md:w-1/2 mb-2">
                 <p className="text-base">My name is Daniel Adams.</p>
               </div>
-              <div className="flex ml-auto bg-[#7F56D9] rounded-2xl p-3 pt-2 w-4/5 md:w-1/2 mb-2">
+              <div className="flex ml-auto bg-active-color rounded-2xl p-3 pt-2 w-4/5 md:w-1/2 mb-2">
                 <p className="text-base text-white">
                   Nice to meet you Daniel, which product would you like to know
                   about specfically?
@@ -207,7 +207,7 @@ const Inbox = () => {
             <div className="px-4">
               {false && (
                 <div className="bg-white rounded border border-[#0000001A] py-3 flex justify-center">
-                  <p className="text-sm font-medium text-[#667085]">
+                  <p className="text-sm font-medium text-light-gray">
                     Manual Takeover
                   </p>
                 </div>
@@ -216,7 +216,7 @@ const Inbox = () => {
                 type="text"
                 placeholder="Please type a message..."
                 suffix={
-                  <button className="ml-2 bg-[#7F56D9] rounded-lg py-1.5 px-3  border-none text-white text-sm font-medium">
+                  <button className="ml-2 bg-active-color rounded-lg py-1.5 px-3  border-none text-white text-sm font-medium">
                     Send
                   </button>
                 }

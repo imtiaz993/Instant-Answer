@@ -1,5 +1,5 @@
 import React from 'react'
-import DashboardLayout from '../Dashboard/Layout/DashboardLayout'
+import DashboardLayout from '../../Layout/DashboardLayout'
 
 const Recommendations = () => {
   return (

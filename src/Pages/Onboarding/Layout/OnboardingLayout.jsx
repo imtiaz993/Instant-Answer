@@ -20,7 +20,7 @@ const OnboardingLayout = ({ children, setActiveTab, step, setStep }) => {
   ];
 
   return (
-    <div className="bg-[#FAFAFC]">
+    <div className="bg-layout-background">
       <div className="w-11/12 md:w-4/5 py-6 md:py-10 mx-auto">
         <img
           className="mx-auto mb-6 md:mb-8 w-1/2 md:w-auto"
@@ -28,21 +28,21 @@ const OnboardingLayout = ({ children, setActiveTab, step, setStep }) => {
           alt=""
         />
         <div className="px-4 md:px-8 py-8 bg-white border border-[rgba(102, 112, 133, 0.2]  rounded-xl">
-          <h1 className="mb-5 text-3xl md:text-4xl font-bold text-[#29303D]">
+          <h1 className="mb-5 text-3xl md:text-4xl font-bold text-dark-gray">
             Welcome to Your InstantAnswer Trial!
           </h1>
-          <p className="text-base text-[#000000]">
+          <p className="text-base text-black">
             We're excited to have you on board! To help your AI chat agent
             better understand your business and provide top-notch service,
           </p>
-          <p className="mb-8 text-base text-[#000000]">
+          <p className="mb-8 text-base text-black">
             please provide some information about your company and offerings.
           </p>
           <div className="flex overflow-x-auto -mx-4 md:mx-0 px-2 md:px-0 hide-scroll-bar border-b-2">
             {Tabs.map((item, index) => (
               <div
                 className={`flex items-center px-4 pb-1 whitespace-nowrap cursor-pointer ${
-                  index === step ? "border-b-2 border-[#7F56D9]" : ""
+                  index === step ? "border-b-2 border-active-color" : ""
                 }`}
                 onClick={() => {
                   setStep(index);
@@ -52,7 +52,7 @@ const OnboardingLayout = ({ children, setActiveTab, step, setStep }) => {
                 <img src={item.icon} alt="" />
                 <p
                   className={`ml-2 text-sm font-bold ${
-                    index === step ? "text-[#7F56D9]" : "text-[#667085]"
+                    index === step ? "text-active-color" : "text-light-gray"
                   }`}
                 >
                   {item.title}
@@ -65,7 +65,7 @@ const OnboardingLayout = ({ children, setActiveTab, step, setStep }) => {
         <div className="md:mt-8 flex flex-col md:flex-row justify-between items-center">
           <div className="flex my-4 md:my-0">
             <button
-              className="py-2 text-[#000000] text-base"
+              className="py-2 text-black text-base"
               onClick={() => {
                 if (step !==0) {
                   setStep(step - 1);
@@ -76,7 +76,7 @@ const OnboardingLayout = ({ children, setActiveTab, step, setStep }) => {
               Back
             </button>
             <button
-              className="md:hidden ml-10 bg-[#7F56D9] rounded-lg py-2 px-6  border-none text-white text-sm font-medium"
+              className="md:hidden ml-10 bg-active-color rounded-lg py-2 px-6  border-none text-white text-sm font-medium"
               onClick={() => {
                 if (step !==Tabs.length-1) {
                   setStep(step + 1);
@@ -96,14 +96,14 @@ const OnboardingLayout = ({ children, setActiveTab, step, setStep }) => {
               .map((item, index) => (
                 <span
                   className={`mr-2 w-3 h-3 rounded-full ${
-                    index === step ? "bg-[#7F56D9]" : "bg-[#DFD0FF]"
+                    index === step ? "bg-active-color" : "bg-[#DFD0FF]"
                   } inline-block cursor-default`}
                 ></span>
               ))}
           </div>
           <div className="flex">
             <button
-              className="py-2 text-[#000000] text-base"
+              className="py-2 text-black text-base"
               onClick={() => {
                 if (step !==Tabs.length-1) {
                   setStep(step + 1);
@@ -117,7 +117,7 @@ const OnboardingLayout = ({ children, setActiveTab, step, setStep }) => {
               Skip
             </button>
             <button
-              className="hidden md:block ml-10 bg-[#7F56D9] rounded-lg py-2 px-6  border-none text-white text-sm font-medium"
+              className="hidden md:block ml-10 bg-active-color rounded-lg py-2 px-6  border-none text-white text-sm font-medium"
               onClick={() => {
                 if (step !==Tabs.length-1) {
                   setStep(step + 1);

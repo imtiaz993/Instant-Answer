@@ -82,28 +82,28 @@ const Dashboard = () => {
             />
           </div>
           <div className="ml-3">
-            <h1 className="text-lg font-bold text-[#18181B]">
+            <h1 className="text-lg font-bold text-dark-heading">
               Hey Donna Jones! 👋
             </h1>
-            <p className="text-sm text-[#71717A]">
+            <p className="text-sm text-dashboard-primary-text">
               Here's what your AI agent has been up to lately
             </p>
           </div>
         </div>
         <div className="flex mt-4 md:mt-0">
-          <div className="bg-white border border-[#667085] rounded-md px-4 h-10 flex items-center justify-center cursor-pointer">
+          <div className="bg-white border border-light-gray rounded-md px-4 h-10 flex items-center justify-center cursor-pointer">
             <img src={CalenderIcon} alt="" />
             <p className="ml-1 text-sm font-medium text-[#52525B]">
               Yesterday (Jan 5)
             </p>
           </div>
-          <div className="ml-4 bg-white border border-[#667085] rounded-md w-11 h-10 flex items-center justify-center cursor-pointer">
+          <div className="ml-4 bg-white border border-light-gray rounded-md w-11 h-10 flex items-center justify-center cursor-pointer">
             <img src={FilterIcon} alt="" />
           </div>
         </div>
       </div>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-5 my-5">
-        <div className="bg-white border border-[#E2E8F0] rounded-xl p-4">
+        <div className="bg-white border border-dashboard-card-border rounded-xl p-4">
           <div className="flex justify-between">
             <div className="w-10 h-10 rounded-full bg-[#EBDBFF4D] flex justify-center items-center">
               <img src={ChatsStartedIcon} alt="" />
@@ -115,15 +115,15 @@ const Dashboard = () => {
                   +16.24 %
                 </p>
               </div>
-              <p className="text-xs text-[#71717A]">vs last period</p>
+              <p className="text-xs text-dashboard-primary-text">vs last period</p>
             </div>
           </div>
           <div className="mt-2">
-            <h1 className="text-xl font-bold text-[#18181B]">204</h1>
-            <p className="text-xs md:text-sm text-[#71717A]">Chats Started </p>
+            <h1 className="text-xl font-bold text-dark-heading">204</h1>
+            <p className="text-xs md:text-sm text-dashboard-primary-text">Chats Started </p>
           </div>
         </div>
-        <div className="bg-white border border-[#E2E8F0] rounded-xl p-4">
+        <div className="bg-white border border-dashboard-card-border rounded-xl p-4">
           <div className="flex justify-between">
             <div className="w-10 h-10 rounded-full bg-[#EBDBFF4D] flex justify-center items-center">
               <img src={KnowledgeBaseEntriesIcon} alt="" />
@@ -133,17 +133,17 @@ const Dashboard = () => {
                 <img src={InclineIcon} alt="" />
                 <p className="ml-1 text-sm font-medium text-[#1E9268]">23%</p>
               </div>
-              <p className="text-xs text-[#71717A]">vs last period</p>
+              <p className="text-xs text-dashboard-primary-text">vs last period</p>
             </div>
           </div>
           <div className="mt-2">
-            <h1 className="text-xl font-bold text-[#18181B]">198</h1>
-            <p className="text-xs md:text-sm text-[#71717A]">
+            <h1 className="text-xl font-bold text-dark-heading">198</h1>
+            <p className="text-xs md:text-sm text-dashboard-primary-text">
               Knowledge Base Entries{" "}
             </p>
           </div>
         </div>
-        <div className="bg-white border border-[#E2E8F0] rounded-xl p-4">
+        <div className="bg-white border border-dashboard-card-border rounded-xl p-4">
           <div className="flex justify-between">
             <div className="w-10 h-10 rounded-full bg-[#EBDBFF4D] flex justify-center items-center">
               <img src={ChatInteractionIcon} alt="" />
@@ -155,17 +155,17 @@ const Dashboard = () => {
                   12.42%
                 </p>
               </div>
-              <p className="text-xs text-[#71717A]">vs last period</p>
+              <p className="text-xs text-dashboard-primary-text">vs last period</p>
             </div>
           </div>
           <div className="mt-2">
-            <h1 className="text-xl font-bold text-[#18181B]">2.45%</h1>
-            <p className="text-xs md:text-sm text-[#71717A]">
+            <h1 className="text-xl font-bold text-dark-heading">2.45%</h1>
+            <p className="text-xs md:text-sm text-dashboard-primary-text">
               Chat Interaction Rate{" "}
             </p>
           </div>
         </div>
-        <div className="bg-white border border-[#E2E8F0] rounded-xl p-4">
+        <div className="bg-white border border-dashboard-card-border rounded-xl p-4">
           <div className="flex justify-between">
             <div className="w-10 h-10 rounded-full bg-[#EBDBFF4D] flex justify-center items-center">
               <img src={MessageAnsweredIcon} alt="" />
@@ -177,26 +177,26 @@ const Dashboard = () => {
                   16.25%
                 </p>
               </div>
-              <p className="text-xs text-[#71717A]">vs last period</p>
+              <p className="text-xs text-dashboard-primary-text">vs last period</p>
             </div>
           </div>
           <div className="mt-2">
-            <h1 className="text-xl font-bold text-[#18181B]">2404</h1>
-            <p className="text-xs md:text-sm text-[#71717A]">
+            <h1 className="text-xl font-bold text-dark-heading">2404</h1>
+            <p className="text-xs md:text-sm text-dashboard-primary-text">
               Messages Answered{" "}
             </p>
           </div>
         </div>
       </div>
       <div className="md:flex gap-5 mb-5 md:h-[380px] overflow-hidden">
-        <div className="mb-5 md:mb-0 md:w-[calc(100%-320px)] bg-white border border-[#E2E8F0] rounded-xl py-4 px-2 md:px-4">
+        <div className="mb-5 md:mb-0 md:w-[calc(100%-320px)] bg-white border border-dashboard-card-border rounded-xl py-4 px-2 md:px-4">
           <BarChart />
         </div>
-        <div className="min-w-[320px] h-[390px] md:h-auto overflow-y-auto  bg-white border border-[#E2E8F0] rounded-xl p-4">
-          <h1 className="text-base font-bold text-[#18181B]">
+        <div className="min-w-[320px] h-[390px] md:h-auto overflow-y-auto  bg-white border border-dashboard-card-border rounded-xl p-4">
+          <h1 className="text-base font-bold text-dark-heading">
             Latest Chats (Review Recommended)
           </h1>
-          <p className="text-sm text-[#71717A]">
+          <p className="text-sm text-dashboard-primary-text">
             Review these chats as soon as possible to ensure maximum bot
             accuracy.
           </p>
@@ -215,10 +215,10 @@ const Dashboard = () => {
                     />
                   </div>
                   <div className="ml-3">
-                    <h1 className="text-sm font-bold text-[#18181B]">
+                    <h1 className="text-sm font-bold text-dark-heading">
                       {item.name}
                     </h1>
-                    <p className="text-sm text-[#71717A]">{item.update}</p>
+                    <p className="text-sm text-dashboard-primary-text">{item.update}</p>
                   </div>
                 </div>
                 <div>
@@ -247,8 +247,8 @@ const Dashboard = () => {
       <div className="border bg-white border-[#E4E4E7] rounded-xl py-6 my-3">
         <div className="md:w-11/12 flex items-start justify-between px-6 mb-4">
           <div>
-            <h1 className="text-base font-bold text-[#18181B]">All Chats</h1>
-            <p className="text-sm text-[#71717A]">Your latest chats</p>
+            <h1 className="text-base font-bold text-dark-heading">All Chats</h1>
+            <p className="text-sm text-dashboard-primary-text">Your latest chats</p>
           </div>
           <div className="flex items-center">
             <p
@@ -283,7 +283,7 @@ const Dashboard = () => {
                   </p>
                 </div>
                 <div className="ml-1">
-                  <p className="text-[13px] md:text-sm font-bold text-[#18181B]">
+                  <p className="text-[13px] md:text-sm font-bold text-dark-heading">
                     {item.name}
                   </p>
                   <div className="flex mt-1">
@@ -292,16 +292,16 @@ const Dashboard = () => {
                       src={ReviewRecomendedUser}
                       alt=""
                     />
-                    <p className="ml-1 text-xs md:text-sm font-medium text-[#71717A]">
+                    <p className="ml-1 text-xs md:text-sm font-medium text-dashboard-primary-text">
                       {item.country}
                     </p>
                   </div>
                 </div>
                 <div className="ml-1">
-                  <p className="text-[13px] md:text-sm font-bold text-[#18181B]">
+                  <p className="text-[13px] md:text-sm font-bold text-dark-heading">
                     {item.messageTitle}
                   </p>
-                  <p className="text-xs md:text-sm font-medium text-[#71717A]">
+                  <p className="text-xs md:text-sm font-medium text-dashboard-primary-text">
                     {item.messageContent}
                   </p>
                 </div>

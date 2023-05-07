@@ -48,19 +48,19 @@ const EmbededJs = ({ setModal }) => {
   ));
   console.log(showModal);
   return (
-    <div className="flex justify-center md:items-center fixed top-0 bottom-0 left-0 right-0 w-screen h-screen bg-[#0000008F]">
+    <div className="flex justify-center md:items-center fixed z-30 top-0 bottom-0 left-0 right-0 w-screen h-screen bg-modal-overlay">
       <div
-        className="max-h-[calc(100vh-30%)] md:max-h-[calc(100vh-15%)] relative top-[10%] md:top-0 overflow-y-auto py-8 px-7 w-11/12 md:w-full mx-auto z-10 max-w-lg bg-white border border-[#66708533] rounded-lg"
+        className="max-h-[calc(100vh-30%)] md:max-h-[calc(100vh-15%)] relative top-[10%] md:top-0 overflow-y-auto py-8 px-7 w-11/12 md:w-full mx-auto z-10 max-w-lg bg-white border border-darker-border rounded-lg"
         // onClick={() => {
         //   setShowModal(false);
         // }}
       >
-        <h1 className="text-xl font-bold text-[#29303D]">Embeded JS Code</h1>
+        <h1 className="text-xl font-bold text-dark-gray">Embeded JS Code</h1>
 
         <div>
           <div className="my-4">
-            <p className="text-sm font-bold text-[#29303D]">Web widget</p>
-            <p className="text-sm mt-2 text-[#29303D]">
+            <p className="text-sm font-bold text-dark-gray">Web widget</p>
+            <p className="text-sm mt-2 text-dark-gray">
               To add the web widget to your website include this JavaScript
               snippet at the end of your HEAD tag:
             </p>
@@ -71,10 +71,10 @@ const EmbededJs = ({ setModal }) => {
             </p>
           </div>
           <div className="my-4">
-            <p className="text-sm font-bold text-[#29303D]">
+            <p className="text-sm font-bold text-dark-gray">
               WordPress Integration
             </p>
-            <p className="text-sm mt-2 text-[#29303D]">
+            <p className="text-sm mt-2 text-dark-gray">
               If you're using WordPress, you can find multiple tutorials showing{" "}
               <a
                 className="underline"
@@ -97,10 +97,10 @@ const EmbededJs = ({ setModal }) => {
             </p>
           </div>
           <div className="my-4">
-            <p className="text-sm font-bold text-[#29303D]">
+            <p className="text-sm font-bold text-dark-gray">
               iFrame Integration
             </p>
-            <p className="text-sm mt-2 text-[#29303D]">
+            <p className="text-sm mt-2 text-dark-gray">
               If you're using iFrame, you can find multiple tutorials showing{" "}
               <a
                 className="underline"
@@ -113,8 +113,8 @@ const EmbededJs = ({ setModal }) => {
             </p>
           </div>
           <div className="my-4">
-            <p className="text-sm font-bold text-[#29303D]">Custom color</p>
-            <p className="text-sm mt-2 text-[#29303D]">
+            <p className="text-sm font-bold text-dark-gray">Custom color</p>
+            <p className="text-sm mt-2 text-dark-gray">
               Change the color of your web widget button to complement your
               brand
             </p>
@@ -228,8 +228,8 @@ const EmbededJs = ({ setModal }) => {
             </div>
           </div>
           <div className="my-4">
-            <p className="text-sm font-bold text-[#29303D]">AI Avatar</p>
-            <p className="text-sm mt-2 text-[#29303D]">
+            <p className="text-sm font-bold text-dark-gray">AI Avatar</p>
+            <p className="text-sm mt-2 text-dark-gray">
               Change the avatar picture of your AI Assistant
             </p>
             <div
@@ -238,10 +238,10 @@ const EmbededJs = ({ setModal }) => {
                   "flex flex-col justify-center items-center w-56 h-36 mt-5 mb-5 rounded-xl border border-dashed border-[#66708547] cursor-pointer",
               })}
             >
-              <p className="text-sm font-medium text-[#29303D]">
+              <p className="text-sm font-medium text-dark-gray">
                 Drag or upload your image
               </p>
-              <button className="mt-3 w-24 h-10 bg-[#6670851A] rounded text-sm font-medium text-[#29303D]">
+              <button className="mt-3 w-24 h-10 bg-[#6670851A] rounded text-sm font-medium text-dark-gray">
                 Choose File
               </button>
             </div>
@@ -256,7 +256,7 @@ const EmbededJs = ({ setModal }) => {
           <div className="flex">
             <CustomButton
               title="Cancel"
-              styles={"bg-white text-[#667085] px-4 py-2"}
+              styles={"bg-white text-light-gray px-4 py-2"}
               outlined
               onClick={() => {
                 setModal("");

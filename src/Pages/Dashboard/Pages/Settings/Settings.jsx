@@ -24,10 +24,10 @@ const Settings = () => {
     <DashboardLayout>
       <div>
         <div>
-          <h1 className="mb-4 text-xl font-bold text-[#29303D]">
+          <h1 className="mb-4 text-xl font-bold text-dark-gray">
             Customize Your AI Chat Agent for a Perfect Fit!
           </h1>
-          <p className="mb-3 text-base text-[#000000]">
+          <p className="mb-3 text-base text-black">
             Let's fine-tune your AI chat agent to align with your business's
             unique needs and style. Tailor its language, personality,
             creativity, and more to create the ultimate conversational
@@ -38,15 +38,15 @@ const Settings = () => {
           <div className="mb-8">
             <div className="flex">
               <div>
-                <h1 className="w-7 h-7 inline-flex items-center justify-center text-sm font-bold text-white bg-[#EEBC59] rounded-full">
+                <h1 className="w-7 h-7 inline-flex items-center justify-center text-sm font-bold text-white bg-yellow-numbering rounded-full">
                   1
                 </h1>
               </div>
-              <h1 className="ml-2 inline-block text-base font-bold text-[#29303D]">
+              <h1 className="ml-2 inline-block text-base font-bold text-dark-gray">
                 Select agent language
               </h1>
             </div>
-            <p className="mt-3 mb-2 text-xs font-medium text-[#29303D]">
+            <p className="mt-3 mb-2 text-xs font-medium text-dark-gray">
               Select the language in which your AI chat agent will communicate
               with your customers.
             </p>
@@ -55,15 +55,15 @@ const Settings = () => {
           <div className="my-8">
             <div className="flex">
               <div>
-                <h1 className="w-7 h-7 inline-flex items-center justify-center text-sm font-bold text-white bg-[#EEBC59] rounded-full">
+                <h1 className="w-7 h-7 inline-flex items-center justify-center text-sm font-bold text-white bg-yellow-numbering rounded-full">
                   2
                 </h1>
               </div>
-              <h1 className="ml-2 inline-block text-base font-bold text-[#29303D]">
+              <h1 className="ml-2 inline-block text-base font-bold text-dark-gray">
                 Product / service / Company nameSelect agent personality
               </h1>
             </div>
-            <p className="mt-3 mb-2 text-xs font-medium text-[#29303D]">
+            <p className="mt-3 mb-2 text-xs font-medium text-dark-gray">
               From classic to mysterious, choose a personality that best
               complements your business's vibe.
             </p>
@@ -72,15 +72,15 @@ const Settings = () => {
           <div className="my-8">
             <div className="flex">
               <div>
-                <h1 className="w-7 h-7 inline-flex items-center justify-center text-sm font-bold text-white bg-[#EEBC59] rounded-full">
+                <h1 className="w-7 h-7 inline-flex items-center justify-center text-sm font-bold text-white bg-yellow-numbering rounded-full">
                   3
                 </h1>
               </div>
-              <h1 className="ml-2 inline-block text-base font-bold text-[#29303D]">
+              <h1 className="ml-2 inline-block text-base font-bold text-dark-gray">
                 Choose agent level of creativity
               </h1>
             </div>
-            <p className="mt-3 mb-2 text-xs font-medium text-[#29303D]">
+            <p className="mt-3 mb-2 text-xs font-medium text-dark-gray">
               Determine how creative you'd like your AI chat agent to be when
               engaging with users.
             </p>
@@ -89,15 +89,15 @@ const Settings = () => {
           <div className="my-8">
             <div className="flex">
               <div>
-                <h1 className="w-7 h-7 inline-flex items-center justify-center text-sm font-bold text-white bg-[#EEBC59] rounded-full">
+                <h1 className="w-7 h-7 inline-flex items-center justify-center text-sm font-bold text-white bg-yellow-numbering rounded-full">
                   4
                 </h1>
               </div>
-              <h1 className="ml-2 inline-block text-base font-bold text-[#29303D]">
+              <h1 className="ml-2 inline-block text-base font-bold text-dark-gray">
                 Reply Specify Reply Length
               </h1>
             </div>
-            <p className="mt-3 mb-2 text-xs font-medium text-[#29303D]">
+            <p className="mt-3 mb-2 text-xs font-medium text-dark-gray">
               Set your preferred reply length for your AI chat agent, from
               concise to more detailed responses.
             </p>
@@ -106,15 +106,15 @@ const Settings = () => {
           <div className="my-8">
             <div className="flex">
               <div>
-                <h1 className="w-7 h-7 inline-flex items-center justify-center text-sm font-bold text-white bg-[#EEBC59] rounded-full">
+                <h1 className="w-7 h-7 inline-flex items-center justify-center text-sm font-bold text-white bg-yellow-numbering rounded-full">
                   5
                 </h1>
               </div>
-              <h1 className="ml-2 inline-block text-base font-bold text-[#29303D]">
+              <h1 className="ml-2 inline-block text-base font-bold text-dark-gray">
                 Enter your welcome message
               </h1>
             </div>
-            <p className="mt-3 mb-2 text-xs font-medium text-[#29303D]">
+            <p className="mt-3 mb-2 text-xs font-medium text-dark-gray">
               Craft a warm and inviting welcome message for your AI chat agent
               to greet users upon their first interaction.
             </p>
@@ -124,7 +124,7 @@ const Settings = () => {
       </div>
       <div>
         <div>
-          <h1 className="my-5 text-xl font-bold text-[#29303D]">
+          <h1 className="my-5 text-xl font-bold text-dark-gray">
             Widget Settings
           </h1>
         </div>
@@ -132,26 +132,26 @@ const Settings = () => {
           <div className="mb-8">
             <div className="flex">
               <div>
-                <h1 className="w-7 h-7 inline-flex items-center justify-center text-sm font-bold text-white bg-[#EEBC59] rounded-full">
+                <h1 className="w-7 h-7 inline-flex items-center justify-center text-sm font-bold text-white bg-yellow-numbering rounded-full">
                   1
                 </h1>
               </div>
-              <h1 className="ml-2 inline-block text-base font-bold text-[#29303D]">
+              <h1 className="ml-2 inline-block text-base font-bold text-dark-gray">
                 Colors
               </h1>
             </div>
-            <p className="mt-3 mb-2 text-xs font-medium text-[#29303D]">
+            <p className="mt-3 mb-2 text-xs font-medium text-dark-gray">
               Please select a color
             </p>
           </div>
           <div className="my-8">
             <div className="mb-4 flex">
               <div>
-                <h1 className="w-7 h-7 inline-flex items-center justify-center text-sm font-bold text-white bg-[#EEBC59] rounded-full">
+                <h1 className="w-7 h-7 inline-flex items-center justify-center text-sm font-bold text-white bg-yellow-numbering rounded-full">
                   2
                 </h1>
               </div>
-              <h1 className="ml-2 inline-block text-base font-bold text-[#29303D]">
+              <h1 className="ml-2 inline-block text-base font-bold text-dark-gray">
                 Widget Style
               </h1>
             </div>
@@ -161,11 +161,11 @@ const Settings = () => {
           <div className="my-8">
             <div className="mb-4 flex">
               <div>
-                <h1 className="w-7 h-7 inline-flex items-center justify-center text-sm font-bold text-white bg-[#EEBC59] rounded-full">
+                <h1 className="w-7 h-7 inline-flex items-center justify-center text-sm font-bold text-white bg-yellow-numbering rounded-full">
                   3
                 </h1>
               </div>
-              <h1 className="ml-2 inline-block text-base font-bold text-[#29303D]">
+              <h1 className="ml-2 inline-block text-base font-bold text-dark-gray">
                 Agent Name
               </h1>
             </div>
@@ -175,11 +175,11 @@ const Settings = () => {
           <div className="my-8">
             <div className="mb-4 flex">
               <div>
-                <h1 className="w-7 h-7 inline-flex items-center justify-center text-sm font-bold text-white bg-[#EEBC59] rounded-full">
+                <h1 className="w-7 h-7 inline-flex items-center justify-center text-sm font-bold text-white bg-yellow-numbering rounded-full">
                   4
                 </h1>
               </div>
-              <h1 className="ml-2 inline-block text-base font-bold text-[#29303D]">
+              <h1 className="ml-2 inline-block text-base font-bold text-dark-gray">
                 Agent Profile Picture
               </h1>
             </div>
@@ -190,10 +190,10 @@ const Settings = () => {
                       "flex flex-col justify-center items-center w-56 h-36 mt-5 mb-5 rounded-xl border border-dashed border-[#66708547] cursor-pointer",
                   })}
                 >
-                  <p className="text-sm font-medium text-[#29303D]">
+                  <p className="text-sm font-medium text-dark-gray">
                     Drag or upload your image
                   </p>
-                  <button className="mt-3 w-24 h-10 bg-[#6670851A] rounded text-sm font-medium text-[#29303D]">
+                  <button className="mt-3 w-24 h-10 bg-[#6670851A] rounded text-sm font-medium text-dark-gray">
                     Choose File
                   </button>
                 </div>

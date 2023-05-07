@@ -51,8 +51,8 @@ const Appbar = ({ setToggleNavbar }) => {
       </div>
       <div className="flex items-center justify-end">
         <div className="mr-1">
-          <p className="text-xs font-medium text-[#29303D]">Usage</p>
-          <p className="text-[10px] text-[#29303D]">240/300 Chats</p>
+          <p className="text-xs font-medium text-dark-gray">Usage</p>
+          <p className="text-[10px] text-dark-gray">240/300 Chats</p>
         </div>
         <div className="w-7 md:w-8 h-7 md:h-8 mr-1.5">
           <Doughnut data={data} options={options} />

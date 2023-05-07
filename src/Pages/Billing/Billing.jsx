@@ -36,7 +36,7 @@ const Billing = () => {
 
   return (
     <div className="grid lg:grid-cols-2  items-center">
-      <div className="bg-[#FAFAFC] pb-8 ">
+      <div className="bg-layout-background pb-8 ">
         <div className="px-4 lg:px-10 mt-10 lg:min-h-[calc(93vh)]">
           <div className="flex items-start">
             <img width="20px" height="20px" src={BackIcon} alt="" />
@@ -44,26 +44,26 @@ const Billing = () => {
           </div>
           <div>
             <div className="ml-7">
-              <p className="mt-10 text-xl font-semibold text-[#767676]">
+              <p className="mt-10 text-xl font-semibold text-payment-text">
                 Pay Instant Answer
               </p>
               <h1 className="my-3 text-4xl font-bold text-black">$14.00</h1>
-              <p className="text-lg font-semibold text-[#767676]">
+              <p className="text-lg font-semibold text-payment-text">
                 Then $99.00 per month
               </p>
               <div className="mt-11">
                 <div className="mb-5 flex justify-between">
-                  <p className="text-lg font-medium text-[#382B2B]">
+                  <p className="text-lg font-medium text-payment-heading">
                     Instant Answer Lite Subscription Plan
                   </p>
-                  <p className="text-lg font-bold text-[#382B2B]">$14.00</p>
+                  <p className="text-lg font-bold text-payment-heading">$14.00</p>
                 </div>
                 <div className="flex justify-between mb-10">
-                  <p className="text-lg font-medium text-[#382B2B]">
+                  <p className="text-lg font-medium text-payment-heading">
                     Instant Answer Lite Subscription Plan
                   </p>
                   <div>
-                    <p className="text-lg text-right font-bold text-[#382B2B]">
+                    <p className="text-lg text-right font-bold text-payment-heading">
                       14 days free
                     </p>
                     <p className="text-lg text-right font-medium text-[#8C8C8C]">
@@ -72,10 +72,10 @@ const Billing = () => {
                   </div>
                 </div>
                 <div className="flex justify-between pb-4 border-b border-[rgba(6, 6, 6, 0.23)]">
-                  <p className="text-xl font-semibold text-[#382B2B]">
+                  <p className="text-xl font-semibold text-payment-heading">
                     Subtotal
                   </p>
-                  <p className="text-xl font-semibold text-[#382B2B]">$14.00</p>
+                  <p className="text-xl font-semibold text-payment-heading">$14.00</p>
                 </div>
                 <div className="my-4">
                   <p className="text-xl font-semibold text-[#3771C8]">
@@ -83,13 +83,13 @@ const Billing = () => {
                   </p>
                 </div>
                 <div className="flex justify-between pt-4 border-t border-[rgba(6, 6, 6, 0.23)]">
-                  <p className="text-xl font-semibold text-[#382B2B]">
+                  <p className="text-xl font-semibold text-payment-heading">
                     Total due today
                   </p>
-                  <p className="text-xl font-semibold text-[#382B2B]">$14.00</p>
+                  <p className="text-xl font-semibold text-payment-heading">$14.00</p>
                 </div>
               </div>
-              <p className="mt-32 -ml-4 whitespace-nowrap flex items-center text-base md:text-lg font-medium text-[#767676]">
+              <p className="mt-32 -ml-4 whitespace-nowrap flex items-center text-base md:text-lg font-medium text-payment-text">
                 Powered by <img className="mx-2" src={StripeIcon} alt="" /> |
                 Terms Privacy Contact
               </p>

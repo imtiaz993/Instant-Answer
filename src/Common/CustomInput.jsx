@@ -14,7 +14,7 @@ const CustomInput = ({
 }) => {
   return (
     <div>
-      <label className="mb-1.5 text-sm font-medium text-[#344054]  ">
+      <label className="mb-1.5 text-sm font-medium text-dark-blue  ">
         {label}
       </label>
       <div
@@ -24,7 +24,7 @@ const CustomInput = ({
           <img src={prefix} alt="" />
         </span>
         <input
-          className="w-full text-base font-medium text-[#29303D] ml-2 outline-none placeholder:text-[#667085] disabled:bg-transparent  disabled:cursor-pointer"
+          className="w-full text-base font-medium text-dark-gray ml-2 outline-none placeholder:text-light-gray disabled:bg-transparent  disabled:cursor-pointer"
           type={type}
           placeholder={placeholder}
           onChange={onChange}
