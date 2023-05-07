@@ -13,7 +13,7 @@ const PaymentForm = () => {
     <div>
       <button
         onClick={() => {
-          navigate("/dashboard/dashboard");
+          navigate("/onboarding");
         }}
         className="flex justify-center items-center text-lg font-medium rounded-md py-3 px-5 text-center w-full bg-black text-white"
       >
@@ -40,7 +40,7 @@ const PaymentForm = () => {
         <PaymentElement />
         <button
           onClick={() => {
-            navigate("/dashboard/dashboard");
+            navigate("/onboarding");
           }}
           disabled
           className="mt-6 text-lg font-medium rounded-md py-3 px-5 text-center w-full bg-black disabled:bg-slate-600 disabled:text-gray-400 text-white"
