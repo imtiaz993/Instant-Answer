@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import CustomInput from "../../Common/CustomInput";
 import CustomButton from "../../Common/CustomButton";
 import Logo from "../../Assets/icons/logo.svg";
@@ -9,9 +11,9 @@ import TickIcon from "../../Assets/icons/tick.svg";
 import NextonLogo from "../../Assets/icons/nexton.svg";
 import StrategicSystemsLogo from "../../Assets/icons/strategic-systems.svg";
 import ClearBoxLogo from "../../Assets/icons/clearbox.svg";
-import { Link } from "react-router-dom";
 
 const Signup = () => {
+  const navigate = useNavigate();
   return (
     <div className="flex flex-col-reverse lg:flex-row  lg:items-center mx-auto lg:h-screen">
       <div className="bg-[#ECECFF] pb-10 lg:pb-0 lg:w-2/4  mt-10 lg:mt-0 h-full flex items-center auth-clip">
@@ -84,7 +86,7 @@ const Signup = () => {
         <CustomButton
           styles="mt-6 w-full flex justify-center"
           title="Sign Up"
-          onClick={() => {}}
+          onClick={() => {navigate('/billing')}}
         />
         <p className="mt-6 mb-8 text-sm text-center text-[#344054] font-medium">
           By signing up, you agree to the{" "}

@@ -13,13 +13,31 @@ const Billing = () => {
   const options = {
     clientSecret:
       "pi_3N4jFqSD8i2a6Pgg1gqF722Y_secret_EadoViQxQHHJZ6N8RwyTA2zxB",
-    appearance: { theme: "stripe" },
+    appearance: {
+      theme: "stripe",
+      variables: {
+        borderRadius: "10px",
+        colorPrimaryText: "#262626",
+      },
+      rules: {
+        ".Input": {
+          padding: "12px",
+        },
+        ".Input:focus, .Input--invalid:focus": {
+          boxShadow:"none"
+        },
+        ".Label": {
+          fontWeight: "500",
+          color:"#697386",
+        },
+      },
+    },
   };
 
   return (
     <div className="grid lg:grid-cols-2  items-center">
       <div className="bg-[#FAFAFC] pb-8 ">
-        <div className="px-4 lg:px-10 mt-10 min-h-[calc(93vh)]">
+        <div className="px-4 lg:px-10 mt-10 lg:min-h-[calc(93vh)]">
           <div className="flex items-start">
             <img width="20px" height="20px" src={BackIcon} alt="" />
             <img className="ml-2 w-48" src={Logo} alt="" />
@@ -79,7 +97,7 @@ const Billing = () => {
           </div>
         </div>
       </div>
-      <div className="w-11/12 mx-auto px-4 lg:px-10 mt-10">
+      <div className="w-full lg:w-11/12 mx-auto px-4 lg:px-10 mt-16 pb-16 lg:pb-0 lg:-mt-6">
         <Elements stripe={stripePromise} options={options}>
           <PaymentForm />
         </Elements>
