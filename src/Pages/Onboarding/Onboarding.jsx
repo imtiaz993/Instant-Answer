@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import OnboardingLayout from "../Layout/OnboardingLayout";
-import Databases from "../../../Common/Tabs/Databases/Databases";
-import WebPage from "../../../Common/Tabs/WebPage/WebPage";
-import Documents from "../../../Common/Tabs/Documents/Documents";
-import Profile from "../../../Common/Tabs/Profile/Profile";
-import Sinppets from "../../../Common/Tabs/Sinppets/Sinppets";
-import Socials from "../../../Common/Tabs/Socials/Socials";
+import OnboardingLayout from "./Layout/OnboardingLayout";
+import Databases from "../../Common/Tabs/Databases/Databases";
+import WebPage from "../../Common/Tabs/WebPage/WebPage";
+import Documents from "../../Common/Tabs/Documents/Documents";
+import Profile from "../../Common/Tabs/Profile/Profile";
+import Sinppets from "../../Common/Tabs/Sinppets/Sinppets";
+import Socials from "../../Common/Tabs/Socials/Socials";
 
 const Onboarding = () => {
   const [activeTab, setActiveTab] = useState("Profile");

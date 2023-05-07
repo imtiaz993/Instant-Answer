@@ -21,7 +21,7 @@ const Documents = ({ hideText = false }) => {
   });
   const [showModal, setShoModal] = useState(false);
   const [files, setFile] = useState([]);
-  console.log(files)
+  console.log(files);
 
   // function onFileChange(file) {
   //   const selectedFile = file;
@@ -37,7 +37,6 @@ const Documents = ({ hideText = false }) => {
   //     onFileChange(file);
   //   });
   // },[acceptedFiles])
-
 
   return (
     <>
@@ -67,79 +66,34 @@ const Documents = ({ hideText = false }) => {
         />
       </div>
       <div className="flex flex-wrap justify-center sm:justify-start">
-        <div
-          className="w-[255px] h-[220px] border border-darker-border  rounded-lg py-3 px-4 mr-6 mb-6 cursor-pointer"
-          onClick={() => {
-            setShoModal(true);
-          }}
-        >
-          <div className="thumbnail-pdf w-[220px] pr-4 h-[150px] border border-light-dark-border rounded overflow-hidden">
-            <Document width="100%" file={SamplePDF}>
-              <Page scale={1.2 / 2.8} pageNumber={1} />
-            </Document>
-          </div>
-          <div className="flex justify-between items-start mt-1 pl-1 pr-2">
-            <div>
-              <p className="text-sm font-medium text-dark-gray">Sample.pdf</p>
-              <p className="text-sm font-medium text-last-upload">
-                Uploaded 4 hours ago
-              </p>
+        {[1, 2, 3].map((item, index) => (
+          <div
+            className="w-[255px] h-[220px] border border-darker-border  rounded-lg py-3 px-4 mr-6 mb-6 cursor-pointer"
+            onClick={() => {
+              setShoModal(true);
+            }}
+          >
+            <div className="thumbnail-pdf w-[220px] pr-4 h-[150px] border border-light-dark-border rounded overflow-hidden">
+              <Document width="100%" file={SamplePDF}>
+                <Page scale={1.2 / 2.8} pageNumber={1} />
+              </Document>
             </div>
-            <div className="flex items-center mt-1">
-              <img className="mr-2" src={PdfIcon} alt="" />{" "}
-              <img src={CloseIcon} alt="" />
-            </div>
-          </div>
-        </div>
-        <div
-          className="w-[255px] h-[220px] border border-darker-border rounded-lg py-3 px-4 mr-6 mb-6 cursor-pointer"
-          onClick={() => {
-            setShoModal(true);
-          }}
-        >
-          <div className="thumbnail-pdf w-[220px] pr-4 h-[150px] border border-light-dark-border rounded overflow-hidden">
-            <Document width="100%" file={SamplePDF}>
-              <Page scale={1.2 / 2.8} pageNumber={1} />
-            </Document>
-          </div>
-          <div className="flex justify-between items-start mt-1 pl-1 pr-2">
-            <div>
-              <p className="text-sm font-medium text-dark-gray">Sample.pdf</p>
-              <p className="text-sm font-medium text-last-upload">
-                Uploaded 4 hours ago
-              </p>
-            </div>
-            <div className="flex items-center mt-1">
-              <img className="mr-2" src={PdfIcon} alt="" />{" "}
-              <img src={CloseIcon} alt="" />
+            <div className="flex justify-between items-start mt-1 pl-1 pr-2">
+              <div>
+                <p className="text-sm font-medium text-dark-gray">Sample.pdf</p>
+                <p className="text-sm font-medium text-last-upload">
+                  Uploaded 4 hours ago
+                </p>
+              </div>
+              <div className="flex items-center mt-1">
+                <img className="mr-2" src={PdfIcon} alt="" />{" "}
+                <img src={CloseIcon} alt="" />
+              </div>
             </div>
           </div>
-        </div>
-        <div
-          className="w-[255px] h-[220px] border border-darker-border rounded-lg py-3 px-4 mr-6 mb-6 cursor-pointer"
-          onClick={() => {
-            setShoModal(true);
-          }}
-        >
-          <div className="thumbnail-pdf w-[220px] pr-4 h-[150px] border border-light-dark-border rounded overflow-hidden">
-            <Document width="100%" file={SamplePDF}>
-              <Page scale={1.2 / 2.8} pageNumber={1} />
-            </Document>
-          </div>
-          <div className="flex justify-between items-start mt-1 pl-1 pr-2">
-            <div>
-              <p className="text-sm font-medium text-dark-gray">Sample.pdf</p>
-              <p className="text-sm font-medium text-last-upload">
-                Uploaded 4 hours ago
-              </p>
-            </div>
-            <div className="flex items-center mt-1">
-              <img className="mr-2" src={PdfIcon} alt="" />{" "}
-              <img src={CloseIcon} alt="" />
-            </div>
-          </div>
-        </div>
-        {files.map((item) => (
+        ))}
+
+        {/* {files.map((item) => (
           <div
             className="w-[255px] h-[220px] border border-darker-border rounded-lg py-3 px-4 mr-6 mb-6"
           >
@@ -163,7 +117,7 @@ const Documents = ({ hideText = false }) => {
               </div>
             </div>
           </div>
-        ))}
+        ))} */}
       </div>
     </>
   );

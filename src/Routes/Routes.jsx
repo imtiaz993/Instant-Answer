@@ -1,8 +1,9 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Signup from "../Pages/Signup/Signup";
+import SignIn from "../Pages/SignIn/SignIn";
 import Billing from "../Pages/Billing/Billing";
-import Onboarding from "../Pages/Onboarding/Modules/Onboarding";
+import Onboarding from "../Pages/Onboarding/Onboarding";
 import Dashboard from "../Pages/Dashboard/Pages/Dashboard/Dashboard";
 import Inbox from "../Pages/Dashboard/Pages/Inbox/Inbox";
 import KnowledgeBase from "../Pages/Dashboard/Pages/Knowledge Base/KnowledgeBase";
@@ -10,7 +11,6 @@ import Recommendations from "../Pages/Dashboard/Pages/Recommendations/Recommenda
 import Integrations from "../Pages/Dashboard/Pages/Integrations/Integrations";
 import Settings from "../Pages/Dashboard/Pages/Settings/Settings";
 import Subscriptions from "../Pages/Dashboard/Pages/Subscriptions/Subscriptions";
-import SignIn from "../Pages/SignIn/SignIn";
 
 const WebRoutes = () => {
   return (
