@@ -29,51 +29,25 @@ const Sinppets = ({ hideText = false }) => {
         suffix={<SuffixButton />}
       />
       <div className="mt-4 md:mt-8">
-        <div className="flex justify-between pb-3 mb-4 border-b border-dark-border">
-          <div>
-            <p className="text-sm font-medium text-dark-gray">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore
-            </p>
-            <p className="mt-2 text-sm font-medium text-last-upload ">Uploaded 4 hours ago</p>
+        {[1, 2, 3].map((item, index) => (
+          <div className="flex justify-between pb-3 mb-4 border-b border-dark-border">
+            <div>
+              <p className="text-sm font-medium text-dark-gray">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                in reprehenderit in voluptate velit esse cillum dolore
+              </p>
+              <p className="mt-2 text-sm font-medium text-last-upload ">
+                Uploaded 4 hours ago
+              </p>
+            </div>
+            <div className="mt-2 ml-4 flex items-start justify-end md:ml-12 w-1/3 md:w-8">
+              <img src={CloseIcon} alt="" />
+            </div>
           </div>
-           <div className="mt-2 ml-4 flex items-start justify-end md:ml-12 w-1/3 md:w-8">
-            <img src={CloseIcon} alt="" />
-          </div>
-        </div>
-        <div className="flex justify-between pb-3 mb-4 border-b border-dark-border">
-          <div>
-            <p className="text-sm font-medium text-dark-gray">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore
-            </p>
-            <p className="mt-2 text-sm font-medium text-last-upload ">Uploaded 4 hours ago</p>
-          </div>
-           <div className="mt-2 ml-4 flex items-start justify-end md:ml-12 w-1/3 md:w-8">
-            <img src={CloseIcon} alt="" />
-          </div>
-        </div>
-        <div className="flex justify-between pb-3 mb-4 border-b border-dark-border">
-          <div>
-            <p className="text-sm font-medium text-dark-gray">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore
-            </p>
-            <p className="mt-2 text-sm font-medium text-last-upload ">Uploaded 4 hours ago</p>
-          </div>
-          <div className="mt-2 ml-4 flex items-start justify-end md:ml-12 w-1/3 md:w-8">
-            <img src={CloseIcon} alt="" />
-          </div>
-        </div>
+        ))}
       </div>
     </>
   );

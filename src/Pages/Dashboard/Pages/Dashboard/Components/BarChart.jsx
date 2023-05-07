@@ -66,9 +66,11 @@ const BarChart = () => {
     },
   };
   return (
-    <div>
+    <div className="mb-5 md:mb-0 md:w-[calc(100%-320px)] bg-white border border-dashboard-card-border rounded-xl py-4 px-2 md:px-4">
       <div className="flex justify-between mt-1 mb-12">
-        <h1 className="text-base font-bold text-dark-heading">Charts Started</h1>
+        <h1 className="text-base font-bold text-dark-heading">
+          Charts Started
+        </h1>
         <div>
           <select className="border border-[#E4E4E7] rounded-md p-2 outline-none cursor-pointer">
             <option>Last 7 Days</option>
