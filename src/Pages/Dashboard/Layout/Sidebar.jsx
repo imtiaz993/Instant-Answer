@@ -2,12 +2,17 @@ import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import Logo from "../../../Assets/icons/logo.svg";
 import DashboardIcon from "../../../Assets/icons/dashboard.svg";
+import ActiveDashboardIcon from "../../../Assets/icons/active-dashboard.svg";
 import KnowledgeBaseIcon from "../../../Assets/icons/knowledge-base.svg";
-// import InboxIcon from "../../../Assets/icons/inbox.svg";
+import ActiveKnowledgeBaseIcon from "../../../Assets/icons/active-knowledge-base.svg";
 import RecommendationsIcon from "../../../Assets/icons/recommendations.svg";
+import ActiveRecommendationsIcon from "../../../Assets/icons/active-recommendations.svg";
 import IntegrationsIcon from "../../../Assets/icons/integrations.svg";
+import ActiveIntegrationsIcon from "../../../Assets/icons/active-integrations.svg";
 import SettingsIcon from "../../../Assets/icons/settings.svg";
+import ActiveSettingsIcon from "../../../Assets/icons/active-settings.svg";
 import SubscriptionsIcon from "../../../Assets/icons/subscriptions.svg";
+import ActiveSubscriptionsIcon from "../../../Assets/icons/active-subscriptions.svg";
 import CloseIcon from "../../../Assets/icons/close.svg";
 
 const Sidebar = ({ toggleNavber, setToggleNavbar }) => {
@@ -17,13 +22,33 @@ const Sidebar = ({ toggleNavber, setToggleNavbar }) => {
   const currentPath = pathArray[pathArray.length - 1].replace(/-/g, " ");
 
   const pages = [
-    { name: "Dashboard", icon: DashboardIcon },
-    { name: "Inbox", icon: KnowledgeBaseIcon },
-    { name: "Knowledge Base", icon: KnowledgeBaseIcon },
-    { name: "Recommendations", icon: RecommendationsIcon },
-    { name: "Integrations", icon: IntegrationsIcon },
-    { name: "Settings", icon: SettingsIcon },
-    { name: "Subscriptions", icon: SubscriptionsIcon },
+    { name: "Dashboard", icon: DashboardIcon, activeIcon: ActiveDashboardIcon },
+    {
+      name: "Inbox",
+      icon: KnowledgeBaseIcon,
+      activeIcon: ActiveKnowledgeBaseIcon,
+    },
+    {
+      name: "Knowledge Base",
+      icon: KnowledgeBaseIcon,
+      activeIcon: ActiveKnowledgeBaseIcon,
+    },
+    {
+      name: "Recommendations",
+      icon: RecommendationsIcon,
+      activeIcon: ActiveRecommendationsIcon,
+    },
+    {
+      name: "Integrations",
+      icon: IntegrationsIcon,
+      activeIcon: ActiveIntegrationsIcon,
+    },
+    { name: "Settings", icon: SettingsIcon, activeIcon: ActiveSettingsIcon },
+    {
+      name: "Subscriptions",
+      icon: SubscriptionsIcon,
+      activeIcon: ActiveSubscriptionsIcon,
+    },
   ];
   return (
     <div
@@ -55,7 +80,20 @@ const Sidebar = ({ toggleNavber, setToggleNavbar }) => {
                 );
               }}
             >
-              <img src={item.icon} alt="" />
+              <img
+                className={`${
+                  item.name.toLowerCase() === currentPath ? "block" : "hidden"
+                }`}
+                src={item.activeIcon}
+                alt=""
+              />
+              <img
+                className={`${
+                  item.name.toLowerCase() === currentPath ? "hidden" : "block"
+                }`}
+                src={item.icon}
+                alt=""
+              />
               <p
                 className={`ml-2 text-base whitespace-nowrap ${
                   item.name.toLowerCase() === currentPath

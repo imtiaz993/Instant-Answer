@@ -13,7 +13,7 @@ import DocumentIcon from "../../../../Assets/icons/document.svg";
 import SocialIcon from "../../../../Assets/icons/social.svg";
 import SnippetIcon from "../../../../Assets/icons/snippet.svg";
 import CustomButton from "../../../../Common/CustomButton";
-import RefreshIcon from "../../../../Assets/icons/refresh.svg";
+import RefreshIcon from "../../../../Assets/icons/white-refresh.svg";
 
 const KnowledgeBase = () => {
   const [activeTab, setActiveTab] = useState("Profile");
