@@ -1,7 +1,63 @@
-import React from "react";
+import React, { useState } from "react";
 import CustomInput from "../../../../../Common/CustomInput";
+import Select, { components } from "react-select";
+import Info from "../../../../../Assets/icons/info.svg";
+import English from "../../../../../Assets/icons/us-flag.svg";
+
+const CustomOption = (props) => (
+  <components.Option {...props}>
+    <div className="flex">
+      <img className="mr-2 w-1/4" src={props.data.icon} alt="" />
+      {props.data.label}
+    </div>
+  </components.Option>
+);
 
 const Agent = () => {
+  const [selectedOption, setSelectedOption] = useState(null);
+
+  const handleChange = (selectedOption) => {
+    setSelectedOption(selectedOption);
+  };
+  const options = [
+    {
+      value: "English",
+      label: "English",
+      icon: English,
+    },
+    {
+      value: "French",
+      label: "French",
+      icon: English,
+    },
+    {
+      value: "Spanish",
+      label: "Spanish",
+      icon: English,
+    },
+  ];
+  const customStyles = {
+    control: (provided, state) => ({
+      ...provided,
+      width: "100%",
+      height: 42,
+      border:"none",
+      borderColor:'white',
+      marginTop: -8,
+      marginRight: 10,
+      borderRadius: 6,
+      marginBottom: -8,
+      boxShadow:'none',
+      "&:hover": {
+        borderColor: "black",
+      },
+    }),
+    indicatorSeparator: (provided, state) => ({
+      ...provided,
+      display: "none",
+    }),
+  };
+
   return (
     <div>
       <div>
@@ -30,7 +86,24 @@ const Agent = () => {
             Select the language in which your AI chat agent will communicate
             with your customers.
           </p>
-          <CustomInput placeholder="Enter.." type="text" />
+          <div
+            className={`flex justify-between items-center py-2 px-3 border border-[#D0D5DD] mb-3 rounded-lg text-base font-medium text-dark-gray outline-none placeholder:text-light-gray disabled:bg-transparent  disabled:cursor-pointer`}
+          >
+            <Select
+              options={options}
+              styles={customStyles}
+              components={{ Option: CustomOption }}
+              value={selectedOption}
+              onChange={handleChange}
+            />
+
+            <div className="cursor-pointer">
+              <span className="ml-auto">
+                <img src={Info} alt="" />
+              </span>
+            </div>
+          </div>
+
         </div>
         <div className="my-8">
           <div className="flex">
@@ -47,7 +120,20 @@ const Agent = () => {
             From classic to mysterious, choose a personality that best
             complements your business's vibe.
           </p>
-          <CustomInput placeholder="Enter.." type="text" />
+          <div
+            className={`flex justify-between items-center py-2 px-3 border border-[#D0D5DD] mb-3 rounded-lg`}
+          >
+            <select className="text-base font-medium text-dark-gray outline-none placeholder:text-light-gray disabled:bg-transparent  disabled:cursor-pointer">
+              <option>Classic</option>
+              <option>Classic 2</option>
+              <option>Classic 3</option>
+            </select>
+            <div className="cursor-pointer">
+              <span className="ml-auto">
+                <img src={Info} alt="" />
+              </span>
+            </div>
+          </div>
         </div>
         <div className="my-8">
           <div className="flex">
@@ -64,7 +150,20 @@ const Agent = () => {
             Determine how creative you'd like your AI chat agent to be when
             engaging with users.
           </p>
-          <CustomInput placeholder="Enter.." type="text" />
+          <div
+            className={`flex justify-between items-center py-2 px-3 border border-[#D0D5DD] mb-3 rounded-lg`}
+          >
+            <select className="text-base font-medium text-dark-gray outline-none placeholder:text-light-gray disabled:bg-transparent  disabled:cursor-pointer">
+              <option>Normal</option>
+              <option>Normal 2</option>
+              <option>Normal 3</option>
+            </select>
+            <div className="cursor-pointer">
+              <span className="ml-auto">
+                <img src={Info} alt="" />
+              </span>
+            </div>
+          </div>
         </div>
         <div className="my-8">
           <div className="flex">
@@ -81,7 +180,20 @@ const Agent = () => {
             Set your preferred reply length for your AI chat agent, from concise
             to more detailed responses.
           </p>
-          <CustomInput placeholder="Enter.." type="text" />
+          <div
+            className={`flex justify-between items-center py-2 px-3 border border-[#D0D5DD] mb-3 rounded-lg`}
+          >
+            <select className="text-base font-medium text-dark-gray outline-none placeholder:text-light-gray disabled:bg-transparent  disabled:cursor-pointer">
+              <option>Normal</option>
+              <option>Normal 2</option>
+              <option>Normal 3</option>
+            </select>
+            <div className="cursor-pointer">
+              <span className="ml-auto">
+                <img src={Info} alt="" />
+              </span>
+            </div>
+          </div>
         </div>
         <div className="my-8">
           <div className="flex">

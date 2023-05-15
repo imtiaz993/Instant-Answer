@@ -13,7 +13,7 @@ const Inbox = () => {
       <div>
         <h1 className="mb-4 text-xl font-bold text-dark-gray">Inbox</h1>
       </div>
-      <Tabs activeTab={activeTab} setactiveTab={setactiveTab} />
+      <Tabs activeTab={activeTab} setactiveTab={setactiveTab} setChatList={setChatList}/>
       <div className="grid md:grid-cols-3  border border-[rgba(102, 112, 133, 0.2]  rounded-xl h-[calc(100vh-200px)] -mb-8">
         <ChatList
           chatList={chatList}

@@ -41,13 +41,9 @@ const OnboardingLayout = ({ children, setActiveTab, step, setStep }) => {
           <div className="flex overflow-x-auto -mx-4 md:mx-0 px-2 md:px-0 hide-scroll-bar border-b-2">
             {Tabs.map((item, index) => (
               <div
-                className={`flex items-center px-4 pb-1 whitespace-nowrap cursor-pointer ${
+                className={`flex items-center px-4 pb-1 whitespace-nowrap ${
                   index === step ? "border-b-2 border-active-color" : ""
                 }`}
-                onClick={() => {
-                  setStep(index);
-                  setActiveTab(item.title);
-                }}
               >
                 <img src={item.icon} alt="" />
                 <p

@@ -3,6 +3,7 @@ import { useDropzone } from "react-dropzone";
 import ColorSelector from "../../../../../Common/ColorSelector";
 import CustomInput from "../../../../../Common/CustomInput";
 import CloseIcon from "../../../../../Assets/icons/close.svg";
+import Info from "../../../../../Assets/icons/info.svg";
 
 const Widget = () => {
   const [selectedColor, setSelectedColor] = useState("#E96179");
@@ -59,8 +60,20 @@ const Widget = () => {
               Widget Style
             </h1>
           </div>
-
-          <CustomInput placeholder="Enter.." type="text" />
+          <div
+            className={`flex justify-between items-center py-2 px-3 border border-[#D0D5DD] mb-3 rounded-lg`}
+          >
+            <select className="text-base font-medium text-dark-gray outline-none placeholder:text-light-gray disabled:bg-transparent  disabled:cursor-pointer">
+              <option>Select between Boxy and Round</option>
+              <option>Select between Boxy and Round 1</option>
+              <option>Select between Boxy and Round 2</option>
+            </select>
+            <div className="cursor-pointer">
+              <span className="ml-auto">
+                <img src={Info} alt="" />
+              </span>
+            </div>
+          </div>
         </div>
         <div className="my-8">
           <div className="mb-4 flex">
