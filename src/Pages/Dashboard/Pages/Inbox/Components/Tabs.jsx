@@ -1,7 +1,7 @@
 import React from "react";
 import InboxIcon from "../../../../../Assets/icons/knowledge-base.svg";
 import ReviewIcon from "../../../../../Assets/icons/review.svg";
-const Tabs = ({ activeTab, setactiveTab }) => {
+const Tabs = ({ activeTab, setactiveTab, setChatList }) => {
   return (
     <div className="flex mb-4 border-b border-[#e2e2e2]">
       <div
@@ -10,6 +10,7 @@ const Tabs = ({ activeTab, setactiveTab }) => {
         }`}
         onClick={() => {
           setactiveTab("All");
+          setChatList(true)
         }}
       >
         <img src={InboxIcon} alt="" />
@@ -27,6 +28,7 @@ const Tabs = ({ activeTab, setactiveTab }) => {
         }`}
         onClick={() => {
           setactiveTab("Review Recommended");
+          setChatList(true)
         }}
       >
         <img src={ReviewIcon} alt="" />

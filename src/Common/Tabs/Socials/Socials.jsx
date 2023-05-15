@@ -51,13 +51,21 @@ const Socials = ({ hideText = false }) => {
   const customStyles = {
     control: (provided, state) => ({
       ...provided,
-      width: 160, 
+      width: "100%", 
       height: 52,
       marginTop:1,
       marginRight:10,
       borderRadius:6,
       marginBottom:-4,
-    })
+      boxShadow:'none',
+      "&:hover": {
+        borderColor: "black",
+      },
+    }),
+    indicatorSeparator: (provided, state) => ({
+      ...provided,
+      display: "none",
+    }),
   };
 
   return (
@@ -73,7 +81,7 @@ const Socials = ({ hideText = false }) => {
           </p>
         </>
       )}
-      <div className={`flex ${hideText && "mt-4"}`}>
+      <div className={`md:flex ${hideText && "mt-4"}`}>
         <Select
           options={options}
           styles={customStyles}
@@ -81,7 +89,7 @@ const Socials = ({ hideText = false }) => {
           value={selectedOption}
           onChange={handleChange}
         />
-        <div className="w-full -mb-6">
+        <div className="w-full md:ml-2 mt-4 md:mt-0 md:-mb-6">
           <CustomInput
             placeholder="Enter Social Links"
             type="url"

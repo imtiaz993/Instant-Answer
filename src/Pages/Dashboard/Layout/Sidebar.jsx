@@ -51,15 +51,18 @@ const Sidebar = ({ toggleNavber, setToggleNavbar }) => {
     },
   ];
   return (
+    <div  className={`absolute ${
+      toggleNavber ? "block h-screen" : "hidden"
+    } lg:block w-full lg:w-72 z-10 lg:static bg-[#00000042] lg:bg-white lg:border-r lg:border-[rgba(0, 0, 0, 0.08)]`}>
     <div
-      className={`absolute z-10 lg:static ${
+      className={` ${
         toggleNavber ? "block h-screen" : "hidden"
-      } lg:block  w-64 lg:w-72 border-r border-[rgba(0, 0, 0, 0.08)] bg-white`}
+      } lg:block w-64 lg:w-72 border-r border-[rgba(0, 0, 0, 0.08)] bg-white`}
     >
       <div className="hidden lg:block w-full px-4 pl-7 py-5 pb-[17px] border-b border-[rgba(0, 0, 0, 0.08)]">
         <img className="w-3/4" src={Logo} alt="" />
       </div>
-      <div className="flex flex-row-reverse justify-between lg:block w-full px-3 lg:px-6 mt-20 lg:mt-6">
+      <div className="flex flex-row-reverse justify-between lg:block w-full px-3 lg:px-6 pt-20 lg:pt-6">
         <div
           onClick={() => {
             setToggleNavbar(false);
@@ -107,6 +110,7 @@ const Sidebar = ({ toggleNavber, setToggleNavbar }) => {
           ))}
         </div>
       </div>
+    </div>
     </div>
   );
 };
