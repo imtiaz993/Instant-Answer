@@ -5,13 +5,9 @@ import CustomInput from "../../../../../Common/CustomInput";
 import CloseIcon from "../../../../../Assets/icons/close.svg";
 import Info from "../../../../../Assets/icons/info.svg";
 
-const Widget = () => {
+const Widget = ({getRootProps, acceptedFiles, setting, setSetting }) => {
   const [selectedColor, setSelectedColor] = useState("#E96179");
-  const { acceptedFiles, getRootProps, getInputProps } = useDropzone({
-    accept: "image/jpeg, image/png,",
-    maxSize: 3000000,
-    multiple: false,
-  });
+
 
   const files = acceptedFiles.map((file) => (
     <li key={file.path} className="flex justify-between items-center ">
@@ -49,7 +45,7 @@ const Widget = () => {
             setSelectedColor={setSelectedColor}
           />
         </div>
-        <div className="my-8">
+        {/* <div className="my-8">
           <div className="mb-4 flex">
             <div>
               <h1 className="w-7 h-7 inline-flex items-center justify-center text-sm font-bold text-white bg-yellow-numbering rounded-full">
@@ -74,7 +70,7 @@ const Widget = () => {
               </span>
             </div>
           </div>
-        </div>
+        </div> */}
         <div className="my-8">
           <div className="mb-4 flex">
             <div>

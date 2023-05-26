@@ -22,7 +22,7 @@ const Tabs = ({ activeTab, setactiveTab, setChatList }) => {
           All
         </p>
       </div>
-      <div
+      {/* <div
         className={`flex items-center cursor-pointer py-2 ${
           activeTab === "Review Recommended" && "border-b-2 border-active-color"
         }`}
@@ -41,7 +41,7 @@ const Tabs = ({ activeTab, setactiveTab, setChatList }) => {
         >
           Review Recommended
         </p>
-      </div>
+      </div> */}
     </div>
   );
 };

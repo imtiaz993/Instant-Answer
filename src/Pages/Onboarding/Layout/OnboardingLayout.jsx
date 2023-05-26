@@ -8,7 +8,7 @@ import DocumentIcon from "../../../Assets/icons/document.svg";
 import SocialIcon from "../../../Assets/icons/social.svg";
 import SnippetIcon from "../../../Assets/icons/snippet.svg";
 
-const OnboardingLayout = ({ children, setActiveTab, step, setStep }) => {
+const OnboardingLayout = ({ children, setActiveTab, step, setStep, handleNextClick }) => {
   const navigate = useNavigate()
   const Tabs = [
     { title: "Profile", icon: ProfileIcon },
@@ -74,6 +74,7 @@ const OnboardingLayout = ({ children, setActiveTab, step, setStep }) => {
             <button
               className="md:hidden ml-10 bg-active-color rounded-lg py-2 px-6  border-none text-white text-sm font-medium"
               onClick={() => {
+                  handleNextClick()
                 if (step !==Tabs.length-1) {
                   setStep(step + 1);
                   setActiveTab(Tabs[step + 1].title);
@@ -115,6 +116,7 @@ const OnboardingLayout = ({ children, setActiveTab, step, setStep }) => {
             <button
               className="hidden md:block ml-10 bg-active-color rounded-lg py-2 px-6  border-none text-white text-sm font-medium"
               onClick={() => {
+                handleNextClick()
                 if (step !==Tabs.length-1) {
                   setStep(step + 1);
                   setActiveTab(Tabs[step + 1].title);

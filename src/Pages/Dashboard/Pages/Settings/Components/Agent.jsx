@@ -3,6 +3,10 @@ import CustomInput from "../../../../../Common/CustomInput";
 import Select, { components } from "react-select";
 import Info from "../../../../../Assets/icons/info.svg";
 import English from "../../../../../Assets/icons/us-flag.svg";
+import CustomButton from "../../../../../Common/CustomButton";
+import axios from "axios";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const CustomOption = (props) => (
   <components.Option {...props}>
@@ -13,7 +17,8 @@ const CustomOption = (props) => (
   </components.Option>
 );
 
-const Agent = () => {
+const Agent = ({ getChatbotloading, chatbots, setting, setSetting }) => {
+  const navigate = useNavigate()
   const [selectedOption, setSelectedOption] = useState(null);
 
   const handleChange = (selectedOption) => {
@@ -41,13 +46,13 @@ const Agent = () => {
       ...provided,
       width: "100%",
       height: 42,
-      border:"none",
-      borderColor:'white',
+      border: "none",
+      borderColor: "white",
       marginTop: -8,
       marginRight: 10,
       borderRadius: 6,
       marginBottom: -8,
-      boxShadow:'none',
+      boxShadow: "none",
       "&:hover": {
         borderColor: "black",
       },
@@ -57,6 +62,33 @@ const Agent = () => {
       display: "none",
     }),
   };
+
+  const [loading, setLoading] = useState(false);
+  const API_URI = "https://appi.instantanswer.co/api/baseview/delete_mychatbot/";
+  const config = {
+    headers: {
+      Authorization: "Bearer " + localStorage.getItem("token"),
+    },
+  };
+const handleDeleteChatbot=()=>{
+    setLoading(true);
+    axios
+      .delete(API_URI, {
+        data: { chatbot_id: chatbots.id },
+        headers: config.headers,
+      })
+      .then((response) => {
+        setLoading(false);
+        toast.success(response.data.message);
+        console.log(response.data);
+        navigate('/chatbot?from=dashboard')
+      })
+      .catch((error) => {
+        setLoading(false);
+        toast.error(error?.response?.data?.message ?? error.message);
+        console.error(error.message);
+      });
+}
 
   return (
     <div>
@@ -70,6 +102,15 @@ const Agent = () => {
           and more to create the ultimate conversational experience.
         </p>
       </div>
+      {getChatbotloading && <h1>Loading...</h1>}
+      {chatbots && (
+        <div className="flex items-center justify-between">
+          <h1 className="mb-4 text-xl font-bold text-dark-gray">
+            Chatbot Name: {chatbots.name}
+          </h1>
+          <CustomButton title="Delete Chatbot" styles={"py-1.5 mb-2 px-3 disabled:opacity-60"} onClick={handleDeleteChatbot} disabled={!chatbots}/>
+        </div>
+      )}
       <div className="px-4 md:px-8 py-8 pb-2 bg-white border border-[rgba(102, 112, 133, 0.2]  rounded-xl">
         <div className="mb-8">
           <div className="flex">
@@ -103,7 +144,6 @@ const Agent = () => {
               </span>
             </div>
           </div>
-
         </div>
         <div className="my-8">
           <div className="flex">
@@ -120,20 +160,7 @@ const Agent = () => {
             From classic to mysterious, choose a personality that best
             complements your business's vibe.
           </p>
-          <div
-            className={`flex justify-between items-center py-2 px-3 border border-[#D0D5DD] mb-3 rounded-lg`}
-          >
-            <select className="text-base font-medium text-dark-gray outline-none placeholder:text-light-gray disabled:bg-transparent  disabled:cursor-pointer">
-              <option>Classic</option>
-              <option>Classic 2</option>
-              <option>Classic 3</option>
-            </select>
-            <div className="cursor-pointer">
-              <span className="ml-auto">
-                <img src={Info} alt="" />
-              </span>
-            </div>
-          </div>
+          <CustomInput placeholder="Enter.." type="text" />
         </div>
         <div className="my-8">
           <div className="flex">
@@ -180,20 +207,7 @@ const Agent = () => {
             Set your preferred reply length for your AI chat agent, from concise
             to more detailed responses.
           </p>
-          <div
-            className={`flex justify-between items-center py-2 px-3 border border-[#D0D5DD] mb-3 rounded-lg`}
-          >
-            <select className="text-base font-medium text-dark-gray outline-none placeholder:text-light-gray disabled:bg-transparent  disabled:cursor-pointer">
-              <option>Normal</option>
-              <option>Normal 2</option>
-              <option>Normal 3</option>
-            </select>
-            <div className="cursor-pointer">
-              <span className="ml-auto">
-                <img src={Info} alt="" />
-              </span>
-            </div>
-          </div>
+          <CustomInput placeholder="Enter.." type="text" />
         </div>
         <div className="my-8">
           <div className="flex">

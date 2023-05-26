@@ -7,18 +7,11 @@ import CloseIcon from "../../../Assets/icons/close.svg";
 import PdfIcon from "../../../Assets/icons/pdf.svg";
 import SamplePDF from "../../../Assets/pdf/sample.pdf";
 import PreviewModal from "./PreviewModal";
-
-const SuffixButton = () => (
-  <button className="ml-2 bg-active-color rounded-lg py-2 px-4  border-none text-white text-sm font-medium">
-    Upload
-  </button>
-);
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const Documents = ({ hideText = false }) => {
   pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
-  const { acceptedFiles, getRootProps, getInputProps } = useDropzone({
-    accept: ".pdf",
-  });
   const [showModal, setShoModal] = useState(false);
   const [files, setFile] = useState([]);
   console.log(files);
@@ -38,6 +31,40 @@ const Documents = ({ hideText = false }) => {
   //   });
   // },[acceptedFiles])
 
+  const { acceptedFiles, getRootProps, getInputProps } = useDropzone({
+    accept: ".docx",
+  });
+  const [loading, setLoading] = useState(false);
+  const API_URI = "https://appi.instantanswer.co/api/knowledgebase/docx/";
+  const config = {
+    headers: {
+      Authorization: "Bearer " + localStorage.getItem("token"),
+    },
+  };
+
+  const handleUpload = () => {
+    setLoading(true);
+    const formData = new FormData();
+    formData.append('document', acceptedFiles[0]);
+    formData.append('chatbot', localStorage.getItem('chatbotname'));
+    axios
+      .post(API_URI, formData, config)
+      .then((response) => {
+        setLoading(false);
+        toast.success(response.data.message);
+        console.log(response.data);
+      })
+      .catch((error) => {
+        setLoading(false);
+        toast.error(error?.response?.data?.message??error.message);
+        console.error(error.message);
+      });
+  };
+
+  const filesData = acceptedFiles.map(
+    (file) => `${file.path} - ${file.size} bytes`
+  );
+
   return (
     <>
       {showModal && <PreviewModal setModal={setShoModal} pdf={SamplePDF} />}
@@ -53,17 +80,27 @@ const Documents = ({ hideText = false }) => {
         </>
       )}
       <div
-        {...getRootProps({
-          className: "",
-        })}
+        className={`flex mt-4 items-center justify-between py-2 px-3 border border-[#D0D5DD] mb-3 rounded-lg`}
       >
-        <CustomInput
-          styles={"mt-4"}
-          placeholder="Click or drag and drop,"
-          type="text"
-          suffix={<SuffixButton />}
-          disabled
-        />
+        <div
+          {...getRootProps({
+            className: "w-full",
+          })}
+        >
+          <input
+            className="w-full text-base font-medium text-dark-gray ml-2 outline-none placeholder:text-light-gray disabled:bg-transparent  disabled:cursor-pointer"
+            type="text"
+            placeholder={
+              filesData.length > 0 ? filesData : "Click or drag and drop,"
+            }
+          />
+        </div>
+        <button
+          className="ml-2 bg-active-color rounded-lg py-2 px-4  border-none text-white text-sm font-medium"
+          onClick={handleUpload}
+        >
+          {loading ? "Uploading" : "Upload"}
+        </button>
       </div>
       <div className="flex flex-wrap justify-center sm:justify-start">
         {[1, 2, 3].map((item, index) => (

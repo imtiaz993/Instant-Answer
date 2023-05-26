@@ -11,6 +11,7 @@ const CustomInput = ({
   styles,
   value,
   disabled,
+  required
 }) => {
   return (
     <div>
@@ -30,6 +31,7 @@ const CustomInput = ({
           onChange={onChange}
           value={value}
           disabled={disabled}
+          required={required}
         />
         <div className="cursor-pointer">
           {suffix ? (
