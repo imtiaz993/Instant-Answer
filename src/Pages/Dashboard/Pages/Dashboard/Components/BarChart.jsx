@@ -4,28 +4,15 @@ import { CategoryScale } from "chart.js";
 import { Bar } from "react-chartjs-2";
 Chart.register(CategoryScale);
 
-const BarChart = () => {
+const BarChart = ({ dashboard }) => {
+  const xArray = dashboard.charts.data.map((item) => item.x);
+  const yArray = dashboard.charts.data.map((item) => item.y);
   const [chartData, setChartData] = useState({
-    labels: [
-      "8",
-      "9",
-      "10",
-      "11",
-      "12",
-      "13",
-      "14",
-      "15",
-      "16",
-      "17",
-      "18",
-      "19",
-      "20",
-      "21",
-    ],
+    labels: xArray,
     datasets: [
       {
         label: "Chats",
-        data: [30, 45, 35, 40, 30, 42, 34, 43, 45, 40, 38, 40, 38, 35],
+        data: yArray,
         barThickness: 8,
         borderRadius: 1000,
         backgroundColor: [

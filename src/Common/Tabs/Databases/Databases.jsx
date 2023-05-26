@@ -5,30 +5,18 @@ import CloseIcon from "../../../Assets/icons/close.svg";
 import DownloadIcon from "../../../Assets/icons/download.svg";
 import Papa from "papaparse";
 import SampleCSV from "../../../Assets/csv/sample.csv";
+import axios from "axios";
+import { toast } from "react-toastify";
 const allowedExtensions = ["csv"];
 
-const SuffixButton = () => (
-  <button className="ml-2 bg-active-color rounded-lg py-2 px-4  border-none text-white text-sm font-medium">
-    Upload
-  </button>
-);
-
 const Databases = ({ hideText = false }) => {
-  const { acceptedFiles, getRootProps, getInputProps } = useDropzone({
-    accept: ".csv",
-  });
-
   const [data, setData] = useState([]);
-  const [error, setError] = useState("");
   const [files, setFiles] = useState([SampleCSV]);
-  console.log(data);
   const handleFileChange = (e) => {
-    setError("");
     if (e.target.files.length) {
       const inputFile = e.target.files[0];
       const fileExtension = inputFile?.type.split("/")[1];
       if (!allowedExtensions.includes(fileExtension)) {
-        setError("Please input a csv file");
         return;
       }
       setFiles([...files, inputFile]);
@@ -41,10 +29,38 @@ const Databases = ({ hideText = false }) => {
       complete: (result) => {
         setData([...data, result.data]);
       },
-      error: (error) => {
-        setError(error);
-      },
+      error: (error) => {},
     });
+  };
+
+  const { acceptedFiles, getRootProps, getInputProps } = useDropzone({
+    accept: ".csv",
+  });
+  const [loading, setLoading] = useState(false);
+  const API_URI = "https://appi.instantanswer.co/api/knowledgebase/csv/";
+  const config = {
+    headers: {
+      Authorization: "Bearer " + localStorage.getItem("token"),
+    },
+  };
+
+  const handleUpload = () => {
+    setLoading(true);
+    const formData = new FormData();
+    formData.append('document', acceptedFiles[0]);
+    formData.append('chatbot', localStorage.getItem('chatbotname'));
+    axios
+      .post(API_URI, formData, config)
+      .then((response) => {
+        setLoading(false);
+        toast.success(response.data.message);
+        console.log(response.data);
+      })
+      .catch((error) => {
+        setLoading(false);
+        toast.error(error?.response?.data?.message??error.message);
+        console.error(error.message);
+      });
   };
 
   useEffect(() => {
@@ -55,14 +71,9 @@ const Databases = ({ hideText = false }) => {
     }
   }, [files]);
 
-  // const files = acceptedFiles.map((file) => (
-  //   <li key={file.path} className="flex justify-between items-center ">
-  //     <span>
-  //       {file.path} - {file.size} bytes
-  //     </span>
-  //     <img className="cursor-pointer" src={CloseIcon} alt="" />
-  //   </li>
-  // ));
+  const filesData = acceptedFiles.map(
+    (file) => `${file.path} - ${file.size} bytes`
+  );
 
   return (
     <>
@@ -78,17 +89,27 @@ const Databases = ({ hideText = false }) => {
         </>
       )}
       <div
-        {...getRootProps({
-          className: "",
-        })}
+        className={`flex mt-4 items-center justify-between py-2 px-3 border border-[#D0D5DD] mb-3 rounded-lg`}
       >
-        <CustomInput
-          styles={"mt-4"}
-          placeholder="Click or drag and drop,"
-          type="text"
-          suffix={<SuffixButton />}
-          disabled
-        />
+        <div
+          {...getRootProps({
+            className: "w-full",
+          })}
+        >
+          <input
+            className="w-full text-base font-medium text-dark-gray ml-2 outline-none placeholder:text-light-gray disabled:bg-transparent  disabled:cursor-pointer"
+            type="text"
+            placeholder={
+              filesData.length > 0 ? filesData : "Click or drag and drop,"
+            }
+          />
+        </div>
+        <button
+          className="ml-2 bg-active-color rounded-lg py-2 px-4  border-none text-white text-sm font-medium"
+          onClick={handleUpload}
+        >
+          {loading ? "Uploading" : "Upload"}
+        </button>
       </div>
       <div className="flex flex-wrap justify-center sm:justify-start">
         {data.map((item) => (
@@ -121,13 +142,6 @@ const Databases = ({ hideText = false }) => {
           </div>
         ))}
       </div>
-
-      {/* {files.length > 0 && (
-        <div className="md:flex my-2">
-          <h4 className="font-semibold mr-2 overflow-hidden">Files: </h4>
-          <ul className="w-full">{files}</ul>
-        </div>
-      )} */}
     </>
   );
 };

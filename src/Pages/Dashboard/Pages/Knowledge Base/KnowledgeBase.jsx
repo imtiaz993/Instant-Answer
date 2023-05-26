@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import DashboardLayout from "../../Layout/DashboardLayout";
 import Databases from "../../../../Common/Tabs/Databases/Databases";
 import WebPage from "../../../../Common/Tabs/WebPage/WebPage";
@@ -14,6 +14,8 @@ import SocialIcon from "../../../../Assets/icons/social.svg";
 import SnippetIcon from "../../../../Assets/icons/snippet.svg";
 import CustomButton from "../../../../Common/CustomButton";
 import RefreshIcon from "../../../../Assets/icons/white-refresh.svg";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const KnowledgeBase = () => {
   const [activeTab, setActiveTab] = useState("Profile");
@@ -53,8 +55,42 @@ const KnowledgeBase = () => {
       if (item.title === activeTab) return item.component;
     });
 
+    
+
+    const [knowledgebase, setKnowledgebase] = useState("");
+    const [loading, setLoading] = useState(false);
+    const API_URI = `https://appi.instantanswer.co/api/baseview/?chatbot=${localStorage.getItem("chatbotname")}`;
+    const config = {
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
+    };
+  
+    const getUser = () => {
+      setLoading(true);
+      axios
+        .get(API_URI, config)
+        .then((response) => {
+          setKnowledgebase(response.data);
+          setLoading(false);
+          console.log(response.data);
+        })
+        .catch((error) => {
+          setLoading(false);
+          toast.error(error?.response?.data?.message??error.message);
+          console.error(error.message);
+        });
+    };
+  
+    useEffect(() => {
+      getUser();
+    }, []);
+
+
   return (
     <DashboardLayout>
+      {loading && <h1>Loading...</h1>}
+      {knowledgebase && <h1>{knowledgebase[0].content}</h1>}
       <div>
         <h1 className="mb-4 text-xl font-bold text-dark-gray">
           Knowledge base

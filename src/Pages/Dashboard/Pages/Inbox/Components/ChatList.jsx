@@ -1,67 +1,9 @@
 import React, {useState} from "react";
 import ReviewIcon from "../../../../../Assets/icons/review.svg";
 
-const ChatList = ({ chatList, setChatList, activeTab }) => {
+const ChatList = ({ chatList, setChatList, activeTab, chats, activeChat, setActiveChat }) => {
   const avatar = false;
-  const [activeChat, setActiveChat] = useState(3);
-  const [chats, setChats] = useState([
-    {
-      id: 1,
-      name: "Daniel Adam",
-      avatarName: "DA",
-      desc: "Nick here from the InstantAnsw......",
-      update: "Today",
-      isRecomended: false,
-    },
-    {
-      id: 2,
-      name: "Daniel Adam",
-      avatarName: "DA",
-      desc: "Nick here from the InstantAnsw......",
-      update: "Today",
-      isRecomended: false,
-    },
-    {
-      id: 3,
-      name: "Daniel Adam",
-      avatarName: "DA",
-      desc: "Nick here from the InstantAnsw......",
-      update: "Today",
-      isRecomended: true,
-    },
-    {
-      id: 4,
-      name: "Daniel Adam",
-      avatarName: "DA",
-      desc: "Nick here from the InstantAnsw......",
-      update: "Today",
-      isRecomended: false,
-    },
-    {
-      id: 5,
-      name: "Daniel Adam",
-      avatarName: "DA",
-      desc: "Nick here from the InstantAnsw......",
-      update: "Today",
-      isRecomended: false,
-    },
-    {
-      id: 6,
-      name: "Daniel Adam",
-      avatarName: "DA",
-      desc: "Nick here from the InstantAnsw......",
-      update: "Today",
-      isRecomended: true,
-    },
-    {
-      id: 7,
-      name: "Daniel Adam",
-      avatarName: "DA",
-      desc: "Nick here from the InstantAnsw......",
-      update: "Today",
-      isRecomended: true,
-    },
-  ]);
+
   return (
     <div
       className={`${
@@ -87,26 +29,26 @@ const ChatList = ({ chatList, setChatList, activeTab }) => {
             ) : (
               <div className=" bg-[#FFF4DE] rounded-full w-14 h-14 inline-flex items-center justify-center">
                 <h1 className="text-sm font-bold text-yellow-numbering">
-                  {item.avatarName}
+                  {item.username.charAt(0)}
                 </h1>
               </div>
             )}
           </div>
           <div className="ml-2 w-[calc(100%-56px)]">
-            <div className="flex justify-between">
+            <div className="flex justify-between items-center h-full">
               <h1 className="text-lg font-semibold text-light-gray">
-                {item.name}
+                {item.username}
               </h1>
-              <div className="flex flex-nowrap items-start mt-1">
+              {/* <div className="flex flex-nowrap items-start mt-1">
                 <p className="text-sm text-light-gray">{item.update}</p>
                 {item.isRecomended && (
                   <img className="ml-1" src={ReviewIcon} alt="" />
                 )}
-              </div>
+              </div> */}
             </div>
-            <p className="text-sm text-light-gray text-ellipsis w-full">
+            {/* <p className="text-sm text-light-gray text-ellipsis w-full">
               {item.desc}
-            </p>
+            </p> */}
           </div>
         </div>
       ))}
