@@ -1,13 +1,37 @@
+import { useEffect, useState } from "react";
 import "./App.css";
 import Routes from "./Routes/Routes";
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { isTokenExpired } from "./utils/isTokenExpired";
+import { isRefreshTokenExpired } from "./utils/isRefreshTokenExpired";
+import { refreshToken } from "./utils/refreshToken";
 
 function App() {
+  const isAuthorized = localStorage.getItem("refresh");
+  const refreshExpired = isRefreshTokenExpired();
+  const tokenExpired = isTokenExpired();
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (isAuthorized) {
+      if (refreshExpired) {
+        localStorage.removeItem("token");
+        console.log("TEST");
+      } else if (tokenExpired) {
+        refreshToken(setLoading);
+      }
+    }
+  }, []);
+
   return (
     <>
-     <Routes/>
-     <ToastContainer />
+      {isAuthorized && tokenExpired && !refreshExpired ? (
+        loading && <p>Loading ...</p>
+      ) : (
+        <Routes />
+      )}
+      <ToastContainer />
     </>
   );
 }

@@ -5,8 +5,12 @@ import PaymentForm from "./PaymentForm";
 import Logo from "../../Assets/icons/logo.svg";
 import BackIcon from "../../Assets/icons/back.svg";
 import StripeIcon from "../../Assets/icons/stripe.svg";
+import { isTokenExpired } from "../../utils/isTokenExpired";
+import { isRefreshTokenExpired } from "../../utils/isRefreshTokenExpired";
 
 const Billing = () => {
+  console.log(isTokenExpired(), isRefreshTokenExpired())
+  
   const stripePromise = loadStripe(
     "pk_test_51KQyqLSD8i2a6PggVfKCmTtRqIJfi7rscyT2n4rxcIkJzkYVzLTNr73WHkg6a2xQXSRLO7U8NfUHq458NVvsZ72Z00NoOBQfTw"
   );
