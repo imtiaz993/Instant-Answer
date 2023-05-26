@@ -99,6 +99,29 @@ const Form = () => {
         <a className="underline">Terms of Service</a> and{" "}
         <a className="underline">Privacy Policy</a>.
       </p>
+      <div
+        id="g_id_onload"
+        data-client_id="893936726176-8uvr1bdkiva5v3mvn55nmcp3u7e3t3f6.apps.googleusercontent.com"
+        data-context="signin"
+        data-ux_mode="popup"
+        data-login_uri="https://appi.instantanswer.com/api/googlelogin/"
+        data-auto_prompt="false"
+      >
+        DIV 1
+      </div>
+
+      <div
+        class="g_id_signin"
+        data-type="standard"
+        data-shape="rectangular"
+        data-theme="filled_black"
+        data-text="signin_with"
+        data-size="large"
+        data-logo_alignment="left"
+      >
+        {" "}
+        Div 2
+      </div>
       <button
         className="w-full flex items-center justify-center border border-[rgba(0, 0, 0, 0.26)] rounded-xl py-3 px-5 text-light-gray text-base font-medium"
         onClick={() => {}}

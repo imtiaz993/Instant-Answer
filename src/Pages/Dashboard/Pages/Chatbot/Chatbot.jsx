@@ -29,7 +29,6 @@ const Chatbot = () => {
         console.log(response.data);
         toast.success(response.data.message);
         localStorage.setItem("chatbotname", name);
-        localStorage.setItem("chatbotid", response.data.id);
         if(searchParams.get('from')){
           navigate("/dashboard/settings");
         }

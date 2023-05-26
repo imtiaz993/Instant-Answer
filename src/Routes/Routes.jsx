@@ -12,14 +12,21 @@ import Integrations from "../Pages/Dashboard/Pages/Integrations/Integrations";
 import Settings from "../Pages/Dashboard/Pages/Settings/Settings";
 import Subscriptions from "../Pages/Dashboard/Pages/Subscriptions/Subscriptions";
 import Chatbot from "../Pages/Dashboard/Pages/Chatbot/Chatbot";
+import { isRefreshTokenExpired } from "../utils/isRefreshTokenExpired";
+import ResetPassword from "../Pages/SignIn copy/ResetPassword";
 
 const WebRoutes = () => {
-  const isUser = localStorage.getItem("token");
+  const isUser = localStorage.getItem("token") && !isRefreshTokenExpired();
+  console.log(isUser)
   return (
     <BrowserRouter>
       <Routes>
         {isUser ? (
           <>
+            <Route
+              path="/"
+              element={<Navigate to="/dashboard/dashboard" replace />}
+            />
             <Route path="/billing" element={<Billing />} />
             <Route path="/chatbot" element={<Chatbot />} />
             <Route path="/onboarding" element={<Onboarding />} />
@@ -50,11 +57,10 @@ const WebRoutes = () => {
           </>
         ) : (
           <>
-          
             <Route path="/" element={<Navigate to="/signin" replace />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/signin" element={<SignIn />} />
-            <Route path="/billing" element={<Billing />} />
+            <Route path="/reset-password" element={<ResetPassword />} />
             <Route path="*" element={<Navigate to="/signin" />} />
           </>
         )}

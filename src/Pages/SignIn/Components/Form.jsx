@@ -25,6 +25,9 @@ const Form = () => {
         setLoading(false);
         console.log(response.data);
         localStorage.setItem("token", response.data.access);
+        localStorage.setItem("refresh", response.data.refresh);
+        localStorage.setItem("tokenAdded", new Date().getTime());
+        localStorage.setItem("refreshAdded", new Date().getTime());
         toast.success("Logged In successfully");
         setTimeout(() => {
           navigate("/billing");
@@ -32,7 +35,7 @@ const Form = () => {
       })
       .catch((error) => {
         setLoading(false);
-        toast.error(error?.response?.data?.message??error.message);
+        toast.error(error?.response?.data?.message ?? error.message);
         console.error(error.message);
       });
   };
@@ -91,9 +94,14 @@ const Form = () => {
         <img className="mr-3" src={GoogleIcon} alt="" />{" "}
         <span>Sign In With Google</span>
       </button>
-      <p className="pt-1 flex justify-end underline text-blue-600">
-        <Link to="/signup">Create an account.</Link>
-      </p>
+      <div className="flex justify-between">
+        <p className="pt-1 flex justify-end underline text-blue-600">
+          <Link to="/signup">Create an account.</Link>
+        </p>
+        <p className="pt-1 flex justify-end underline text-blue-600">
+          <Link to="/reset-password">Reset Password</Link>
+        </p>
+      </div>
     </div>
   );
 };
