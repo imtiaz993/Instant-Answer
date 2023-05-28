@@ -17,7 +17,7 @@ const Form = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const API_URI = "https://appi.instantanswer.co/api/register/";
+  const API_URI = `${process.env.REACT_APP_API_URI}/api/register/`;
   const handleRegister = () => {
     if (password !== confirmPassword) {
       toast.error("Confirm Password doesn't match");

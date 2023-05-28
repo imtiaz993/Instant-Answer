@@ -35,7 +35,7 @@ const Documents = ({ hideText = false }) => {
     accept: ".docx",
   });
   const [loading, setLoading] = useState(false);
-  const API_URI = "https://appi.instantanswer.co/api/knowledgebase/docx/";
+  const API_URI = `${process.env.REACT_APP_API_URI}/api/knowledgebase`;
   const config = {
     headers: {
       Authorization: "Bearer " + localStorage.getItem("token"),
@@ -45,10 +45,14 @@ const Documents = ({ hideText = false }) => {
   const handleUpload = () => {
     setLoading(true);
     const formData = new FormData();
-    formData.append('document', acceptedFiles[0]);
-    formData.append('chatbot', localStorage.getItem('chatbotname'));
+    formData.append("document", acceptedFiles[0]);
+    const extension = acceptedFiles[0].name.split(".");
+    formData.append("chatbot", localStorage.getItem("chatbotname"));
+    const formattedURI = `${API_URI}${
+      extension[extension.length - 1].includes("doc") ? "/docx/" : "/pdf/"
+    }`;
     axios
-      .post(API_URI, formData, config)
+      .post(formattedURI, formData, config)
       .then((response) => {
         setLoading(false);
         toast.success(response.data.message);
@@ -56,7 +60,7 @@ const Documents = ({ hideText = false }) => {
       })
       .catch((error) => {
         setLoading(false);
-        toast.error(error?.response?.data?.message??error.message);
+        toast.error(error?.response?.data?.message ?? error.message);
         console.error(error.message);
       });
   };
@@ -103,32 +107,35 @@ const Documents = ({ hideText = false }) => {
         </button>
       </div>
       <div className="flex flex-wrap justify-center sm:justify-start">
-        {[1, 2, 3].map((item, index) => (
-          <div
-            className="w-[255px] h-[220px] border border-darker-border  rounded-lg py-3 px-4 mr-6 mb-6 cursor-pointer"
-            onClick={() => {
-              setShoModal(true);
-            }}
-          >
-            <div className="thumbnail-pdf w-[220px] pr-4 h-[150px] border border-light-dark-border rounded overflow-hidden">
-              <Document width="100%" file={SamplePDF}>
-                <Page scale={1.2 / 2.8} pageNumber={1} />
-              </Document>
-            </div>
-            <div className="flex justify-between items-start mt-1 pl-1 pr-2">
-              <div>
-                <p className="text-sm font-medium text-dark-gray">Sample.pdf</p>
-                <p className="text-sm font-medium text-last-upload">
-                  Uploaded 4 hours ago
-                </p>
+        {false &&
+          [1, 2, 3].map((item, index) => (
+            <div
+              className="w-[255px] h-[220px] border border-darker-border  rounded-lg py-3 px-4 mr-6 mb-6 cursor-pointer"
+              onClick={() => {
+                setShoModal(true);
+              }}
+            >
+              <div className="thumbnail-pdf w-[220px] pr-4 h-[150px] border border-light-dark-border rounded overflow-hidden">
+                <Document width="100%" file={SamplePDF}>
+                  <Page scale={1.2 / 2.8} pageNumber={1} />
+                </Document>
               </div>
-              <div className="flex items-center mt-1">
-                <img className="mr-2" src={PdfIcon} alt="" />{" "}
-                <img src={CloseIcon} alt="" />
+              <div className="flex justify-between items-start mt-1 pl-1 pr-2">
+                <div>
+                  <p className="text-sm font-medium text-dark-gray">
+                    Sample.pdf
+                  </p>
+                  <p className="text-sm font-medium text-last-upload">
+                    Uploaded 4 hours ago
+                  </p>
+                </div>
+                <div className="flex items-center mt-1">
+                  <img className="mr-2" src={PdfIcon} alt="" />{" "}
+                  <img src={CloseIcon} alt="" />
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
 
         {/* {files.map((item) => (
           <div

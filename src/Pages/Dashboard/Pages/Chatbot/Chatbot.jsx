@@ -13,7 +13,7 @@ const Chatbot = () => {
   const [name, setName] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const API_URI = "https://appi.instantanswer.co/api/knowledgebase/";
+  const API_URI = `${process.env.REACT_APP_API_URI}/api/knowledgebase/`;
   const config = {
     headers: {
       Authorization: "Bearer " + localStorage.getItem("token"),

@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 
 const Plan = ({ plan, getAPIloading }) => {
   const [loading, setLoading] = useState(false);
-  const API_URI = "https://appi.instantanswer.co/api/subscriptions/delete/";
+  const API_URI = `${process.env.REACT_APP_API_URI}/api/subscriptions/delete/`;
   const config = {
     headers: {
       Authorization: "Bearer " + localStorage.getItem("token"),

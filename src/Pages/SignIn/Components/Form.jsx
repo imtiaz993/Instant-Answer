@@ -15,8 +15,9 @@ const Form = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  console.log(process.env.REACT_APP_API_URI)
 
-  const API_URI = "https://appi.instantanswer.co/token/";
+  const API_URI = `${process.env.REACT_APP_API_URI}/token/`;
   const handleSignIn = () => {
     setLoading(true);
     axios

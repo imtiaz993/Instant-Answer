@@ -20,9 +20,81 @@ import { toast } from "react-toastify";
 const KnowledgeBase = () => {
   const [activeTab, setActiveTab] = useState("Profile");
   const [step, setStep] = useState(0);
+  const [profile, setProfile] = useState({
+    name: "",
+    description: "",
+    contact_you: "",
+  });
+
+  const getCurrentTab = () =>
+    Tabs.map((item) => {
+      if (item.title === activeTab) return item.component;
+    });
+
+  const [knowledgebase, setKnowledgebase] = useState("");
+  const [loading, setLoading] = useState(false);
+  const API_URI = `${
+    process.env.REACT_APP_API_URI
+  }/api/baseview/?chatbot=${localStorage.getItem("chatbotname")}`;
+  const config = {
+    headers: {
+      Authorization: "Bearer " + localStorage.getItem("token"),
+    },
+  };
+  console.log(knowledgebase)
+
+  const getUser = () => {
+    setLoading(true);
+    axios
+      .get(API_URI, config)
+      .then((response) => {
+        setKnowledgebase(response.data);
+        setLoading(false);
+        console.log(response.data);
+      })
+      .catch((error) => {
+        setLoading(false);
+        toast.error(error?.response?.data?.message ?? error.message);
+        console.error(error.message);
+      });
+  };
+
+  const API_URI_1 = `${process.env.REACT_APP_API_URI}/api/profileview/`;
+  const [profileLoading, setProfileLoading] = useState(false);
+  const handleUploadProfile = () => {
+    setProfileLoading(true);
+    axios
+      .post(API_URI_1, profile, config)
+      .then((response) => {
+        setProfileLoading(false);
+        toast.success(response.data.message);
+        console.log(response.data);
+      })
+      .catch((error) => {
+        setProfileLoading(false);
+        toast.error(error?.response?.data?.message ?? error.message);
+        console.error(error.message);
+      });
+  };
+
+  useEffect(() => {
+    getUser();
+  }, []);
 
   const Tabs = [
-    { title: "Profile", icon: ProfileIcon, component: <Profile /> },
+    {
+      title: "Profile",
+      icon: ProfileIcon,
+      component: (
+        <Profile
+          profile={profile}
+          setProfile={setProfile}
+          showSaveButton={true}
+          handleUploadProfile={handleUploadProfile}
+          loading={profileLoading}
+        />
+      ),
+    },
     {
       title: "Web Page",
       icon: WebIcon,
@@ -49,43 +121,6 @@ const KnowledgeBase = () => {
       component: <Sinppets hideText={true} />,
     },
   ];
-
-  const getCurrentTab = () =>
-    Tabs.map((item) => {
-      if (item.title === activeTab) return item.component;
-    });
-
-    
-
-    const [knowledgebase, setKnowledgebase] = useState("");
-    const [loading, setLoading] = useState(false);
-    const API_URI = `https://appi.instantanswer.co/api/baseview/?chatbot=${localStorage.getItem("chatbotname")}`;
-    const config = {
-      headers: {
-        Authorization: "Bearer " + localStorage.getItem("token"),
-      },
-    };
-  
-    const getUser = () => {
-      setLoading(true);
-      axios
-        .get(API_URI, config)
-        .then((response) => {
-          setKnowledgebase(response.data);
-          setLoading(false);
-          console.log(response.data);
-        })
-        .catch((error) => {
-          setLoading(false);
-          toast.error(error?.response?.data?.message??error.message);
-          console.error(error.message);
-        });
-    };
-  
-    useEffect(() => {
-      getUser();
-    }, []);
-
 
   return (
     <DashboardLayout>

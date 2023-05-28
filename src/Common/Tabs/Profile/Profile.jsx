@@ -1,7 +1,15 @@
 import React from "react";
 import CustomInput from "../../../Common/CustomInput";
+import CustomButton from "../../CustomButton";
 
-const Profile = ({hideText}) => {
+const Profile = ({
+  hideText,
+  profile,
+  setProfile,
+  showSaveButton,
+  handleUploadProfile,
+  loading,
+}) => {
   return (
     <>
       <div>
@@ -15,11 +23,19 @@ const Profile = ({hideText}) => {
             </h1>
           </div>
           <p className="mt-3 mb-2 text-sm font-medium text-dark-gray">
-            {!hideText && `To help your AI chat agent better understand your business and
+            {!hideText &&
+              `To help your AI chat agent better understand your business and
             provide top-notch service, please provide some information about
             your company and offerings.`}
           </p>
-          <CustomInput placeholder="Enter.." type="text" />
+          <CustomInput
+            value={profile.name}
+            onChange={(e) => {
+              setProfile({ ...profile, name: e.target.value });
+            }}
+            placeholder="Enter.."
+            type="text"
+          />
         </div>
         <div className="my-8">
           <div className="mb-3 flex">
@@ -30,7 +46,14 @@ const Profile = ({hideText}) => {
               Enter a short description
             </h1>
           </div>
-          <CustomInput placeholder="Enter.." type="text" />
+          <CustomInput
+            value={profile.description}
+            onChange={(e) => {
+              setProfile({ ...profile, description: e.target.value });
+            }}
+            placeholder="Enter.."
+            type="text"
+          />
         </div>
         <div>
           <div className="mb-3 flex">
@@ -41,7 +64,21 @@ const Profile = ({hideText}) => {
               How can people contact you?
             </h1>
           </div>
-          <CustomInput placeholder="Enter.." type="text" />
+          <CustomInput
+            value={profile.contact_you}
+            onChange={(e) => {
+              setProfile({ ...profile, contact_you: e.target.value });
+            }}
+            placeholder="Enter.."
+            type="text"
+          />
+          {showSaveButton && (
+            <CustomButton
+              title={loading ? "Updating" : "Update"}
+              styles="py-1.5 ml-auto px-6"
+              onClick={handleUploadProfile}
+            />
+          )}
         </div>
       </div>
     </>

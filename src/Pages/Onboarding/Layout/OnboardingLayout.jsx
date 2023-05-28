@@ -8,8 +8,15 @@ import DocumentIcon from "../../../Assets/icons/document.svg";
 import SocialIcon from "../../../Assets/icons/social.svg";
 import SnippetIcon from "../../../Assets/icons/snippet.svg";
 
-const OnboardingLayout = ({ children, setActiveTab, step, setStep, handleNextClick }) => {
-  const navigate = useNavigate()
+const OnboardingLayout = ({
+  children,
+  setActiveTab,
+  step,
+  setStep,
+  handleNextClick,
+  loading,
+}) => {
+  const navigate = useNavigate();
   const Tabs = [
     { title: "Profile", icon: ProfileIcon },
     { title: "Web Page", icon: WebIcon },
@@ -62,8 +69,9 @@ const OnboardingLayout = ({ children, setActiveTab, step, setStep, handleNextCli
           <div className="flex my-4 md:my-0">
             <button
               className="py-2 text-black text-base"
+              disabled={loading}
               onClick={() => {
-                if (step !==0) {
+                if (step !== 0) {
                   setStep(step - 1);
                   setActiveTab(Tabs[step - 1].title);
                 }
@@ -73,18 +81,21 @@ const OnboardingLayout = ({ children, setActiveTab, step, setStep, handleNextCli
             </button>
             <button
               className="md:hidden ml-10 bg-active-color rounded-lg py-2 px-6  border-none text-white text-sm font-medium"
+              disabled={loading}
               onClick={() => {
-                  handleNextClick()
-                if (step !==Tabs.length-1) {
-                  setStep(step + 1);
-                  setActiveTab(Tabs[step + 1].title);
-                }
-                else{
-                  navigate("/dashboard/dashboard")
+                if (handleNextClick) {
+                  handleNextClick();
+                } else {
+                  if (step !== Tabs.length - 1) {
+                    setStep(step + 1);
+                    setActiveTab(Tabs[step + 1].title);
+                  } else {
+                    navigate("/dashboard/dashboard");
+                  }
                 }
               }}
             >
-              Next
+              {loading ? "Submiting.." : "Next"}
             </button>
           </div>
           <div>
@@ -101,13 +112,13 @@ const OnboardingLayout = ({ children, setActiveTab, step, setStep, handleNextCli
           <div className="flex">
             <button
               className="py-2 text-black text-base"
+              disabled={loading}
               onClick={() => {
-                if (step !==Tabs.length-1) {
+                if (step !== Tabs.length - 1) {
                   setStep(step + 1);
                   setActiveTab(Tabs[step + 1].title);
-                }
-                else{
-                  navigate("/dashboard/dashboard")
+                } else {
+                  navigate("/dashboard/dashboard");
                 }
               }}
             >
@@ -115,18 +126,21 @@ const OnboardingLayout = ({ children, setActiveTab, step, setStep, handleNextCli
             </button>
             <button
               className="hidden md:block ml-10 bg-active-color rounded-lg py-2 px-6  border-none text-white text-sm font-medium"
+              disabled={loading}
               onClick={() => {
-                handleNextClick()
-                if (step !==Tabs.length-1) {
-                  setStep(step + 1);
-                  setActiveTab(Tabs[step + 1].title);
-                }
-                else{
-                  navigate("/dashboard/dashboard")
+                if (handleNextClick) {
+                  handleNextClick();
+                } else {
+                  if (step !== Tabs.length - 1) {
+                    setStep(step + 1);
+                    setActiveTab(Tabs[step + 1].title);
+                  } else {
+                    navigate("/dashboard/dashboard");
+                  }
                 }
               }}
             >
-              Next
+              {loading ? "Submiting.." : "Next"}
             </button>
           </div>
         </div>

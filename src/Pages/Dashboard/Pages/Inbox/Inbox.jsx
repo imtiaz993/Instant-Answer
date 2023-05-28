@@ -13,7 +13,7 @@ const Inbox = () => {
 
   const [chats, setChats] = useState("");
   const [loading, setLoading] = useState(false);
-  const API_URI = "https://appi.instantanswer.co/api/dashboard/ddash/";
+  const API_URI = `${process.env.REACT_APP_API_URI}/api/dashboard/ddash/`;
   const config = {
     headers: {
       Authorization: "Bearer " + localStorage.getItem("token"),

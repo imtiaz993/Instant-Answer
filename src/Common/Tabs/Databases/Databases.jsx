@@ -10,7 +10,7 @@ import { toast } from "react-toastify";
 const allowedExtensions = ["csv"];
 
 const Databases = ({ hideText = false }) => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState();
   const [files, setFiles] = useState([SampleCSV]);
   const handleFileChange = (e) => {
     if (e.target.files.length) {
@@ -27,7 +27,7 @@ const Databases = ({ hideText = false }) => {
       download: true,
       header: false,
       complete: (result) => {
-        setData([...data, result.data]);
+        // setData([...data, result.data]);
       },
       error: (error) => {},
     });
@@ -37,7 +37,7 @@ const Databases = ({ hideText = false }) => {
     accept: ".csv",
   });
   const [loading, setLoading] = useState(false);
-  const API_URI = "https://appi.instantanswer.co/api/knowledgebase/csv/";
+  const API_URI = `${process.env.REACT_APP_API_URI}/api/knowledgebase/csv/`;
   const config = {
     headers: {
       Authorization: "Bearer " + localStorage.getItem("token"),
@@ -112,7 +112,7 @@ const Databases = ({ hideText = false }) => {
         </button>
       </div>
       <div className="flex flex-wrap justify-center sm:justify-start">
-        {data.map((item) => (
+        {data && data.map((item) => (
           <div className="w-[255px] h-[220px] border border-darker-border  rounded-lg py-3 px-4 mr-6 mb-6">
             <div className="thumbnail-pdf w-[220px] pr-4 h-[150px] border border-light-dark-border rounded overflow-hidden">
               <div>
