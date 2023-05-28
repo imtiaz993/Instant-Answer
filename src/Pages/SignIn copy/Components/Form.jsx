@@ -13,7 +13,7 @@ const Form = () => {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const API_URI = "https://appi.instantanswer.co/api/passwordreset/";
+  const API_URI = `${process.env.REACT_APP_API_URI}/api/passwordreset/`;
   const config = {
     headers: {
       Authorization: "Bearer " + localStorage.getItem("token"),

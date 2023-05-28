@@ -1,13 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import ColorSelector from "../../../../../Common/ColorSelector";
 import CustomInput from "../../../../../Common/CustomInput";
 import CloseIcon from "../../../../../Assets/icons/close.svg";
 import Info from "../../../../../Assets/icons/info.svg";
 
-const Widget = ({getRootProps, acceptedFiles, setting, setSetting }) => {
-  const [selectedColor, setSelectedColor] = useState("#E96179");
+const Widget = ({ getRootProps, acceptedFiles, setting, setSetting }) => {
+  const [selectedColor, setSelectedColor] = useState(
+    setting.color ? setting.color : "#E96179"
+  );
 
+  useEffect(() => {
+    setSetting((prev) => ({ ...prev, color: selectedColor }));
+  }, [selectedColor]);
 
   const files = acceptedFiles.map((file) => (
     <li key={file.path} className="flex justify-between items-center ">
@@ -83,7 +88,14 @@ const Widget = ({getRootProps, acceptedFiles, setting, setSetting }) => {
             </h1>
           </div>
 
-          <CustomInput placeholder="Enter.." type="text" />
+          <CustomInput
+            value={setting.agent_name}
+            onChange={(e) => {
+              setSetting((prev) => ({ ...prev, agent_name: e.target.value }));
+            }}
+            placeholder="Enter.."
+            type="text"
+          />
         </div>
         <div className="my-8">
           <div className="mb-4 flex">
@@ -97,19 +109,31 @@ const Widget = ({getRootProps, acceptedFiles, setting, setSetting }) => {
             </h1>
           </div>
           <div>
-            <div
-              {...getRootProps({
-                className:
-                  "flex flex-col justify-center items-center w-56 h-36 mt-5 mb-5 rounded-xl border border-dashed border-[#66708547] cursor-pointer",
-              })}
-            >
-              <p className="text-sm font-medium text-dark-gray">
-                Drag or upload your image
-              </p>
-              <button className="mt-3 w-24 h-10 bg-[#6670851A] rounded text-sm font-medium text-dark-gray">
-                Choose File
-              </button>
+            <div className="flex mt-5">
+              {setting.profile_picture && (
+                <div className="w-28 mr-8">
+                  <img
+                    className="w-full"
+                    src={setting.profile_picture}
+                    alt=""
+                  />
+                </div>
+              )}
+              <div
+                {...getRootProps({
+                  className:
+                    "flex flex-col justify-center items-center w-56 h-36 mb-5 rounded-xl border border-dashed border-[#66708547] cursor-pointer",
+                })}
+              >
+                <p className="text-sm font-medium text-dark-gray">
+                  Drag or upload your image
+                </p>
+                <button className="mt-3 w-24 h-10 bg-[#6670851A] rounded text-sm font-medium text-dark-gray">
+                  Choose File
+                </button>
+              </div>
             </div>
+
             {files.length > 0 && (
               <div className="md:flex my-2">
                 <h4 className="font-semibold mr-2 overflow-hidden">File: </h4>

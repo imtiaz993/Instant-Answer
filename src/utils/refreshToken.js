@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const refreshToken = (setLoading) => {
-  const API_URI = "https://appi.instantanswer.co/refreshToken/";
+  const API_URI = `${process.env.REACT_APP_API_URI}/refreshToken/`;
 
   setLoading(true);
   axios

@@ -5,21 +5,29 @@ import Widget from "./Components/Widget";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useDropzone } from "react-dropzone";
+import CustomButton from "../../../../Common/CustomButton";
 
 const Settings = () => {
-  const [setting, setSetting] = useState({
-    agent_language: "",
-    company_name: "",
-    creativity: "",
-    reply_length: "",
-    welcome_message: "",
-    color: "",
-    agent_name: "",
-    profile_picture: "",
-  });
+  const settingFromStorage = localStorage.getItem("setting");
+  console.log(settingFromStorage)
+  const [setting, setSetting] = useState(
+    settingFromStorage
+      ? JSON.parse(settingFromStorage)
+      : {
+          agent_language: "",
+          company_name: "",
+          creativity: "",
+          reply_length: "",
+          welcome_message: "",
+          color: "",
+          agent_name: "",
+          profile_picture: "",
+        }
+  );
+  console.log(setting);
   const [chatbots, setChatBots] = useState("");
   const [loading, setLoading] = useState(false);
-  const API_URI = "https://appi.instantanswer.co/api/baseview";
+  const API_URI = `${process.env.REACT_APP_API_URI}/api/baseview`;
   const config = {
     headers: {
       Authorization: "Bearer " + localStorage.getItem("token"),
@@ -48,7 +56,7 @@ const Settings = () => {
     multiple: false,
   });
   const [postAPIloading, setPostAPIloadingLoading] = useState(false);
-  const API_URI_1 = "https://appi.instantanswer.co/api/appsettings/";
+  const API_URI_1 =   `${process.env.REACT_APP_API_URI}/api/appsettings/`;
 
   const handleUpload = () => {
     setPostAPIloadingLoading(true);
@@ -66,6 +74,7 @@ const Settings = () => {
       .then((response) => {
         setPostAPIloadingLoading(false);
         toast.success(response.data.message);
+        localStorage.setItem("setting", JSON.stringify(response.data));
         console.log(response.data);
       })
       .catch((error) => {
@@ -84,6 +93,7 @@ const Settings = () => {
       <Agent
         loading={loading}
         chatbots={chatbots}
+        setChatBots={setChatBots}
         setting={setting}
         setSetting={setSetting}
       />
@@ -92,6 +102,12 @@ const Settings = () => {
         acceptedFiles={acceptedFiles}
         setting={setting}
         setSetting={setSetting}
+      />
+      <CustomButton
+        title={postAPIloading ? "Saving" : "Save"}
+        onClick={handleUpload}
+        disabled={postAPIloading}
+        styles={"flex flex-end mt-4 px-8"}
       />
     </DashboardLayout>
   );

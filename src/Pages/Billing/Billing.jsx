@@ -1,49 +1,17 @@
 import React from "react";
-import { Elements } from "@stripe/react-stripe-js";
-import { loadStripe } from "@stripe/stripe-js";
 import PaymentForm from "./PaymentForm";
 import Logo from "../../Assets/icons/logo.svg";
 import BackIcon from "../../Assets/icons/back.svg";
 import StripeIcon from "../../Assets/icons/stripe.svg";
-import { isTokenExpired } from "../../utils/isTokenExpired";
-import { isRefreshTokenExpired } from "../../utils/isRefreshTokenExpired";
 
 const Billing = () => {
-  console.log(isTokenExpired(), isRefreshTokenExpired())
-  
-  const stripePromise = loadStripe(
-    "pk_test_51KQyqLSD8i2a6PggVfKCmTtRqIJfi7rscyT2n4rxcIkJzkYVzLTNr73WHkg6a2xQXSRLO7U8NfUHq458NVvsZ72Z00NoOBQfTw"
-  );
-  const options = {
-    clientSecret:
-      "pi_3N4jFqSD8i2a6Pgg1gqF722Y_secret_EadoViQxQHHJZ6N8RwyTA2zxB",
-    appearance: {
-      theme: "stripe",
-      variables: {
-        borderRadius: "10px",
-        colorPrimaryText: "#262626",
-      },
-      rules: {
-        ".Input": {
-          padding: "12px",
-        },
-        ".Input:focus, .Input--invalid:focus": {
-          boxShadow:"none"
-        },
-        ".Label": {
-          fontWeight: "500",
-          color:"#697386",
-        },
-      },
-    },
-  };
 
   return (
-    <div className="grid lg:grid-cols-2  items-center">
+    <div className="grid lg:grid-cols-2 ">
       <div className="bg-layout-background pb-8 ">
         <div className="px-4 lg:px-10 mt-10 lg:min-h-[calc(93vh)]">
           <div className="flex items-start">
-            <img width="20px" height="20px" src={BackIcon} alt="" />
+            {/* <img width="20px" height="20px" src={BackIcon} alt="" /> */}
             <img className="ml-2 w-48" src={Logo} alt="" />
           </div>
           <div>
@@ -101,10 +69,8 @@ const Billing = () => {
           </div>
         </div>
       </div>
-      <div className="w-full lg:w-11/12 mx-auto px-4 lg:px-10 mt-16 pb-16 lg:pb-0 lg:-mt-6">
-        <Elements stripe={stripePromise} options={options}>
+      <div className="w-full lg:w-11/12 mx-auto px-4 lg:px-10 mt-16 pb-16 lg:pb-0 lg:mt-28">
           <PaymentForm />
-        </Elements>
       </div>
     </div>
   );

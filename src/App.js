@@ -12,12 +12,13 @@ function App() {
   const refreshExpired = isRefreshTokenExpired();
   const tokenExpired = isTokenExpired();
   const [loading, setLoading] = useState(false);
+ 
+  console.log(isAuthorized,refreshExpired, tokenExpired);
 
   useEffect(() => {
     if (isAuthorized) {
       if (refreshExpired) {
         localStorage.removeItem("token");
-        console.log("TEST");
       } else if (tokenExpired) {
         refreshToken(setLoading);
       }

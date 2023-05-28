@@ -17,7 +17,7 @@ import ResetPassword from "../Pages/SignIn copy/ResetPassword";
 
 const WebRoutes = () => {
   const isUser = localStorage.getItem("token") && !isRefreshTokenExpired();
-  console.log(isUser)
+  console.log(isUser);
   return (
     <BrowserRouter>
       <Routes>
@@ -57,6 +57,7 @@ const WebRoutes = () => {
           </>
         ) : (
           <>
+            <Route path="/billing" element={<Billing />} />
             <Route path="/" element={<Navigate to="/signin" replace />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/signin" element={<SignIn />} />

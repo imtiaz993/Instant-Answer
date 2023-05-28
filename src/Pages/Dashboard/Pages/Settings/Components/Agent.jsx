@@ -17,13 +17,13 @@ const CustomOption = (props) => (
   </components.Option>
 );
 
-const Agent = ({ getChatbotloading, chatbots, setting, setSetting }) => {
-  const navigate = useNavigate()
-  const [selectedOption, setSelectedOption] = useState(null);
-
-  const handleChange = (selectedOption) => {
-    setSelectedOption(selectedOption);
-  };
+const Agent = ({
+  getChatbotloading,
+  chatbots,
+  setChatBots,
+  setting,
+  setSetting,
+}) => {
   const options = [
     {
       value: "English",
@@ -41,6 +41,23 @@ const Agent = ({ getChatbotloading, chatbots, setting, setSetting }) => {
       icon: English,
     },
   ];
+
+  const navigate = useNavigate();
+  const [selectedOption, setSelectedOption] = useState(
+    setting.agent_language
+      ? options.find((item) => item.value === setting.agent_language)
+      : null
+  );
+  const [selectedChatbot, setSelectedChatbot] = useState(
+    localStorage.getItem("chatbotname")
+  );
+
+  const handleChange = (selectedOption) => {
+    console.log(selectedOption.value);
+    setSetting((prev) => ({ ...prev, agent_language: selectedOption.value }));
+    setSelectedOption(selectedOption);
+  };
+
   const customStyles = {
     control: (provided, state) => ({
       ...provided,
@@ -64,31 +81,35 @@ const Agent = ({ getChatbotloading, chatbots, setting, setSetting }) => {
   };
 
   const [loading, setLoading] = useState(false);
-  const API_URI = "https://appi.instantanswer.co/api/baseview/delete_mychatbot/";
+
+  const API_URI = `${process.env.REACT_APP_API_URI}/api/baseview/delete_mychatbot/`;
   const config = {
     headers: {
       Authorization: "Bearer " + localStorage.getItem("token"),
     },
   };
-const handleDeleteChatbot=()=>{
+  const handleDeleteChatbot = (id) => {
     setLoading(true);
     axios
       .delete(API_URI, {
-        data: { chatbot_id: chatbots.id },
+        data: { chatbot_id: id },
         headers: config.headers,
       })
       .then((response) => {
         setLoading(false);
         toast.success(response.data.message);
         console.log(response.data);
-        navigate('/chatbot?from=dashboard')
+        if (chatbots.length == 1) {
+          navigate("/chatbot?from=dashboard");
+        }
+        setChatBots(chatbots.filter((item) => item.id !== id));
       })
       .catch((error) => {
         setLoading(false);
         toast.error(error?.response?.data?.message ?? error.message);
         console.error(error.message);
       });
-}
+  };
 
   return (
     <div>
@@ -103,14 +124,45 @@ const handleDeleteChatbot=()=>{
         </p>
       </div>
       {getChatbotloading && <h1>Loading...</h1>}
+      <div className="flex justify-end border-b-2 mb-4">
+        <CustomButton
+          title="Create Chatbot"
+          styles={"py-2 mb-2 text-sm px-3 disabled:opacity-60"}
+          onClick={() => {
+            navigate("/chatbot?from=dashboard");
+          }}
+        />
+      </div>
       {chatbots && (
-        <div className="flex items-center justify-between">
-          <h1 className="mb-4 text-xl font-bold text-dark-gray">
-            Chatbot Name: {chatbots.name}
-          </h1>
-          <CustomButton title="Delete Chatbot" styles={"py-1.5 mb-2 px-3 disabled:opacity-60"} onClick={handleDeleteChatbot} disabled={!chatbots}/>
-        </div>
+        <h1 className="mb-4 text-xl font-bold text-dark-gray">Chatbots</h1>
       )}
+      {chatbots &&
+        chatbots.map((chatbot) => (
+          <div className="flex items-center justify-between border-b mb-2">
+            <h1
+              className="mb-2 flex items-center text-lg font-medium text-dark-gray cursor-pointer"
+              onClick={() => {
+                localStorage.setItem("chatbotname", chatbot.name);
+                setSelectedChatbot(chatbot.name);
+              }}
+            >
+              <input
+                className="mr-2 w-5 h-5 cursor-pointer"
+                type="radio"
+                checked={selectedChatbot === chatbot.name}
+              />
+              <span> {chatbot.name}</span>
+            </h1>
+            <CustomButton
+              title="Delete"
+              styles={"py-1 mb-2 text-sm px-3 disabled:opacity-60"}
+              onClick={() => {
+                handleDeleteChatbot(chatbot.id);
+              }}
+              disabled={!chatbots}
+            />
+          </div>
+        ))}
       <div className="px-4 md:px-8 py-8 pb-2 bg-white border border-[rgba(102, 112, 133, 0.2]  rounded-xl">
         <div className="mb-8">
           <div className="flex">
@@ -160,7 +212,14 @@ const handleDeleteChatbot=()=>{
             From classic to mysterious, choose a personality that best
             complements your business's vibe.
           </p>
-          <CustomInput placeholder="Enter.." type="text" />
+          <CustomInput
+            value={setting.company_name}
+            onChange={(e) => {
+              setSetting((prev) => ({ ...prev, company_name: e.target.value }));
+            }}
+            placeholder="Enter.."
+            type="text"
+          />
         </div>
         <div className="my-8">
           <div className="flex">
@@ -180,7 +239,14 @@ const handleDeleteChatbot=()=>{
           <div
             className={`flex justify-between items-center py-2 px-3 border border-[#D0D5DD] mb-3 rounded-lg`}
           >
-            <select className="text-base font-medium text-dark-gray outline-none placeholder:text-light-gray disabled:bg-transparent  disabled:cursor-pointer">
+            <select
+              value={setting.creativity}
+              onChange={(e) => {
+                setSetting((prev) => ({ ...prev, creativity: e.target.value }));
+              }}
+              className="text-base font-medium text-dark-gray outline-none placeholder:text-light-gray disabled:bg-transparent  disabled:cursor-pointer"
+            >
+              <option className="hidden">Select</option>
               <option>Normal</option>
               <option>Normal 2</option>
               <option>Normal 3</option>
@@ -207,7 +273,14 @@ const handleDeleteChatbot=()=>{
             Set your preferred reply length for your AI chat agent, from concise
             to more detailed responses.
           </p>
-          <CustomInput placeholder="Enter.." type="text" />
+          <CustomInput
+            value={setting.reply_length}
+            onChange={(e) => {
+              setSetting((prev) => ({ ...prev, reply_length: e.target.value }));
+            }}
+            placeholder="Enter.."
+            type="text"
+          />
         </div>
         <div className="my-8">
           <div className="flex">
@@ -224,7 +297,17 @@ const handleDeleteChatbot=()=>{
             Craft a warm and inviting welcome message for your AI chat agent to
             greet users upon their first interaction.
           </p>
-          <CustomInput placeholder="Enter.." type="text" />
+          <CustomInput
+            value={setting.welcome_message}
+            onChange={(e) => {
+              setSetting((prev) => ({
+                ...prev,
+                welcome_message: e.target.value,
+              }));
+            }}
+            placeholder="Enter.."
+            type="text"
+          />
         </div>
       </div>
     </div>
